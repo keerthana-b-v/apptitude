@@ -263,6 +263,14 @@ body{font-family:var(--font-sans);font-size:14px;background:var(--bg-base);color
   font-weight:600;text-align:center;font-family:var(--font-mono);
   font-size:13px;border:1px solid var(--border-subtle);
 }
+.cs-code-block{
+  display:block;padding:12px;background:var(--bg-inset);
+  border-radius:var(--border-radius-sm);color:var(--text-primary);
+  font-family:var(--font-mono);font-size:12.5px;
+  border:1px solid var(--border-subtle);
+  white-space:pre-wrap;text-align:left;overflow-x:auto;
+}
+.cs-code-block strong{color:var(--accent-blue);}
 
 /* ── Section label ── */
 .section-label{
@@ -474,6 +482,7 @@ body{font-family:var(--font-sans);font-size:14px;background:var(--bg-base);color
   <button class="nav-btn" onclick="show('pct')">📊 Percentage</button>
   <button class="nav-btn" onclick="show('wt')">⏱ Work &amp; Time</button>
   <button class="nav-btn" onclick="show('logic')">🧠 Logical Reasoning</button>
+  <button class="nav-btn" onclick="show('python')">🐍 Python Coding</button>
 </div>
 
 <div id="plan" class="page active">
@@ -732,6 +741,177 @@ body{font-family:var(--font-sans);font-size:14px;background:var(--bg-base);color
         <div class="cs-card-title">3. Growing/Shrinking Gap</div>
         <div class="cs-card-desc">The gap itself changes step-by-step.</div>
         <div class="cs-code">Example: +1, +2, +3</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="python" class="page">
+  <div class="cheat-sheet-box">
+    <h3>&#x1F40D; PYTHON CODING CHEAT SHEET (QUICK TRICKS)</h3>
+    <div class="cs-grid">
+      <div class="cs-card">
+        <div class="cs-card-title">1. Reverse a String</div>
+        <div class="cs-card-desc">Read from end to start.</div>
+        <div class="cs-code-block">s = "hello"
+print(s[::-1])  <strong># olleh</strong></div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">2. Reverse a Number</div>
+        <div class="cs-card-desc">Take last digit repeatedly.</div>
+        <div class="cs-code-block">n = 1234
+rev = 0
+while n > 0:
+    digit = n % 10
+    rev = rev * 10 + digit
+    n = n // 10
+print(rev)  <strong># 4321</strong></div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">3. Palindrome</div>
+        <div class="cs-card-desc">Same forward and backward.</div>
+        <div class="cs-code-block">s = "madam"
+if s == s[::-1]:
+    print("Palindrome")</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">4. Fibonacci Series</div>
+        <div class="cs-card-desc">Next = previous two numbers sum.</div>
+        <div class="cs-code-block">a = 0
+b = 1
+for i in range(6):
+    print(a)
+    a, b = b, a + b</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">5. Factorial</div>
+        <div class="cs-card-desc">Multiply numbers from 1 to n.</div>
+        <div class="cs-code-block">n = 5
+fact = 1
+for i in range(1, n + 1):
+    fact = fact * i
+print(fact)  <strong># 120</strong></div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">6. Armstrong Number</div>
+        <div class="cs-card-desc">Sum of cubes of digits = original.</div>
+        <div class="cs-code-block">n = 153
+temp = n
+total = 0
+while n > 0:
+    digit = n % 10
+    total += digit**3
+    n = n // 10
+if temp == total:
+    print("Armstrong")</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">7. Prime Number</div>
+        <div class="cs-card-desc">Only divisible by 1 and itself.</div>
+        <div class="cs-code-block">n = 7
+count = 0
+for i in range(1, n + 1):
+    if n % i == 0:
+        count += 1
+if count == 2:
+    print("Prime")</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">8. Swap Two Numbers</div>
+        <div class="cs-card-desc">Easy Python trick.</div>
+        <div class="cs-code-block">a = 5
+b = 10
+a, b = b, a</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">9. Count Vowels</div>
+        <div class="cs-card-desc">Check against string of vowels.</div>
+        <div class="cs-code-block">s = "hello"
+count = 0
+for ch in s:
+    if ch in "aeiou":
+        count += 1
+print(count)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cheat-sheet-box">
+    <h3>&#x26A1; FAST REVISION BEFORE TEST</h3>
+    <div class="cs-grid">
+      <div class="cs-card">
+        <div class="cs-card-title">Most Important Basics</div>
+        <div class="cs-code-block"><strong># Input</strong>
+n = int(input())
+
+<strong># Loop</strong>
+for i in range(5):
+
+<strong># While Loop</strong>
+while n > 0:</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">Crucial Number Tricks</div>
+        <div class="cs-code-block"><strong>[::-1]</strong>  &rarr; reverse string
+<strong>% 10</strong>    &rarr; gets last digit
+<strong>// 10</strong>   &rarr; removes last digit</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">Core Logic Patterns</div>
+        <div class="cs-code-block"><strong>Reverse:</strong> start from end
+<strong>Palindrome:</strong> compare reverse
+<strong>Fibonacci:</strong> previous 2 sum
+<strong>Factorial:</strong> repeat multiply
+<strong>Armstrong:</strong> sum of powers
+<strong>Prime:</strong> count divisors</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cheat-sheet-box">
+    <h3>&#x1F3CE;&#xFE0F; FUNDAMENTAL TEST QUESTIONS (LOGIC BASED)</h3>
+    <div class="cs-grid">
+      <div class="cs-card">
+        <div class="cs-card-title">1. Reverse a String (Without [::-1])</div>
+        <div class="cs-code-block">def reverse_string(text):
+    reversed_text = ""
+    index = len(text) - 1
+    while index >= 0:
+        reversed_text += text[index]
+        index -= 1
+    return reversed_text</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">2. Check for Armstrong Number</div>
+        <div class="cs-code-block">def is_armstrong(num):
+    num_str = str(num)
+    power = len(num_str)
+    total_sum = 0
+    for digit in num_str:
+        total_sum += int(digit) ** power
+    return total_sum == num</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">3. Remove Duplicates From List</div>
+        <div class="cs-code-block">def remove_duplicates(arr):
+    unique_list = []
+    for element in arr:
+        if element not in unique_list:
+            unique_list.append(element)
+    return unique_list</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">4. Second Largest Number in List</div>
+        <div class="cs-code-block">def second_largest(arr):
+    largest = arr[0]
+    second = arr[0]
+    for num in arr:
+        if num > largest:
+            second = largest
+            largest = num
+        elif num > second and num != largest:
+            second = num
+    return second</div>
       </div>
     </div>
   </div>
