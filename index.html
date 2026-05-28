@@ -483,6 +483,7 @@ body{font-family:var(--font-sans);font-size:14px;background:var(--bg-base);color
   <button class="nav-btn" onclick="show('wt')">⏱ Work &amp; Time</button>
   <button class="nav-btn" onclick="show('logic')">🧠 Logical Reasoning</button>
   <button class="nav-btn" onclick="show('python')">🐍 Python Coding</button>
+  <button class="nav-btn" onclick="show('aiml')">🤖 AI &amp; ML Prep</button>
 </div>
 
 <div id="plan" class="page active">
@@ -912,6 +913,81 @@ while n > 0:</div>
         elif num > second and num != largest:
             second = num
     return second</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="aiml" class="page">
+  <div class="cheat-sheet-box">
+    <h3>&#x1F916; CORE MACHINE LEARNING BASICS</h3>
+    <div class="cs-grid">
+      <div class="cs-card">
+        <div class="cs-card-title">Supervised vs Unsupervised</div>
+        <div class="cs-card-desc"><strong>Supervised:</strong> Learns using labeled data (input + answer key). Ex: House prices.<br><br><strong>Unsupervised:</strong> Learns from unlabeled data. Must find hidden patterns. Ex: Grouping shoppers.</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">Overfitting &amp; Prevention</div>
+        <div class="cs-card-desc"><strong>Overfitting:</strong> Memorizes training data too much, fails on new data.<br><br><strong>Prevention:</strong> Use more data, use Regularization, or simplify the model.</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">Bias-Variance Tradeoff</div>
+        <div class="cs-card-desc"><strong>Bias:</strong> Making overly simple assumptions (Underfitting).<br><br><strong>Variance:</strong> Extreme sensitivity to small data fluctuations (Overfitting). Goal is a middle ground.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cheat-sheet-box">
+    <h3>&#x1F4CA; EVALUATION METRICS</h3>
+    <div class="cs-grid">
+      <div class="cs-card">
+        <div class="cs-card-title">Is Accuracy always good?</div>
+        <div class="cs-card-desc"><strong>No!</strong> Accuracy is highly misleading for imbalanced datasets.<br><br><em>Example:</em> A rare disease detector that always guesses "Healthy" will be 99% accurate but useless.</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">Precision vs Recall</div>
+        <div class="cs-card-desc"><strong>Precision:</strong> Out of all predicted positives, how many were actual positives?<br><br><strong>Recall:</strong> Out of all actual positives, how many did the model catch?</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cheat-sheet-box">
+    <h3>&#x1F9E0; DEEP LEARNING &amp; DATA PREP</h3>
+    <div class="cs-grid">
+      <div class="cs-card">
+        <div class="cs-card-title">Activation Functions</div>
+        <div class="cs-card-desc">Without them, neural nets only solve straight-line problems. Functions like ReLU or Sigmoid introduce <strong>non-linearity</strong> for learning complex shapes.</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">CNN vs RNN</div>
+        <div class="cs-card-desc"><strong>CNN:</strong> Best for spatial data like images and video.<br><br><strong>RNN:</strong> Best for sequential data like text, time-series, or audio.</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">Missing Values &amp; One-Hot</div>
+        <div class="cs-card-desc"><strong>Missing data:</strong> Drop, Impute (Mean/Median/Mode), or Flag.<br><br><strong>One-Hot Encoding:</strong> Turns text categories into binary (1s and 0s) columns.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cheat-sheet-box">
+    <h3>&#x1F393; INTERN LEVEL QUICK REVISION</h3>
+    <div class="cs-grid">
+      <div class="cs-card">
+        <div class="cs-card-title">Key Definitions</div>
+        <div class="cs-card-desc"><strong>AI:</strong> Simulating human intelligence.<br><strong>ML:</strong> Teaching computers to learn from data.<br><strong>Dataset:</strong> Collection of data for training.<br><strong>Feature:</strong> Input variable.<br><strong>Label/Target:</strong> Output to predict.</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">ML Types &amp; Deep Learning</div>
+        <div class="cs-card-desc"><strong>Classification:</strong> Predicting categories.<br><strong>Regression:</strong> Predicting numbers.<br><strong>Reinforcement:</strong> Learning via rewards.<br><strong>Neural Network:</strong> Model inspired by human brain with layers of neurons.</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">One-Line Revisions</div>
+        <div class="cs-code-block"><strong>AI</strong> = intelligence
+<strong>ML</strong> = learning from data
+<strong>Dataset</strong> = collection of data
+<strong>Feature</strong> = input
+<strong>Label</strong> = output
+<strong>Overfitting</strong> = memorizing</div>
       </div>
     </div>
   </div>
