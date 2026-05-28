@@ -484,6 +484,7 @@ body{font-family:var(--font-sans);font-size:14px;background:var(--bg-base);color
   <button class="nav-btn" onclick="show('logic')">🧠 Logical Reasoning</button>
   <button class="nav-btn" onclick="show('python')">🐍 Python Coding</button>
   <button class="nav-btn" onclick="show('aiml')">🤖 AI &amp; ML Prep</button>
+  <button class="nav-btn" onclick="show('sql')">🗄️ SQL Prep</button>
 </div>
 
 <div id="plan" class="page active">
@@ -988,6 +989,110 @@ while n > 0:</div>
 <strong>Feature</strong> = input
 <strong>Label</strong> = output
 <strong>Overfitting</strong> = memorizing</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="sql" class="page">
+  <div class="cheat-sheet-box">
+    <h3>&#x1F4BE; CORE SQL BASICS</h3>
+    <div class="cs-grid">
+      <div class="cs-card">
+        <div class="cs-card-title">What is SQL?</div>
+        <div class="cs-card-desc">Used to store, retrieve, and update data from a database.</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">SELECT</div>
+        <div class="cs-card-desc">Used to fetch data. <strong>*</strong> means get all columns.</div>
+        <div class="cs-code-block">SELECT * FROM employee;</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">WHERE</div>
+        <div class="cs-card-desc">Used for conditions. Filters rows.</div>
+        <div class="cs-code-block">SELECT * FROM employee
+WHERE salary > 50000;</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">ORDER BY</div>
+        <div class="cs-card-desc">Used for sorting. <strong>DESC</strong> = highest to lowest, <strong>ASC</strong> = lowest to highest.</div>
+        <div class="cs-code-block">SELECT * FROM employee
+ORDER BY salary DESC;</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cheat-sheet-box">
+    <h3>&#x1F522; AGGREGATION &amp; TRICKS</h3>
+    <div class="cs-grid">
+      <div class="cs-card">
+        <div class="cs-card-title">COUNT &amp; MAX</div>
+        <div class="cs-card-desc">Count rows or find the maximum value.</div>
+        <div class="cs-code-block">SELECT COUNT(*) FROM employee;
+SELECT MAX(salary) FROM employee;</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">GROUP BY</div>
+        <div class="cs-card-desc">Groups similar data together (like departments).</div>
+        <div class="cs-code-block">SELECT dept_id, COUNT(*)
+FROM employee
+GROUP BY dept_id;</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">WHERE vs HAVING</div>
+        <div class="cs-card-desc"><strong>WHERE:</strong> Filters rows <em>before</em> grouping.<br><strong>HAVING:</strong> Filters groups <em>after</em> grouping.</div>
+        <div class="cs-code-block">SELECT dept_id, COUNT(*) FROM employee
+GROUP BY dept_id
+HAVING COUNT(*) > 1;</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cheat-sheet-box">
+    <h3>&#x1F517; JOINS (Connect Tables)</h3>
+    <div class="cs-grid">
+      <div class="cs-card">
+        <div class="cs-card-title">INNER JOIN</div>
+        <div class="cs-card-desc">Shows matching data from both tables (common only).</div>
+        <div class="cs-code-block">SELECT e.name, d.dept_name
+FROM employee e
+INNER JOIN department d
+ON e.dept_id = d.dept_id;</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">Types of JOIN</div>
+        <div class="cs-card-desc">
+          <strong>INNER:</strong> Matching only.<br>
+          <strong>LEFT:</strong> All from left + matching.<br>
+          <strong>RIGHT:</strong> All from right + matching.<br>
+          <strong>FULL:</strong> Everything.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cheat-sheet-box">
+    <h3>&#x2B50; MOST ASKED INTERVIEW QUESTIONS</h3>
+    <div class="cs-grid">
+      <div class="cs-card" style="grid-column: 1 / -1;">
+        <div class="cs-card-title">Find the 2nd Highest Salary (Very Important)</div>
+        <div class="cs-card-desc"><strong>Logic:</strong> Find highest salary &rarr; Ignore it &rarr; Find highest again.</div>
+        <div class="cs-code-block">SELECT MAX(salary) FROM employee
+WHERE salary < (
+    SELECT MAX(salary) FROM employee
+);</div>
+        <div class="cs-card-desc" style="margin-top:10px;"><strong>Alternative (Sorting Trick):</strong> Sort highest to lowest, skip 1, pick 1.</div>
+        <div class="cs-code-block">SELECT DISTINCT salary FROM employee
+ORDER BY salary DESC
+LIMIT 1 OFFSET 1;</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">DELETE vs DROP</div>
+        <div class="cs-card-desc"><strong>DELETE:</strong> Removes rows. Table stays.<br><strong>DROP:</strong> Removes whole table completely.</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">DISTINCT &amp; LIKE</div>
+        <div class="cs-card-desc"><strong>DISTINCT:</strong> Removes duplicates.<br><strong>LIKE:</strong> Search pattern (e.g. 'R%' starts with R).</div>
       </div>
     </div>
   </div>
