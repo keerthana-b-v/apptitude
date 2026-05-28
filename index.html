@@ -249,6 +249,7 @@ body{font-family:var(--font-sans);font-size:14px;background:var(--bg-base);color
 .cs-grid{
   display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:15px;
 }
+.cs-list{display:flex;flex-direction:column;gap:15px;}
 .cs-card{
   background:var(--bg-body);padding:15px;
   border-radius:var(--border-radius-md);
@@ -922,73 +923,233 @@ while n > 0:</div>
 <div id="aiml" class="page">
   <div class="cheat-sheet-box">
     <h3>&#x1F916; CORE MACHINE LEARNING BASICS</h3>
-    <div class="cs-grid">
+    <div class="cs-list">
       <div class="cs-card">
-        <div class="cs-card-title">Supervised vs Unsupervised</div>
-        <div class="cs-card-desc"><strong>Supervised:</strong> Learns using labeled data (input + answer key). Ex: House prices.<br><br><strong>Unsupervised:</strong> Learns from unlabeled data. Must find hidden patterns. Ex: Grouping shoppers.</div>
+        <div class="cs-card-title">Q1: What is the difference between Supervised and Unsupervised Learning?</div>
+        <div class="cs-card-desc">
+          <strong>Supervised Learning:</strong> The model learns using <strong>labeled data</strong>. You give it the input along with the correct answer key.<br>
+          <em>Example:</em> Predicting house prices based on size (Regression) or tagging an email as Spam/Not Spam (Classification).<br><br>
+          <strong>Unsupervised Learning:</strong> The model is given <strong>unlabeled data</strong> and must find hidden patterns or groupings on its own.<br>
+          <em>Example:</em> Grouping online shoppers into segments based on their buying habits (Clustering).
+        </div>
       </div>
       <div class="cs-card">
-        <div class="cs-card-title">Overfitting &amp; Prevention</div>
-        <div class="cs-card-desc"><strong>Overfitting:</strong> Memorizes training data too much, fails on new data.<br><br><strong>Prevention:</strong> Use more data, use Regularization, or simplify the model.</div>
+        <div class="cs-card-title">Q2: What is Overfitting and how do you prevent it?</div>
+        <div class="cs-card-desc">
+          <strong>What it is:</strong> The model memorizes the training data perfectly (including its random noise). It performs incredibly well on training data but fails miserably on new, unseen test data.<br>
+          <strong>How to prevent it:</strong><br>
+          &bull; Use more training data.<br>
+          &bull; Use <strong>Regularization</strong> (L1/L2 techniques that penalize complex models).<br>
+          &bull; Simplify the model (e.g., reduce the depth of a decision tree).
+        </div>
       </div>
       <div class="cs-card">
-        <div class="cs-card-title">Bias-Variance Tradeoff</div>
-        <div class="cs-card-desc"><strong>Bias:</strong> Making overly simple assumptions (Underfitting).<br><br><strong>Variance:</strong> Extreme sensitivity to small data fluctuations (Overfitting). Goal is a middle ground.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="cheat-sheet-box">
-    <h3>&#x1F4CA; EVALUATION METRICS</h3>
-    <div class="cs-grid">
-      <div class="cs-card">
-        <div class="cs-card-title">Is Accuracy always good?</div>
-        <div class="cs-card-desc"><strong>No!</strong> Accuracy is highly misleading for imbalanced datasets.<br><br><em>Example:</em> A rare disease detector that always guesses "Healthy" will be 99% accurate but useless.</div>
-      </div>
-      <div class="cs-card">
-        <div class="cs-card-title">Precision vs Recall</div>
-        <div class="cs-card-desc"><strong>Precision:</strong> Out of all predicted positives, how many were actual positives?<br><br><strong>Recall:</strong> Out of all actual positives, how many did the model catch?</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="cheat-sheet-box">
-    <h3>&#x1F9E0; DEEP LEARNING &amp; DATA PREP</h3>
-    <div class="cs-grid">
-      <div class="cs-card">
-        <div class="cs-card-title">Activation Functions</div>
-        <div class="cs-card-desc">Without them, neural nets only solve straight-line problems. Functions like ReLU or Sigmoid introduce <strong>non-linearity</strong> for learning complex shapes.</div>
-      </div>
-      <div class="cs-card">
-        <div class="cs-card-title">CNN vs RNN</div>
-        <div class="cs-card-desc"><strong>CNN:</strong> Best for spatial data like images and video.<br><br><strong>RNN:</strong> Best for sequential data like text, time-series, or audio.</div>
-      </div>
-      <div class="cs-card">
-        <div class="cs-card-title">Missing Values &amp; One-Hot</div>
-        <div class="cs-card-desc"><strong>Missing data:</strong> Drop, Impute (Mean/Median/Mode), or Flag.<br><br><strong>One-Hot Encoding:</strong> Turns text categories into binary (1s and 0s) columns.</div>
+        <div class="cs-card-title">Q3: What is the Bias-Variance Tradeoff?</div>
+        <div class="cs-card-desc">
+          <strong>Bias:</strong> Mistakes caused by making overly simple assumptions. High bias leads to <strong>underfitting</strong> (the model is too dumb to find the pattern).<br>
+          <strong>Variance:</strong> Extreme sensitivity to small fluctuations in the training data. High variance leads to <strong>overfitting</strong> (the model is too flexible and over-complicates things).<br>
+          <strong>The Tradeoff:</strong> You want to find the perfect middle ground where the total error is minimized.
+        </div>
       </div>
     </div>
   </div>
 
   <div class="cheat-sheet-box">
-    <h3>&#x1F393; INTERN LEVEL QUICK REVISION</h3>
-    <div class="cs-grid">
+    <h3>&#x1F4CA; EVALUATION METRICS (Interviewers Love These)</h3>
+    <div class="cs-list">
       <div class="cs-card">
-        <div class="cs-card-title">Key Definitions</div>
-        <div class="cs-card-desc"><strong>AI:</strong> Simulating human intelligence.<br><strong>ML:</strong> Teaching computers to learn from data.<br><strong>Dataset:</strong> Collection of data for training.<br><strong>Feature:</strong> Input variable.<br><strong>Label/Target:</strong> Output to predict.</div>
+        <div class="cs-card-title">Q4: Is Accuracy always a good metric to evaluate a classification model?</div>
+        <div class="cs-card-desc">
+          <strong>No!</strong> Accuracy is highly misleading when dealing with an <strong>imbalanced dataset</strong>.<br><br>
+          <em>Example:</em> If you are building a model to detect a rare disease that only 1 in 100 people have, a dumb model that simply guesses "Healthy" for everyone will be <strong>99% accurate</strong>, but it is completely useless because it catches 0% of the sick patients.
+        </div>
       </div>
       <div class="cs-card">
-        <div class="cs-card-title">ML Types &amp; Deep Learning</div>
-        <div class="cs-card-desc"><strong>Classification:</strong> Predicting categories.<br><strong>Regression:</strong> Predicting numbers.<br><strong>Reinforcement:</strong> Learning via rewards.<br><strong>Neural Network:</strong> Model inspired by human brain with layers of neurons.</div>
+        <div class="cs-card-title">Q5: What is the difference between Precision and Recall?</div>
+        <div class="cs-card-desc">
+          <strong>Precision:</strong> Out of all the cases the model <em>predicted as positive</em>, how many were actually positive? (Focuses on minimizing False Positives).<br>
+          <em>Formula:</em> True Positives &divide; (True Positives + False Positives)<br><br>
+          <strong>Recall:</strong> Out of all the <em>actual positive cases</em> out there, how many did the model successfully catch? (Focuses on minimizing False Negatives).<br>
+          <em>Formula:</em> True Positives &divide; (True Positives + False Negatives)
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cheat-sheet-box">
+    <h3>&#x1F9E0; DEEP LEARNING BASICS</h3>
+    <div class="cs-list">
+      <div class="cs-card">
+        <div class="cs-card-title">Q6: What is the role of an Activation Function in a Neural Network?</div>
+        <div class="cs-card-desc">
+          Without activation functions, a neural network is just multiplying numbers together linearly—which means it can only solve simple, straight-line problems. An activation function (like <strong>ReLU</strong> or <strong>Sigmoid</strong>) introduces <strong>non-linearity</strong>, allowing the network to learn complex, curvy patterns like images, audio, and language.
+        </div>
       </div>
       <div class="cs-card">
-        <div class="cs-card-title">One-Line Revisions</div>
-        <div class="cs-code-block"><strong>AI</strong> = intelligence
-<strong>ML</strong> = learning from data
-<strong>Dataset</strong> = collection of data
-<strong>Feature</strong> = input
-<strong>Label</strong> = output
-<strong>Overfitting</strong> = memorizing</div>
+        <div class="cs-card-title">Q7: Briefly explain what a CNN and an RNN are best used for.</div>
+        <div class="cs-card-desc">
+          <strong>CNN (Convolutional Neural Network):</strong> Best for <strong>spatial data</strong> like images and video frames. It scans small pixel regions to look for edges and shapes.<br><br>
+          <strong>RNN (Recurrent Neural Network):</strong> Best for <strong>sequential data</strong> like text sequences, time-series data, or audio files because it possesses a "memory" of what words or sounds came right before.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cheat-sheet-box">
+    <h3>&#x1F527; DATA PREPROCESSING (Practical Coding Logic)</h3>
+    <div class="cs-list">
+      <div class="cs-card">
+        <div class="cs-card-title">Q8: How do you handle missing values in a dataset?</div>
+        <div class="cs-card-desc">
+          1. <strong>Drop them:</strong> Delete rows or columns if the missing data is minimal (using <code>dropna()</code> in Pandas).<br>
+          2. <strong>Impute them:</strong> Fill in the blank spaces with the column's <strong>Mean, Median, or Mode</strong> values.<br>
+          3. <strong>Flag them:</strong> Create an extra True/False column indicating that the data was missing, so the model knows it was an empty entry.
+        </div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">Q9: What is One-Hot Encoding?</div>
+        <div class="cs-card-desc">
+          Machine learning algorithms only understand numbers, not words. One-hot encoding takes a text category column (like <code>['Red', 'Blue']</code>) and splits it into individual binary columns (<code>Is_Red</code>, <code>Is_Blue</code>) containing 1s and 0s.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cheat-sheet-box">
+    <h3>&#x1F393; AI/ML BASICS INTERVIEW QUESTIONS (INTERN LEVEL)</h3>
+    <div class="cs-list">
+      <div class="cs-card">
+        <div class="cs-card-title">1. What is AI?</div>
+        <div class="cs-card-desc">AI is making machines think or act like humans.<br><em>Example:</em> Chatbots, Face recognition, Self-driving cars.</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">2. What is Machine Learning?</div>
+        <div class="cs-card-desc">Machine Learning is teaching computers to learn from data without hardcoding rules.<br><em>Example:</em> Spam detection, Movie recommendations.</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">3. Difference Between AI and ML</div>
+        <div class="cs-card-desc">
+          <strong>AI:</strong> Bigger concept. Simulates intelligence.<br>
+          <strong>ML:</strong> Subset of AI. Learns from data.<br><br>
+          <em>"All ML is AI, but not all AI is ML."</em>
+        </div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">4. Types of Machine Learning</div>
+        <div class="cs-card-desc">
+          <strong>Supervised Learning:</strong> Data has answers/labels. (e.g. Predict house price, Spam or not spam)<br>
+          <strong>Unsupervised Learning:</strong> No labels. (e.g. Grouping customers)<br>
+          <strong>Reinforcement Learning:</strong> Learning using rewards and punishment. (e.g. Self-driving cars, Game AI)
+        </div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">5. What is a Dataset?</div>
+        <div class="cs-card-desc">Collection of data used for training. <em>Example:</em> CSV file, Excel data.</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">6. What is Training a Model?</div>
+        <div class="cs-card-desc">Teaching model using data patterns.</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">7. What is Testing?</div>
+        <div class="cs-card-desc">Checking how well model performs on new data.</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">8. What is Overfitting?</div>
+        <div class="cs-card-desc">Model memorizes training data too much. Works well on training data but fails on new data.<br><em>Overfitting = memorizing</em></div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">9. What is Underfitting?</div>
+        <div class="cs-card-desc">Model learns too little. Poor performance everywhere.</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">10. What is Accuracy?</div>
+        <div class="cs-card-desc">Percentage of correct predictions.<br><em>Formula:</em> (Correct Predictions &divide; Total Predictions) &times; 100</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">11. What is a Feature?</div>
+        <div class="cs-card-desc">Input variable used for prediction.<br><em>Example for house price:</em> size, rooms, location.</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">12. What is Label/Target?</div>
+        <div class="cs-card-desc">Output to predict.<br><em>Example:</em> House price.</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">13. What is Python Used For in ML?</div>
+        <div class="cs-card-desc">Used for data analysis, model training, and visualization.</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">14. Common Python Libraries</div>
+        <div class="cs-card-desc">
+          <strong>NumPy:</strong> arrays/math<br>
+          <strong>Pandas:</strong> data handling<br>
+          <strong>Matplotlib:</strong> graphs<br>
+          <strong>scikit-learn:</strong> ML models
+        </div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">15. What is Deep Learning?</div>
+        <div class="cs-card-desc">Advanced ML using neural networks. Used in image recognition, speech recognition.</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">16. What is a Neural Network?</div>
+        <div class="cs-card-desc">Model inspired by human brain. Contains layers of neurons.</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">17. Difference Between Training Data and Testing Data</div>
+        <div class="cs-card-desc">
+          <strong>Training:</strong> teaches model<br>
+          <strong>Testing:</strong> evaluates model
+        </div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">18. What is Classification?</div>
+        <div class="cs-card-desc">Predicting categories.<br><em>Examples:</em> spam/not spam, cat/dog.</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">19. What is Regression?</div>
+        <div class="cs-card-desc">Predicting numbers.<br><em>Examples:</em> price prediction, temperature prediction.</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">20. What is Data Preprocessing?</div>
+        <div class="cs-card-desc">Cleaning data before training.<br><em>Examples:</em> removing null values, duplicates, scaling.</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">21. What is Model Evaluation?</div>
+        <div class="cs-card-desc">Checking model performance using metrics.<br><em>Examples:</em> accuracy, precision, recall.</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">22. Why Do You Want AI/ML?</div>
+        <div class="cs-card-desc"><em>Simple answer:</em> "I enjoy solving problems using data and intelligent systems. I'm interested in building practical AI applications and continuously learning ML technologies."</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">23. Explain One Project From Resume (Very Important)</div>
+        <div class="cs-card-desc">Explain: 1. Problem, 2. Technology used, 3. Your role, 4. Result. Keep it simple.</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">24. MOST IMPORTANT QUESTIONS THEY MAY ASK YOU</div>
+        <div class="cs-card-desc">
+          &bull; Difference between AI and ML<br>
+          &bull; Supervised vs unsupervised learning<br>
+          &bull; Explain your project<br>
+          &bull; Why Python for ML?<br>
+          &bull; What is overfitting?<br>
+          &bull; What libraries have you used?<br>
+          &bull; What is a dataset?<br>
+          &bull; What is model training?<br>
+          &bull; What is accuracy?
+        </div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">25. One-Line Revision</div>
+        <div class="cs-card-desc">
+          <strong>AI</strong> = intelligence<br>
+          <strong>ML</strong> = learning from data<br>
+          <strong>Dataset</strong> = collection of data<br>
+          <strong>Feature</strong> = input<br>
+          <strong>Label</strong> = output<br>
+          <strong>Overfitting</strong> = memorizing
+        </div>
       </div>
     </div>
   </div>
@@ -996,103 +1157,260 @@ while n > 0:</div>
 
 <div id="sql" class="page">
   <div class="cheat-sheet-box">
-    <h3>&#x1F4BE; CORE SQL BASICS</h3>
-    <div class="cs-grid">
+    <h3>&#x1F4BE; OUR DATABASE TABLES</h3>
+    <div class="cs-list">
       <div class="cs-card">
-        <div class="cs-card-title">What is SQL?</div>
-        <div class="cs-card-desc">Used to store, retrieve, and update data from a database.</div>
-      </div>
-      <div class="cs-card">
-        <div class="cs-card-title">SELECT</div>
-        <div class="cs-card-desc">Used to fetch data. <strong>*</strong> means get all columns.</div>
-        <div class="cs-code-block">SELECT * FROM employee;</div>
-      </div>
-      <div class="cs-card">
-        <div class="cs-card-title">WHERE</div>
-        <div class="cs-card-desc">Used for conditions. Filters rows.</div>
-        <div class="cs-code-block">SELECT * FROM employee
-WHERE salary > 50000;</div>
-      </div>
-      <div class="cs-card">
-        <div class="cs-card-title">ORDER BY</div>
-        <div class="cs-card-desc">Used for sorting. <strong>DESC</strong> = highest to lowest, <strong>ASC</strong> = lowest to highest.</div>
-        <div class="cs-code-block">SELECT * FROM employee
-ORDER BY salary DESC;</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="cheat-sheet-box">
-    <h3>&#x1F522; AGGREGATION &amp; TRICKS</h3>
-    <div class="cs-grid">
-      <div class="cs-card">
-        <div class="cs-card-title">COUNT &amp; MAX</div>
-        <div class="cs-card-desc">Count rows or find the maximum value.</div>
-        <div class="cs-code-block">SELECT COUNT(*) FROM employee;
-SELECT MAX(salary) FROM employee;</div>
-      </div>
-      <div class="cs-card">
-        <div class="cs-card-title">GROUP BY</div>
-        <div class="cs-card-desc">Groups similar data together (like departments).</div>
-        <div class="cs-code-block">SELECT dept_id, COUNT(*)
-FROM employee
-GROUP BY dept_id;</div>
-      </div>
-      <div class="cs-card">
-        <div class="cs-card-title">WHERE vs HAVING</div>
-        <div class="cs-card-desc"><strong>WHERE:</strong> Filters rows <em>before</em> grouping.<br><strong>HAVING:</strong> Filters groups <em>after</em> grouping.</div>
-        <div class="cs-code-block">SELECT dept_id, COUNT(*) FROM employee
-GROUP BY dept_id
-HAVING COUNT(*) > 1;</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="cheat-sheet-box">
-    <h3>&#x1F517; JOINS (Connect Tables)</h3>
-    <div class="cs-grid">
-      <div class="cs-card">
-        <div class="cs-card-title">INNER JOIN</div>
-        <div class="cs-card-desc">Shows matching data from both tables (common only).</div>
-        <div class="cs-code-block">SELECT e.name, d.dept_name
-FROM employee e
-INNER JOIN department d
-ON e.dept_id = d.dept_id;</div>
-      </div>
-      <div class="cs-card">
-        <div class="cs-card-title">Types of JOIN</div>
+        <div class="cs-card-title">Employees Table</div>
         <div class="cs-card-desc">
-          <strong>INNER:</strong> Matching only.<br>
-          <strong>LEFT:</strong> All from left + matching.<br>
-          <strong>RIGHT:</strong> All from right + matching.<br>
-          <strong>FULL:</strong> Everything.
+          <table class="sol-table">
+            <thead><tr><th>emp_id</th><th>name</th><th>salary</th><th>dept_id</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>Alice</td><td>90000</td><td>101</td></tr>
+              <tr><td>2</td><td>Bob</td><td>70000</td><td>102</td></tr>
+              <tr><td>3</td><td>Charlie</td><td>90000</td><td>101</td></tr>
+              <tr><td>4</td><td>David</td><td>50000</td><td>NULL</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">Departments Table</div>
+        <div class="cs-card-desc">
+          <table class="sol-table">
+            <thead><tr><th>dept_id</th><th>dept_name</th></tr></thead>
+            <tbody>
+              <tr><td>101</td><td>Tech</td></tr>
+              <tr><td>102</td><td>HR</td></tr>
+              <tr><td>103</td><td>Sales</td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
   </div>
 
   <div class="cheat-sheet-box">
-    <h3>&#x2B50; MOST ASKED INTERVIEW QUESTIONS</h3>
-    <div class="cs-grid">
-      <div class="cs-card" style="grid-column: 1 / -1;">
-        <div class="cs-card-title">Find the 2nd Highest Salary (Very Important)</div>
-        <div class="cs-card-desc"><strong>Logic:</strong> Find highest salary &rarr; Ignore it &rarr; Find highest again.</div>
-        <div class="cs-code-block">SELECT MAX(salary) FROM employee
-WHERE salary < (
-    SELECT MAX(salary) FROM employee
-);</div>
-        <div class="cs-card-desc" style="margin-top:10px;"><strong>Alternative (Sorting Trick):</strong> Sort highest to lowest, skip 1, pick 1.</div>
-        <div class="cs-code-block">SELECT DISTINCT salary FROM employee
-ORDER BY salary DESC
+    <h3>&#x1F522; 1. SQL BASICS (SELECT, WHERE)</h3>
+    <div class="cs-list">
+      <div class="cs-card">
+        <div class="cs-card-title">Fetching Data</div>
+        <div class="cs-card-desc">
+          To get data out of a table, you use <code>SELECT</code> to pick the columns and <code>WHERE</code> to filter rows.<br><br>
+          <strong>Example:</strong> Find the names of employees earning more than 60,000.
+        </div>
+        <div class="cs-code-block">SELECT name 
+FROM Employees 
+WHERE salary > 60000;</div>
+        <div class="cs-card-desc" style="margin-top:10px;"><strong>Output:</strong> Alice, Bob, Charlie</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cheat-sheet-box">
+    <h3>&#x1F517; 2. JOINS (CONNECTING TABLES)</h3>
+    <div class="cs-list">
+      <div class="cs-card">
+        <div class="cs-card-title">Inner Join (The Matchmaker)</div>
+        <div class="cs-card-desc">
+          Only returns rows where there is a perfect match in <strong>both</strong> tables.<br><br>
+          <strong>Example:</strong> Get employee names and their department names.
+        </div>
+        <div class="cs-code-block">SELECT Employees.name, Departments.dept_name
+FROM Employees
+INNER JOIN Departments 
+ON Employees.dept_id = Departments.dept_id;</div>
+        <div class="cs-card-desc" style="margin-top:10px;"><strong>Output:</strong><br>&bull; Alice - Tech<br>&bull; Bob - HR<br>&bull; Charlie - Tech<br><em>(David is ignored because his dept_id is NULL)</em></div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">Left Join (The Greedy Left)</div>
+        <div class="cs-card-desc">
+          Returns <strong>all</strong> rows from the left table, plus matches from the right. If there's no match, it fills it with <code>NULL</code>.<br><br>
+          <strong>Example:</strong> List all employees and their departments, even if they don't have one.
+        </div>
+        <div class="cs-code-block">SELECT Employees.name, Departments.dept_name
+FROM Employees
+LEFT JOIN Departments 
+ON Employees.dept_id = Departments.dept_id;</div>
+        <div class="cs-card-desc" style="margin-top:10px;"><strong>Output:</strong> David will show up as <code>David - NULL</code>.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cheat-sheet-box">
+    <h3>&#x1F4CA; 3. GROUP BY (AGGREGATING DATA)</h3>
+    <div class="cs-list">
+      <div class="cs-card">
+        <div class="cs-card-title">Grouping and Math Functions</div>
+        <div class="cs-card-desc">
+          <code>GROUP BY</code> gathers rows with the same values into summary rows. It is almost always paired with math functions like <code>COUNT()</code>, <code>MAX()</code>, or <code>AVG()</code>.<br><br>
+          <strong>Example:</strong> Find the total salary spent on each department id.
+        </div>
+        <div class="cs-code-block">SELECT dept_id, SUM(salary)
+FROM Employees
+GROUP BY dept_id;</div>
+        <div class="cs-card-desc" style="margin-top:10px;"><strong>Output:</strong><br>&bull; 101: 180000 (90k + 90k)<br>&bull; 102: 70000<br>&bull; NULL: 50000</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cheat-sheet-box">
+    <h3>&#x2B50; 4. THE FAMOUS INTERVIEW QUESTION: 2ND HIGHEST SALARY</h3>
+    <div class="cs-list">
+      <div class="cs-card">
+        <div class="cs-card-title">Method A: The Logical Trick (Using Subquery)</div>
+        <div class="cs-card-desc">
+          Find the highest salary, ignore it, and then find the highest salary of what is left!
+        </div>
+        <div class="cs-code-block">SELECT MAX(salary) 
+FROM Employees 
+WHERE salary < (SELECT MAX(salary) FROM Employees);</div>
+        <div class="cs-card-desc" style="margin-top:10px;"><strong>How it works:</strong> The inside part <code>(SELECT MAX(salary)...)</code> returns 90,000. The outside query looks for the highest salary <em>less than</em> 90,000, which is <strong>70,000</strong>.</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">Method B: The Sorting Trick (Using LIMIT)</div>
+        <div class="cs-card-desc">
+          Sort the salaries from highest to lowest, skip the first one, and grab the second one.
+        </div>
+        <div class="cs-code-block">SELECT DISTINCT salary 
+FROM Employees 
+ORDER BY salary DESC 
 LIMIT 1 OFFSET 1;</div>
+        <div class="cs-card-desc" style="margin-top:10px;">
+          &bull; <code>ORDER BY salary DESC</code>: Sorts highest to lowest (90000, 70000, 50000).<br>
+          &bull; <code>LIMIT 1</code>: Give me only 1 row.<br>
+          &bull; <code>OFFSET 1</code>: Skip the first row.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cheat-sheet-box">
+    <h3>&#x2728; SQL CHEAT SHEET FOR INTERNSHIP INTERVIEWS</h3>
+    <div class="cs-list">
+      <div class="cs-card">
+        <div class="cs-card-title">1. What is SQL?</div>
+        <div class="cs-card-desc">SQL is used to store data, retrieve data, and update data from database.</div>
       </div>
       <div class="cs-card">
-        <div class="cs-card-title">DELETE vs DROP</div>
-        <div class="cs-card-desc"><strong>DELETE:</strong> Removes rows. Table stays.<br><strong>DROP:</strong> Removes whole table completely.</div>
+        <div class="cs-card-title">2. SELECT</div>
+        <div class="cs-card-desc">Used to fetch data. <code>*</code> means get all columns.</div>
+        <div class="cs-code-block">SELECT * FROM employee;</div>
       </div>
       <div class="cs-card">
-        <div class="cs-card-title">DISTINCT &amp; LIKE</div>
-        <div class="cs-card-desc"><strong>DISTINCT:</strong> Removes duplicates.<br><strong>LIKE:</strong> Search pattern (e.g. 'R%' starts with R).</div>
+        <div class="cs-card-title">3. WHERE</div>
+        <div class="cs-card-desc">Used for condition. Filters rows.</div>
+        <div class="cs-code-block">SELECT * FROM employee
+WHERE salary > 50000;</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">4. ORDER BY</div>
+        <div class="cs-card-desc">Used for sorting.<br><code>DESC</code> = highest to lowest<br><code>ASC</code> = lowest to highest</div>
+        <div class="cs-code-block">SELECT * FROM employee
+ORDER BY salary DESC;</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">5. COUNT</div>
+        <div class="cs-card-desc">Count rows.</div>
+        <div class="cs-code-block">SELECT COUNT(*) FROM employee;</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">6. GROUP BY</div>
+        <div class="cs-card-desc">Used to group similar data (e.g. Count employees in each department).<br><em>Easy Memory: GROUP BY groups same values together.</em></div>
+        <div class="cs-code-block">SELECT dept_id, COUNT(*)
+FROM employee
+GROUP BY dept_id;</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">7. MAX Salary</div>
+        <div class="cs-card-desc">Finds the highest salary.</div>
+        <div class="cs-code-block">SELECT MAX(salary)
+FROM employee;</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">8. 2nd Highest Salary (VERY IMPORTANT)</div>
+        <div class="cs-card-desc"><em>Easy Logic: 1. Find highest salary, 2. Ignore it, 3. Find highest again</em></div>
+        <div class="cs-code-block">SELECT MAX(salary)
+FROM employee
+WHERE salary <
+(
+    SELECT MAX(salary)
+    FROM employee
+);</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">9. JOINS (MOST IMPORTANT)</div>
+        <div class="cs-card-desc">Used to combine tables. <strong>INNER JOIN</strong> shows matching data from both tables.<br>
+          <em>Easy Logic: Employee has dept_id=1. Department has 1=HR. Result = Ram -> HR.</em>
+        </div>
+        <div class="cs-code-block">SELECT employee.name, department.dept_name
+FROM employee
+INNER JOIN department
+ON employee.dept_id = department.dept_id;</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">10. Types of JOIN</div>
+        <div class="cs-card-desc">
+          <strong>INNER JOIN:</strong> matching only (common only)<br>
+          <strong>LEFT JOIN:</strong> all left + matching (everything from left table)<br>
+          <strong>RIGHT JOIN:</strong> all right + matching<br>
+          <strong>FULL JOIN:</strong> everything
+        </div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">11. Difference Between WHERE and HAVING</div>
+        <div class="cs-card-desc">
+          <strong>WHERE:</strong> filters rows (before GROUP BY)<br>
+          <strong>HAVING:</strong> filters groups (after GROUP BY)<br><br>
+          <em>Example: Departments with more than 1 employee</em>
+        </div>
+        <div class="cs-code-block">SELECT dept_id, COUNT(*)
+FROM employee
+GROUP BY dept_id
+HAVING COUNT(*) > 1;</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">12. DISTINCT</div>
+        <div class="cs-card-desc">Removes duplicates.</div>
+        <div class="cs-code-block">SELECT DISTINCT dept_id
+FROM employee;</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">13. LIKE</div>
+        <div class="cs-card-desc">Search pattern. <em>Example: Names starting with R.</em></div>
+        <div class="cs-code-block">SELECT * FROM employee
+WHERE name LIKE 'R%';</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">14. MOST IMPORTANT INTERVIEW QUESTIONS</div>
+        <div class="cs-card-desc">
+          They LOVE asking:<br>
+          &bull; Difference between WHERE and HAVING<br>
+          &bull; Types of joins<br>
+          &bull; 2nd highest salary<br>
+          &bull; GROUP BY usage<br>
+          &bull; COUNT(*)<br>
+          &bull; MAX()<br>
+          &bull; ORDER BY<br>
+          &bull; Difference between DELETE and DROP
+        </div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">15. DELETE vs DROP</div>
+        <div class="cs-card-desc">
+          <strong>DELETE:</strong> removes rows, table stays.<br>
+          <strong>DROP:</strong> removes whole table, table deleted.
+        </div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">16. FAST REVISION</div>
+        <div class="cs-card-desc">
+          <strong>SELECT</strong> &rarr; fetch data<br>
+          <strong>WHERE</strong> &rarr; condition<br>
+          <strong>ORDER BY</strong> &rarr; sorting<br>
+          <strong>GROUP BY</strong> &rarr; grouping<br>
+          <strong>COUNT</strong> &rarr; counting<br>
+          <strong>JOIN</strong> &rarr; combine tables
+        </div>
       </div>
     </div>
   </div>
