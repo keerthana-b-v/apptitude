@@ -6,19 +6,19 @@
 <title>CirrusLabs AI/ML Intern — 2-Day Battle Plan</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #fafafa;
+    :root {
+    --bg: #ffffff;
     --surface: #ffffff;
-    --surface2: #f4f4f5;
-    --border: #e4e4e7;
-    --accent: #6366f1;
-    --accent2: #f43f5e;
-    --accent3: #14b8a6;
-    --accent4: #eab308;
-    --text: #18181b;
-    --muted: #71717a;
-    --day1: #6366f1;
-    --day2: #f43f5e;
+    --surface2: #f9f9f9;
+    --border: #e0e0e0;
+    --accent: #222222;
+    --accent2: #222222;
+    --accent3: #222222;
+    --accent4: #222222;
+    --text: #111111;
+    --muted: #555555;
+    --day1: #111111;
+    --day2: #111111;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -26,23 +26,10 @@
   body {
     background: var(--bg);
     color: var(--text);
-    font-family: 'Roboto Mono', monospace;
-    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
     line-height: 1.6;
     overflow-x: hidden;
-  }
-
-  /* animated background grid */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px);
-    background-size: 40px 40px;
-    pointer-events: none;
-    z-index: 0;
   }
 
   .wrapper { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 0 24px 80px; }
@@ -55,7 +42,7 @@
     position: relative;
   }
   .hero-tag {
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Inter', sans-serif;
     font-size: 11px;
     letter-spacing: 0.2em;
     color: var(--accent);
@@ -104,7 +91,7 @@
   /* ── INTEL BOX ── */
   .intel-box {
     background: linear-gradient(135deg, rgba(124,111,255,0.08), rgba(78,205,196,0.05));
-    border: 1px solid rgba(124,111,255,0.3);
+    border: 1px solid var(--border);
     border-radius: 12px;
     padding: 24px 28px;
     margin-bottom: 48px;
@@ -141,7 +128,7 @@
     gap: 12px;
   }
   .intel-item {
-    background: rgba(0,0,0,0.03);
+    background: #f0f0f0;
     border: 1px solid var(--border);
     border-radius: 8px;
     padding: 12px 14px;
@@ -169,8 +156,8 @@
     border-radius: 4px;
     flex-shrink: 0;
   }
-  .day1 .day-badge { background: rgba(124,111,255,0.15); color: var(--day1); border: 1px solid rgba(124,111,255,0.4); }
-  .day2 .day-badge { background: rgba(255,107,107,0.15); color: var(--day2); border: 1px solid rgba(255,107,107,0.4); }
+  .day1 .day-badge { background: #f0f0f0; color: var(--day1); border: 1px solid var(--border); }
+  .day2 .day-badge { background: #f0f0f0; color: var(--day2); border: 1px solid var(--border); }
 
   .day-title {
     font-family: 'Inter', sans-serif;
@@ -194,8 +181,8 @@
     overflow: hidden;
     transition: border-color 0.2s;
   }
-  .session:hover { border-color: rgba(124,111,255,0.4); }
-  .day2 .session:hover { border-color: rgba(255,107,107,0.4); }
+  .session:hover { border-color: #999; }
+  .day2 .session:hover { border-color: #999; }
 
   .session-header {
     display: flex;
@@ -209,7 +196,7 @@
     position: relative;
   }
   .session-time {
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Inter', sans-serif;
     font-size: 11px;
     color: var(--muted);
     white-space: nowrap;
@@ -226,20 +213,20 @@
   }
   .session-emoji { font-size: 18px; }
   .session-tag {
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Inter', sans-serif;
     font-size: 10px;
     letter-spacing: 0.1em;
     padding: 2px 8px;
     border-radius: 3px;
     text-transform: uppercase;
   }
-  .tag-ai { background: rgba(124,111,255,0.15); color: var(--accent); border: 1px solid rgba(124,111,255,0.3); }
-  .tag-code { background: rgba(78,205,196,0.1); color: var(--accent3); border: 1px solid rgba(78,205,196,0.3); }
-  .tag-sql { background: rgba(255,217,61,0.1); color: var(--accent4); border: 1px solid rgba(255,217,61,0.3); }
-  .tag-test { background: rgba(255,107,107,0.1); color: var(--accent2); border: 1px solid rgba(255,107,107,0.3); }
-  .tag-agile { background: rgba(255,160,72,0.1); color: #ffa048; border: 1px solid rgba(255,160,72,0.3); }
-  .tag-ds { background: rgba(147,197,253,0.1); color: #93c5fd; border: 1px solid rgba(147,197,253,0.3); }
-  .tag-cloud { background: rgba(134,239,172,0.1); color: #86efac; border: 1px solid rgba(134,239,172,0.3); }
+  .tag-ai { background: #f0f0f0; color: var(--accent); border: 1px solid var(--border); }
+  .tag-code { background: #f0f0f0; color: var(--accent3); border: 1px solid var(--border); }
+  .tag-sql { background: #f0f0f0; color: var(--accent4); border: 1px solid var(--border); }
+  .tag-test { background: #f0f0f0; color: var(--accent2); border: 1px solid var(--border); }
+  .tag-agile { background: #f0f0f0; color: var(--accent); border: 1px solid var(--border); }
+  .tag-ds { background: #f0f0f0; color: var(--accent); border: 1px solid var(--border); }
+  .tag-cloud { background: #f0f0f0; color: var(--accent); border: 1px solid var(--border); }
 
   .session-duration {
     font-size: 11px;
@@ -301,7 +288,7 @@
   }
   ul.study-list li:last-child { border-bottom: none; }
   ul.study-list li code {
-    background: rgba(124,111,255,0.1);
+    background: #f0f0f0;
     color: var(--accent3);
     padding: 1px 5px;
     border-radius: 3px;
@@ -311,8 +298,8 @@
   /* ── Q BOX ── */
   .q-section {
     margin-top: 16px;
-    background: rgba(0,0,0,0.03);
-    border: 1px solid rgba(0,0,0,0.06);
+    background: #f0f0f0;
+    border: 1px solid var(--border);
     border-radius: 8px;
     padding: 16px 18px;
   }
@@ -348,7 +335,7 @@
   .q-q::before { content: 'Q:'; color: var(--accent4); flex-shrink: 0; }
   .q-a {
     font-size: 12px;
-    color: #a0a0b8;
+    color: var(--accent);
     line-height: 1.6;
     padding-left: 20px;
     border-left: 2px solid rgba(124,111,255,0.2);
@@ -361,24 +348,24 @@
     border: 1px solid var(--border);
     border-radius: 8px;
     padding: 14px 16px;
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Inter', sans-serif;
     font-size: 12px;
     line-height: 1.7;
-    color: #a8d8a8;
+    color: var(--accent);
     overflow-x: auto;
     margin-top: 10px;
     white-space: pre;
   }
-  .code-block .kw { color: #c792ea; }
-  .code-block .fn { color: #82aaff; }
-  .code-block .str { color: #c3e88d; }
-  .code-block .cm { color: #546e7a; font-style: italic; }
-  .code-block .num { color: #f78c6c; }
+  .code-block .kw { color: var(--accent); }
+  .code-block .fn { color: var(--accent); }
+  .code-block .str { color: var(--accent); }
+  .code-block .cm { color: var(--accent); font-style: italic; }
+  .code-block .num { color: var(--accent); }
 
   /* ── SCENARIO BOX ── */
   .scenario-box {
-    background: rgba(255,107,107,0.05);
-    border: 1px solid rgba(255,107,107,0.2);
+    background: #f0f0f0;
+    border: 1px solid var(--border);
     border-radius: 8px;
     padding: 14px 16px;
     margin-top: 10px;
@@ -400,7 +387,7 @@
     display: flex;
     align-items: center;
     gap: 14px;
-    background: rgba(0,0,0,0.02);
+    background: #f0f0f0;
     border: 1px dashed var(--border);
     border-radius: 8px;
     padding: 12px 18px;
@@ -435,13 +422,13 @@
     display: inline-block;
     border-radius: 4px;
   }
-  .cat-ai { background: rgba(124,111,255,0.15); color: var(--accent); }
-  .cat-ds { background: rgba(147,197,253,0.1); color: #93c5fd; }
-  .cat-sql { background: rgba(255,217,61,0.1); color: var(--accent4); }
-  .cat-test { background: rgba(255,107,107,0.1); color: var(--accent2); }
-  .cat-agile { background: rgba(255,160,72,0.1); color: #ffa048; }
-  .cat-code { background: rgba(78,205,196,0.1); color: var(--accent3); }
-  .cat-cloud { background: rgba(134,239,172,0.1); color: #86efac; }
+  .cat-ai { background: #f0f0f0; color: var(--accent); }
+  .cat-ds { background: #f0f0f0; color: var(--accent); }
+  .cat-sql { background: #f0f0f0; color: var(--accent4); }
+  .cat-test { background: #f0f0f0; color: var(--accent2); }
+  .cat-agile { background: #f0f0f0; color: var(--accent); }
+  .cat-code { background: #f0f0f0; color: var(--accent3); }
+  .cat-cloud { background: #f0f0f0; color: var(--accent); }
 
   .mq-grid {
     display: grid;
@@ -466,9 +453,9 @@
     background: var(--surface2);
     user-select: none;
   }
-  .mq-q-bar:hover { background: rgba(0,0,0,0.04); }
+  .mq-q-bar:hover { background: #f0f0f0; }
   .mq-q-num {
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Inter', sans-serif;
     font-size: 11px;
     color: var(--muted);
     flex-shrink: 0;
@@ -481,15 +468,15 @@
     display: none;
     padding: 14px 16px;
     font-size: 12.5px;
-    color: #a0a0b8;
+    color: var(--accent);
     line-height: 1.7;
     border-top: 1px solid var(--border);
-    background: rgba(0,0,0,0.2);
+    background: #f0f0f0;
   }
   .mq-item.open .mq-a { display: block; }
   .mq-a strong { color: var(--accent3); }
   .mq-a code {
-    background: rgba(124,111,255,0.1);
+    background: #f0f0f0;
     color: var(--accent3);
     padding: 1px 5px;
     border-radius: 3px;
@@ -500,23 +487,23 @@
     border: 1px solid var(--border);
     border-radius: 6px;
     padding: 10px 12px;
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Inter', sans-serif;
     font-size: 11px;
     line-height: 1.6;
-    color: #a8d8a8;
+    color: var(--accent);
     overflow-x: auto;
     margin-top: 8px;
     white-space: pre;
     display: block;
   }
-  .mq-a .cb .kw { color: #c792ea; }
-  .mq-a .cb .fn { color: #82aaff; }
-  .mq-a .cb .cm { color: #546e7a; font-style: italic; }
+  .mq-a .cb .kw { color: var(--accent); }
+  .mq-a .cb .fn { color: var(--accent); }
+  .mq-a .cb .cm { color: var(--accent); font-style: italic; }
 
   /* ── TONIGHT BOX ── */
   .tonight {
     background: linear-gradient(135deg, rgba(78,205,196,0.07), rgba(124,111,255,0.07));
-    border: 1px solid rgba(78,205,196,0.25);
+    border: 1px solid var(--border);
     border-radius: 12px;
     padding: 24px 28px;
     margin-bottom: 48px;
@@ -581,12 +568,12 @@
 
   .highlight { color: var(--accent4); font-weight: 600; }
   .note {
-    background: rgba(255,217,61,0.06);
+    background: #f0f0f0;
     border-left: 3px solid var(--accent4);
     padding: 10px 14px;
     border-radius: 0 6px 6px 0;
     font-size: 12px;
-    color: #c8b86a;
+    color: var(--accent);
     margin: 12px 0;
   }
 
@@ -958,7 +945,7 @@ stack.pop()        <span class="cm"># pop → LIFO</span></div>
           "I'd test it at multiple levels. First, <strong>functional tests</strong>: valid/invalid credentials, empty fields, password mismatch. Then <strong>security tests</strong>: SQL injection, brute force protection, HTTPS. Then <strong>boundary tests</strong>: extremely long inputs, special characters, Unicode. Then <strong>UX tests</strong>: error messages are clear, redirect after login is correct. Finally, <strong>performance tests</strong>: what happens under 1000 simultaneous logins? I'd use tools like Selenium for automation and Postman to test the API layer directly."
         </div>
 
-        <div class="scenario-box" style="margin-top:12px; background: rgba(124,111,255,0.05); border-color: rgba(124,111,255,0.2);">
+        <div class="scenario-box" style="margin-top:12px; background: #f0f0f0; border-color: #999;">
           <div class="scenario-label" style="color: var(--accent);">🔥 Scenario: "Here's a code snippet — what bugs do you find?"</div>
           When they give you a code snippet, say out loud:<br>
           1. "I'll first check for <strong>logic errors</strong> — off-by-one, wrong conditions"<br>
