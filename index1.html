@@ -1,0 +1,2324 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CirrusLabs Quant Prep — Speed, Percentage & Work</title>
+<meta name="description" content="2-day quantitative aptitude prep guide for CirrusLabs covering Speed Distance Time, Percentage & Discount, and Work & Time with 90 practice questions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<style>
+  :root {
+    /* Color palette — light theme */
+    --bg-base:          #f4f6fb;
+    --bg-surface:       #ffffff;
+    --bg-card:          #ffffff;
+    --bg-card-hover:    #f0f4ff;
+    --bg-inset:         #eef1f8;
+
+    --border-subtle:    rgba(0,0,0,0.07);
+    --border-default:   rgba(0,0,0,0.12);
+    --border-strong:    rgba(0,0,0,0.20);
+
+    --text-primary:     #111827;
+    --text-secondary:   #4b5563;
+    --text-muted:       #9ca3af;
+
+    --accent-blue:      #2563eb;
+    --accent-blue-dim:  rgba(37,99,235,0.10);
+    --accent-green:     #059669;
+    --accent-green-dim: rgba(5,150,105,0.10);
+    --accent-amber:     #d97706;
+    --accent-amber-dim: rgba(217,119,6,0.10);
+    --accent-purple:    #7c3aed;
+
+    /* Tokens matching var() calls in the original code */
+    --color-background-primary:   var(--bg-card);
+    --color-background-secondary: var(--bg-inset);
+    --color-background-success:   var(--accent-green-dim);
+    --color-background-warning:   var(--accent-amber-dim);
+
+    --color-border-primary:   var(--border-strong);
+    --color-border-secondary: var(--border-default);
+    --color-border-tertiary:  var(--border-subtle);
+    --color-border-info:      var(--accent-blue);
+    --color-border-success:   var(--accent-green);
+
+    --color-text-primary:   var(--text-primary);
+    --color-text-secondary: var(--text-secondary);
+    --color-text-tertiary:  var(--text-muted);
+    --color-text-info:      var(--accent-blue);
+    --color-text-success:   var(--accent-green);
+    --color-text-warning:   var(--accent-amber);
+
+    --font-sans: 'Inter', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    --border-radius-sm: 6px;
+    --border-radius-md: 10px;
+    --border-radius-lg: 14px;
+
+    --shadow-card: 0 1px 4px rgba(0,0,0,0.07), 0 4px 16px rgba(0,0,0,0.05);
+    --shadow-glow-blue: 0 0 20px rgba(37,99,235,0.12);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    background: var(--bg-base);
+    color: var(--text-primary);
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+
+  /* ── Page wrapper ── */
+  .app-shell {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 20px 48px;
+  }
+
+  /* ── Header ── */
+  .app-header {
+    padding: 28px 0 20px;
+    border-bottom: 1px solid var(--border-subtle);
+    margin-bottom: 0;
+  }
+  .app-header-inner {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .app-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #4e8bff 0%, #a78bfa 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+    box-shadow: var(--shadow-glow-blue);
+  }
+  .app-header h1 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+  }
+  .app-header p {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+  .header-badge {
+    margin-left: auto;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    background: var(--accent-blue-dim);
+    color: var(--accent-blue);
+    border: 1px solid rgba(78,139,255,0.25);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+</style>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans);font-size:14px;background:var(--bg-base);color:var(--text-primary);min-height:100vh}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+
+/* ── Nav ── */
+.nav{display:flex;gap:6px;padding:1rem 0 0.875rem;border-bottom:1px solid var(--border-subtle);flex-wrap:wrap;margin-bottom:4px}
+.nav-btn{
+  padding:7px 16px;
+  border-radius:var(--border-radius-md);
+  border:1px solid var(--border-default);
+  font-size:13px;font-weight:500;
+  cursor:pointer;
+  background:transparent;
+  color:var(--text-secondary);
+  transition:all .2s ease;
+  letter-spacing:-0.01em;
+}
+.nav-btn:hover{background:var(--bg-card);color:var(--text-primary);border-color:var(--border-strong);transform:translateY(-1px)}
+.nav-btn.active{
+  background:linear-gradient(135deg,rgba(37,99,235,0.12),rgba(124,58,237,0.07));
+  color:var(--accent-blue);
+  font-weight:600;
+  border-color:rgba(37,99,235,0.35);
+  box-shadow:0 0 12px rgba(37,99,235,0.10);
+}
+
+/* ── Pages ── */
+.page{display:none;padding:1.25rem 0;animation:fadeIn .2s ease}
+.page.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── Plan cards ── */
+.plan-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
+@media(max-width:540px){.plan-grid{grid-template-columns:1fr}}
+.plan-card{
+  background:var(--bg-card);
+  border:1px solid var(--border-subtle);
+  border-radius:var(--border-radius-lg);
+  padding:18px 20px;
+  box-shadow:var(--shadow-card);
+  transition:transform .2s,box-shadow .2s;
+}
+.plan-card:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(0,0,0,0.5)}
+.plan-day{font-size:11px;font-weight:600;color:var(--accent-blue);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
+.plan-title{font-size:15px;font-weight:700;color:var(--text-primary);margin-bottom:12px;letter-spacing:-0.01em}
+.plan-item{
+  font-size:13px;color:var(--text-secondary);
+  padding:4px 0;display:flex;gap:8px;align-items:flex-start;line-height:1.55;
+}
+.plan-item > span:first-child{color:var(--accent-blue);font-weight:600;min-width:18px;flex-shrink:0}
+
+/* ── Formula section ── */
+.formula-box{
+  background:var(--bg-inset);
+  border:1px solid var(--border-subtle);
+  border-radius:var(--border-radius-lg);
+  padding:18px 20px;
+  margin-bottom:18px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.04);
+}
+.formula-title{
+  font-size:14px;font-weight:700;color:var(--text-primary);
+  margin-bottom:14px;display:flex;align-items:center;gap:8px;
+  letter-spacing:-0.01em;
+}
+.formula-title::before{content:'⚡';font-size:16px}
+.formula-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media(max-width:480px){.formula-grid{grid-template-columns:1fr}}
+.formula-item{
+  background:var(--bg-card);
+  border:1px solid var(--border-subtle);
+  border-radius:var(--border-radius-md);
+  padding:10px 14px;
+  transition:border-color .15s,background .15s;
+}
+.formula-item:hover{background:var(--bg-card-hover);border-color:var(--border-default)}
+.formula-label{font-size:11px;color:var(--text-muted);margin-bottom:4px;font-weight:500;text-transform:uppercase;letter-spacing:.05em}
+.formula-val{font-size:14px;font-weight:600;color:var(--accent-blue);font-family:var(--font-mono)}
+
+/* ── Shortcut box ── */
+.shortcut-box{
+  background:linear-gradient(135deg,rgba(37,99,235,0.06),rgba(124,58,237,0.04));
+  border:1px solid rgba(37,99,235,0.20);
+  border-radius:var(--border-radius-md);
+  padding:14px 18px;
+  margin-bottom:18px;
+  position:relative;
+  overflow:hidden;
+}
+.shortcut-box::before{
+  content:'';
+  position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,rgba(37,99,235,0.5),rgba(124,58,237,0.5),transparent);
+}
+.shortcut-label{font-size:11px;font-weight:700;color:var(--accent-blue);margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em}
+.shortcut-text{font-size:13px;color:var(--text-secondary);line-height:1.7}
+
+/* ── Cheat Sheet box ── */
+.cheat-sheet-box{
+  background:var(--bg-surface);
+  border:1px solid var(--border-default);
+  border-radius:var(--border-radius-lg);
+  padding:20px;margin-bottom:20px;
+  box-shadow:0 4px 15px rgba(0,0,0,0.05);
+}
+.cheat-sheet-box h3{
+  margin-top:0;color:var(--text-primary);
+  display:flex;align-items:center;gap:8px;
+  margin-bottom:15px;
+}
+.cs-grid{
+  display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:15px;
+}
+.cs-list{display:flex;flex-direction:column;gap:15px;}
+.cs-card{
+  background:var(--bg-body);padding:15px;
+  border-radius:var(--border-radius-md);
+  border-left:4px solid var(--accent-blue);
+  box-shadow:0 1px 3px rgba(0,0,0,0.05);
+}
+.cs-card-title{font-weight:700;color:var(--text-primary);margin-bottom:8px;font-size:14px;}
+.cs-card-desc{font-size:13px;color:var(--text-secondary);margin-bottom:12px;line-height:1.5;}
+.cs-code{
+  display:block;padding:10px;background:var(--bg-surface);
+  border-radius:var(--border-radius-sm);color:var(--accent-blue);
+  font-weight:600;text-align:center;font-family:var(--font-mono);
+  font-size:13px;border:1px solid var(--border-subtle);
+}
+.cs-code-block{
+  display:block;padding:12px;background:var(--bg-inset);
+  border-radius:var(--border-radius-sm);color:var(--text-primary);
+  font-family:var(--font-mono);font-size:12.5px;
+  border:1px solid var(--border-subtle);
+  white-space:pre-wrap;text-align:left;overflow-x:auto;
+}
+.cs-code-block strong{color:var(--accent-blue);}
+
+/* ── Section label ── */
+.section-label{
+  font-size:11px;font-weight:700;color:var(--text-muted);
+  text-transform:uppercase;letter-spacing:.08em;
+  margin:20px 0 10px;display:flex;align-items:center;gap:10px;
+}
+.section-line{flex:1;height:1px;background:var(--border-subtle)}
+
+/* ── Question cards ── */
+.q-card{
+  background:var(--bg-card);
+  border:1px solid var(--border-subtle);
+  border-radius:var(--border-radius-md);
+  margin-bottom:8px;
+  overflow:hidden;
+  transition:border-color .2s,box-shadow .2s;
+}
+.q-card:hover{border-color:var(--border-default);box-shadow:0 2px 8px rgba(0,0,0,0.3)}
+.q-top{
+  display:flex;align-items:flex-start;gap:12px;
+  padding:12px 16px;cursor:pointer;
+  transition:background .15s;
+}
+.q-top:hover{background:var(--bg-card-hover)}
+.q-num{
+  font-size:11px;font-weight:700;color:var(--text-muted);
+  min-width:26px;padding-top:2px;
+  font-family:var(--font-mono);
+}
+.q-text{font-size:13px;color:var(--text-primary);flex:1;line-height:1.6}
+.badge{
+  font-size:10px;padding:3px 9px;border-radius:20px;
+  white-space:nowrap;font-weight:700;letter-spacing:.02em;
+  flex-shrink:0;
+}
+.easy{background:var(--accent-green-dim);color:var(--accent-green);border:1px solid rgba(52,211,153,0.25)}
+.tricky{background:var(--accent-amber-dim);color:var(--accent-amber);border:1px solid rgba(251,191,36,0.25)}
+.q-ans{
+  display:none;
+  padding:0 16px 14px 54px;
+  border-top:1px solid var(--border-subtle);
+  animation:fadeIn .15s ease;
+}
+.ans-tag{font-size:11px;font-weight:700;color:var(--accent-green);margin:10px 0 4px;text-transform:uppercase;letter-spacing:.06em}
+.ans-val{font-size:14px;font-weight:600;color:var(--text-primary);font-family:var(--font-mono)}
+.trick-tag{font-size:11px;font-weight:700;color:var(--accent-blue);margin:10px 0 4px;text-transform:uppercase;letter-spacing:.06em}
+.trick-val{font-size:13px;color:var(--text-secondary);line-height:1.7}
+
+/* ── Stats ── */
+.stats{display:flex;gap:12px;margin-bottom:18px}
+.stat{
+  background:var(--bg-card);
+  border:1px solid var(--border-subtle);
+  border-radius:var(--border-radius-md);
+  padding:10px 16px;flex:1;text-align:center;
+  box-shadow:var(--shadow-card);
+}
+.stat-num{font-size:22px;font-weight:700;color:var(--text-primary);font-variant-numeric:tabular-nums}
+.stat-lbl{font-size:11px;color:var(--text-muted);margin-top:1px;text-transform:uppercase;letter-spacing:.05em;font-weight:500}
+
+/* ── Progress bar ── */
+.progress-bar{background:var(--bg-inset);border-radius:20px;height:5px;margin-bottom:4px;overflow:hidden}
+.progress-fill{height:100%;background:var(--accent-blue);border-radius:20px;transition:width .4s ease}
+
+/* ── Solution step cards ── */
+.sol-steps{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+.sol-step{
+  display:flex;align-items:flex-start;gap:12px;
+  background:var(--bg-inset);
+  border:1px solid var(--border-subtle);
+  border-radius:8px;
+  padding:10px 14px;
+}
+.sol-n{
+  min-width:24px;height:24px;border-radius:50%;
+  background:var(--accent-blue);color:#fff;
+  font-size:11px;font-weight:800;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;margin-top:1px;
+  font-family:var(--font-mono);
+}
+.sol-lbl{
+  font-size:11px;font-weight:700;
+  color:var(--text-muted);
+  text-transform:uppercase;letter-spacing:.05em;
+  display:inline-block;margin-bottom:4px;
+}
+.sol-step code{
+  display:inline-block;margin-top:2px;
+  background:var(--bg-card);
+  border:1px solid var(--border-default);
+  border-radius:6px;
+  padding:4px 10px;
+  font-family:var(--font-mono);
+  font-size:13px;
+  color:var(--accent-blue);
+}
+.sol-step code strong{color:var(--text-primary)}
+.sol-tip{
+  background:rgba(217,119,6,0.08);
+  border:1px solid rgba(217,119,6,0.20);
+  border-radius:8px;
+  padding:9px 14px;
+  font-size:12px;
+  color:var(--accent-amber);
+  font-weight:500;
+  line-height:1.6;
+}
+.sol-note{
+  background:var(--bg-inset);
+  border:1px solid var(--border-default);
+  border-radius:8px;
+  padding:10px 14px;
+  font-size:13px;
+  color:var(--text-secondary);
+  line-height:1.8;
+  margin-bottom:10px;
+}
+.sol-note-lbl{
+  display:block;
+  font-size:11px;font-weight:700;
+  color:var(--accent-purple);
+  text-transform:uppercase;letter-spacing:.05em;
+  margin-bottom:6px;
+}
+.sol-note code{
+  display:inline;
+  background:var(--bg-card);
+  border:1px solid var(--border-default);
+  border-radius:5px;
+  padding:2px 8px;
+  font-family:var(--font-mono);
+  font-size:12px;
+  color:var(--accent-blue);
+}
+.sol-note code strong{color:var(--text-primary)}
+
+/* ── Solution cheat-sheet table ── */
+.sol-table-wrap{
+  margin-bottom:10px;
+}
+.sol-table-lbl{
+  font-size:11px;font-weight:700;
+  color:var(--text-muted);
+  text-transform:uppercase;letter-spacing:.06em;
+  margin-bottom:6px;
+}
+.sol-table{
+  width:100%;border-collapse:collapse;
+  font-size:13px;border-radius:8px;overflow:hidden;
+  border:1px solid var(--border-default);
+}
+.sol-table th{
+  background:var(--bg-inset);
+  color:var(--text-muted);
+  font-size:11px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.05em;
+  padding:7px 14px;
+  text-align:left;
+  border-bottom:1px solid var(--border-default);
+}
+.sol-table td{
+  padding:8px 14px;
+  color:var(--text-secondary);
+  border-bottom:1px solid var(--border-subtle);
+}
+.sol-table tr:last-child td{border-bottom:none}
+.sol-table td strong{color:var(--accent-blue)}
+.sol-table tr:nth-child(even) td{background:var(--bg-inset)}
+
+/* ── Visual block elements (used in percentage Q15) ── */
+.sol-blocks{display:flex;gap:6px;margin-top:6px;flex-wrap:wrap}
+.sol-block{
+  padding:6px 14px;
+  border-radius:6px;
+  font-size:13px;font-weight:600;
+  font-family:var(--font-mono);
+  background:var(--bg-card);
+  border:1px solid var(--border-default);
+  color:var(--text-secondary);
+}
+.sol-block-filled{
+  background:var(--accent-blue-dim);
+  border-color:rgba(37,99,235,0.3);
+  color:var(--accent-blue);
+}
+
+
+</style>
+
+<div class="app-shell">
+<h2 class="sr-only">CirrusLabs 2-day quantitative aptitude prep — Speed Distance Time, Percentage &amp; Discount, Work &amp; Time with 90 practice questions</h2>
+
+<header class="app-header">
+  <div class="app-header-inner">
+    <div class="app-logo">🎯</div>
+    <div>
+      <h1>CirrusLabs Quant Prep</h1>
+      <p>90 practice questions · Speed · Percentage · Work &amp; Time</p>
+    </div>
+    <span class="header-badge">2-Day Plan</span>
+  </div>
+</header>
+
+<div class="nav">
+  <button class="nav-btn active" onclick="show('plan')">📋 2-Day Plan</button>
+  <button class="nav-btn" onclick="show('sdt')">🚀 Speed &amp; Distance</button>
+  <button class="nav-btn" onclick="show('pct')">📊 Percentage</button>
+  <button class="nav-btn" onclick="show('wt')">⏱ Work &amp; Time</button>
+  <button class="nav-btn" onclick="show('logic')">🧠 Logical Reasoning</button>
+  <button class="nav-btn" onclick="show('python')">🐍 Python Coding</button>
+  <button class="nav-btn" onclick="show('aiml')">🤖 AI &amp; ML Prep</button>
+  <button class="nav-btn" onclick="show('sql')">🗄️ SQL Prep</button>
+</div>
+
+<div id="plan" class="page active">
+  <div class="plan-grid">
+    <div class="plan-card" style="border-top:2px solid var(--accent-blue)">
+      <div class="plan-day">Today — Day 1 (2–3 hrs)</div>
+      <div class="plan-title">Quantitative Aptitude</div>
+      <div class="plan-item"><span>1.</span><span>Speed, Distance & Time — formulas + 30 Qs (1 hr)</span></div>
+      <div class="plan-item"><span>2.</span><span>Percentage & Discount — formulas + 30 Qs (1 hr)</span></div>
+      <div class="plan-item"><span>3.</span><span>Work & Time — formulas + 30 Qs (1 hr)</span></div>
+    </div>
+    <div class="plan-card" style="border-top:2px solid var(--color-border-success)">
+      <div class="plan-day">Day 2 (full day)</div>
+      <div class="plan-title">Reasoning + Coding + SQL</div>
+      <div class="plan-item"><span>1.</span><span>Logical Reasoning — series, directions, calendar (1 hr)</span></div>
+      <div class="plan-item"><span>2.</span><span>Coding — prime, palindrome, Armstrong, Fibonacci (1 hr)</span></div>
+      <div class="plan-item"><span>3.</span><span>SQL — joins, 2nd highest salary, group by (45 min)</span></div>
+      <div class="plan-item"><span>4.</span><span>Code snippet MCQs — output tracing practice (45 min)</span></div>
+      <div class="plan-item"><span>5.</span><span>Revision + mock test yourself (30 min)</span></div>
+    </div>
+  </div>
+  <div class="shortcut-box">
+    <div class="shortcut-label">How to use this tab</div>
+    <div class="shortcut-text">Click any topic tab above. Read formulas first (seriously — 5 minutes reading saves 30 minutes struggling). Then do all 20 easy questions first, then the 10 tricky ones. Tap each question to reveal the answer + the thinking steps.</div>
+  </div>
+</div>
+
+<div id="sdt" class="page">
+  <div class="formula-box">
+    <div class="formula-title"><i class="ti ti-bolt" aria-hidden="true"></i> Master formulas</div>
+    <div class="formula-grid">
+      <div class="formula-item"><div class="formula-label">Distance</div><div class="formula-val">D = S × T</div></div>
+      <div class="formula-item"><div class="formula-label">Speed</div><div class="formula-val">S = D / T</div></div>
+      <div class="formula-item"><div class="formula-label">Time</div><div class="formula-val">T = D / S</div></div>
+      <div class="formula-item"><div class="formula-label">km/h → m/s</div><div class="formula-val">× 5/18</div></div>
+      <div class="formula-item"><div class="formula-label">m/s → km/h</div><div class="formula-val">× 18/5</div></div>
+      <div class="formula-item"><div class="formula-label">Avg speed (equal dist)</div><div class="formula-val">2S₁S₂/(S₁+S₂)</div></div>
+      <div class="formula-item"><div class="formula-label">Relative speed (opposite)</div><div class="formula-val">S₁ + S₂</div></div>
+      <div class="formula-item"><div class="formula-label">Relative speed (same dir)</div><div class="formula-val">S₁ − S₂</div></div>
+      <div class="formula-item"><div class="formula-label">Train crossing object</div><div class="formula-val">(Train+Object len)/S</div></div>
+      <div class="formula-item"><div class="formula-label">Train crossing a man</div><div class="formula-val">Train length / S</div></div>
+    </div>
+  </div>
+  <div class="shortcut-box">
+    <div class="shortcut-label">One shortcut to rule them all</div>
+    <div class="shortcut-text">Read the question → identify what's missing (D, S, or T) → write D=S×T → cover the missing one with your finger → what remains is your formula. Works 80% of the time instantly.</div>
+  </div>
+  <div id="sdt-stats" class="stats">
+    <div class="stat"><div class="stat-num" id="sdt-done">0</div><div class="stat-lbl">revealed</div></div>
+    <div class="stat"><div class="stat-num">20</div><div class="stat-lbl">easy</div></div>
+    <div class="stat"><div class="stat-num">10</div><div class="stat-lbl">tricky</div></div>
+  </div>
+  <div class="section-label"><span>Easy questions</span><div class="section-line"></div></div>
+  <div id="sdt-easy"></div>
+  <div class="section-label"><span>Tricky questions</span><div class="section-line"></div></div>
+  <div id="sdt-hard"></div>
+</div>
+
+<div id="pct" class="page">
+  <div class="formula-box">
+    <div class="formula-title"><i class="ti ti-percent" aria-hidden="true"></i> Master formulas</div>
+    <div class="formula-grid">
+      <div class="formula-item"><div class="formula-label">Percentage</div><div class="formula-val">(Part/Whole)×100</div></div>
+      <div class="formula-item"><div class="formula-label">x% of y</div><div class="formula-val">(x×y)/100</div></div>
+      <div class="formula-item"><div class="formula-label">% increase</div><div class="formula-val">(Rise/Original)×100</div></div>
+      <div class="formula-item"><div class="formula-label">% decrease</div><div class="formula-val">(Drop/Original)×100</div></div>
+      <div class="formula-item"><div class="formula-label">Final price after discount</div><div class="formula-val">P × (100−d)/100</div></div>
+      <div class="formula-item"><div class="formula-label">Two successive discounts</div><div class="formula-val">a+b−(ab/100)</div></div>
+      <div class="formula-item"><div class="formula-label">Selling price (profit)</div><div class="formula-val">CP×(100+p%)/100</div></div>
+      <div class="formula-item"><div class="formula-label">Profit %</div><div class="formula-val">(Profit/CP)×100</div></div>
+    </div>
+  </div>
+  <div class="shortcut-box">
+    <div class="shortcut-label">Fastest discount trick</div>
+    <div class="shortcut-text">Don't subtract — multiply directly. 10% off ₹500 = 90% of 500 = 0.9×500 = ₹450. One step, zero errors. For successive: 20% then 10% off ₹1000 = 1000×0.8×0.9 = ₹720. Never calculate each discount separately.</div>
+  </div>
+  <div id="pct-stats" class="stats">
+    <div class="stat"><div class="stat-num" id="pct-done">0</div><div class="stat-lbl">revealed</div></div>
+    <div class="stat"><div class="stat-num">20</div><div class="stat-lbl">easy</div></div>
+    <div class="stat"><div class="stat-num">10</div><div class="stat-lbl">tricky</div></div>
+  </div>
+  <div class="section-label"><span>Easy questions</span><div class="section-line"></div></div>
+  <div id="pct-easy"></div>
+  <div class="section-label"><span>Tricky questions</span><div class="section-line"></div></div>
+  <div id="pct-hard"></div>
+</div>
+
+<div id="wt" class="page">
+  <div class="formula-box">
+    <div class="formula-title"><i class="ti ti-clock" aria-hidden="true"></i> Master formulas</div>
+    <div class="formula-grid">
+      <div class="formula-item"><div class="formula-label">1 day's work</div><div class="formula-val">1/n (if n days total)</div></div>
+      <div class="formula-item"><div class="formula-label">A+B together</div><div class="formula-val">1/a + 1/b = 1/T</div></div>
+      <div class="formula-item"><div class="formula-label">Time for A+B</div><div class="formula-val">ab/(a+b)</div></div>
+      <div class="formula-item"><div class="formula-label">Total work constant</div><div class="formula-val">M×D = constant</div></div>
+      <div class="formula-item"><div class="formula-label">More workers</div><div class="formula-val">Fewer days (inverse)</div></div>
+      <div class="formula-item"><div class="formula-label">Pipe fills in p, empties in q</div><div class="formula-val">Net = 1/p − 1/q</div></div>
+      <div class="formula-item"><div class="formula-label">A is x times B</div><div class="formula-val">A takes 1/x of B's time</div></div>
+      <div class="formula-item"><div class="formula-label">M1D1 = M2D2</div><div class="formula-val">Work is same both sides</div></div>
+    </div>
+  </div>
+  <div class="shortcut-box">
+    <div class="shortcut-label">The golden rule for Work & Time</div>
+    <div class="shortcut-text">Always convert to "work done per day" first. If A takes 6 days → A does 1/6 per day. If B takes 12 days → B does 1/12 per day. Together = 1/6 + 1/12 = 3/12 = 1/4 per day → takes 4 days. This one move solves 90% of problems.</div>
+  </div>
+  
+  <div class="cheat-sheet-box">
+    <h3>&#x1F4CB; The Ultimate Time & Work Cheat Sheet</h3>
+    <div class="cs-grid">
+      <div class="cs-card">
+        <div class="cs-card-title">1. Fraction of Work (Q2)</div>
+        <div class="cs-card-desc">Find how much work is done in a few days.</div>
+        <div class="cs-code">Fraction Done = Days Worked &divide; Total Days Needed</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">2. Group / Inverse Men (Q3, 7, 23)</div>
+        <div class="cs-card-desc">When workers change, time changes inversely.</div>
+        <div class="cs-code">New Days = (Old Men &times; Old Days) &divide; New Men</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">3. Both Together Pattern (Q1, 4)</div>
+        <div class="cs-card-desc">Have individual times, need them working together.</div>
+        <div class="cs-code">Together Time = (A &times; B) &divide; (A + B)</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">4. One Person Alone (Q5)</div>
+        <div class="cs-card-desc">Have 'together' time &amp; one person's time.</div>
+        <div class="cs-code">Other Person = (Alone &times; Together) &divide; (Alone &minus; Together)</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">5. Efficiency / Faster Pattern (Q6)</div>
+        <div class="cs-card-desc">When one person is X times faster.</div>
+        <div class="cs-code" style="margin-bottom: 5px;">Work Blocks = Together Days &times; (Sum of Ratios)</div>
+        <div class="cs-code">Alone Time = Total Blocks &divide; Person's Speed</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">6. Timeline / Mid-Way Left (Q9)</div>
+        <div class="cs-card-desc">When someone leaves after a few days.</div>
+        <div class="cs-code" style="text-align: left; padding-left: 15px;">
+          1. Total Pieces = LCM of days<br>
+          2. Speeds = Total Pieces &divide; Individual Days<br>
+          3. Rem. Work = Total Pieces &minus; (Days Worked &times; Starting Speed)<br>
+          4. Rem. Days = Rem. Work &divide; New Combined Speed
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="wt-stats" class="stats">
+    <div class="stat"><div class="stat-num" id="wt-done">0</div><div class="stat-lbl">revealed</div></div>
+    <div class="stat"><div class="stat-num">20</div><div class="stat-lbl">easy</div></div>
+    <div class="stat"><div class="stat-num">10</div><div class="stat-lbl">tricky</div></div>
+  </div>
+  <div class="section-label"><span>Easy questions</span><div class="section-line"></div></div>
+  <div id="wt-easy"></div>
+  <div class="section-label"><span>Tricky questions</span><div class="section-line"></div></div>
+  <div id="wt-hard"></div>
+</div>
+
+<div id="logic" class="page">
+  <div class="cheat-sheet-box">
+    <h3>&#x1F4C5; CALENDAR CHEAT SHEET</h3>
+    <div class="cs-grid">
+      <div class="cs-card">
+        <div class="cs-card-title">1. Main Trick</div>
+        <div class="cs-card-desc">Day questions &rarr; divide by 7. Use only remainder.</div>
+        <div class="cs-code">days % 7 = remainder</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">2. Important Rules</div>
+        <div class="cs-card-desc">Ignore complete weeks.</div>
+        <div class="cs-code">7, 14, 21 days = same day</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">3. Leap Year Rule</div>
+        <div class="cs-card-desc">Divisible by 4. Century years must be div by 400.</div>
+        <div class="cs-code">2024 = leap | 2100 = not leap</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">4. Odd Days</div>
+        <div class="cs-card-desc">Number of odd days in a year.</div>
+        <div class="cs-code" style="margin-bottom: 5px;">Normal (365) = 1 odd day</div>
+        <div class="cs-code">Leap (366) = 2 odd days</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cheat-sheet-box">
+    <h3>&#x1F9ED; DIRECTIONS CHEAT SHEET</h3>
+    <div class="cs-grid">
+      <div class="cs-card">
+        <div class="cs-card-title">1. Basic Directions</div>
+        <div class="cs-card-desc">Sun rises in East. North is UP.</div>
+        <div class="cs-code">N &uarr; | S &darr; | E &rarr; | W &larr;</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">2. Super Easy Memory Trick</div>
+        <div class="cs-card-desc">Think of compass rotation.</div>
+        <div class="cs-code" style="margin-bottom: 5px;">Right Turn = Clockwise</div>
+        <div class="cs-code">Left Turn = Anti-clockwise</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">3. Facing North</div>
+        <div class="cs-card-desc">Turning left or right.</div>
+        <div class="cs-code" style="margin-bottom: 5px;">Right = East</div>
+        <div class="cs-code">Left = West</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">4. Facing South</div>
+        <div class="cs-card-desc">Turning left or right (hands flip).</div>
+        <div class="cs-code" style="margin-bottom: 5px;">Right = West</div>
+        <div class="cs-code">Left = East</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cheat-sheet-box">
+    <h3>&#x23F0; CLOCK CHEAT SHEET</h3>
+    <div class="cs-grid">
+      <div class="cs-card">
+        <div class="cs-card-title">1. The Big Gap Rule</div>
+        <div class="cs-card-desc">Gap between any two numbers on the clock.</div>
+        <div class="cs-code">360&deg; &divide; 12 = 30&deg;</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">2. Minute Hand Speed</div>
+        <div class="cs-card-desc">The long hand travels 360&deg; in 60 mins.</div>
+        <div class="cs-code">360 &divide; 60 = 6&deg; every minute</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">3. Hour Hand Speed</div>
+        <div class="cs-card-desc">The short hand moves 30&deg; in 60 mins.</div>
+        <div class="cs-code">30 &divide; 60 = 0.5&deg; every minute</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">4. The 2-Second Angle Formula</div>
+        <div class="cs-card-desc">Exact angle between hands. Ignore negative sign.</div>
+        <div class="cs-code">Angle = | (30 &times; H) &minus; (5.5 &times; M) |</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cheat-sheet-box">
+    <h3>&#x1F9E9; NUMBER SERIES RULES</h3>
+    <div class="cs-grid">
+      <div class="cs-card">
+        <div class="cs-card-title">1. Constant Gap</div>
+        <div class="cs-card-desc">Adding or subtracting the same number.</div>
+        <div class="cs-code">Example: +3, +3, +3</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">2. Multiplier</div>
+        <div class="cs-card-desc">Multiplying by the same number every time.</div>
+        <div class="cs-code">Example: &times;2, &times;2, &times;2</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">3. Growing/Shrinking Gap</div>
+        <div class="cs-card-desc">The gap itself changes step-by-step.</div>
+        <div class="cs-code">Example: +1, +2, +3</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="python" class="page">
+  <div class="cheat-sheet-box">
+    <h3>&#x1F40D; PYTHON CODING CHEAT SHEET (QUICK TRICKS)</h3>
+    <div class="cs-grid">
+      <div class="cs-card">
+        <div class="cs-card-title">1. Reverse a String</div>
+        <div class="cs-card-desc">Read from end to start.</div>
+        <div class="cs-code-block">s = "hello"
+print(s[::-1])  <strong># olleh</strong></div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">2. Reverse a Number</div>
+        <div class="cs-card-desc">Take last digit repeatedly.</div>
+        <div class="cs-code-block">n = 1234
+rev = 0
+while n > 0:
+    digit = n % 10
+    rev = rev * 10 + digit
+    n = n // 10
+print(rev)  <strong># 4321</strong></div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">3. Palindrome</div>
+        <div class="cs-card-desc">Same forward and backward.</div>
+        <div class="cs-code-block">s = "madam"
+if s == s[::-1]:
+    print("Palindrome")</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">4. Fibonacci Series</div>
+        <div class="cs-card-desc">Next = previous two numbers sum.</div>
+        <div class="cs-code-block">a = 0
+b = 1
+for i in range(6):
+    print(a)
+    a, b = b, a + b</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">5. Factorial</div>
+        <div class="cs-card-desc">Multiply numbers from 1 to n.</div>
+        <div class="cs-code-block">n = 5
+fact = 1
+for i in range(1, n + 1):
+    fact = fact * i
+print(fact)  <strong># 120</strong></div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">6. Armstrong Number</div>
+        <div class="cs-card-desc">Sum of cubes of digits = original.</div>
+        <div class="cs-code-block">n = 153
+temp = n
+total = 0
+while n > 0:
+    digit = n % 10
+    total += digit**3
+    n = n // 10
+if temp == total:
+    print("Armstrong")</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">7. Prime Number</div>
+        <div class="cs-card-desc">Only divisible by 1 and itself.</div>
+        <div class="cs-code-block">n = 7
+count = 0
+for i in range(1, n + 1):
+    if n % i == 0:
+        count += 1
+if count == 2:
+    print("Prime")</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">8. Swap Two Numbers</div>
+        <div class="cs-card-desc">Easy Python trick.</div>
+        <div class="cs-code-block">a = 5
+b = 10
+a, b = b, a</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">9. Count Vowels</div>
+        <div class="cs-card-desc">Check against string of vowels.</div>
+        <div class="cs-code-block">s = "hello"
+count = 0
+for ch in s:
+    if ch in "aeiou":
+        count += 1
+print(count)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cheat-sheet-box">
+    <h3>&#x26A1; FAST REVISION BEFORE TEST</h3>
+    <div class="cs-grid">
+      <div class="cs-card">
+        <div class="cs-card-title">Most Important Basics</div>
+        <div class="cs-code-block"><strong># Input</strong>
+n = int(input())
+
+<strong># Loop</strong>
+for i in range(5):
+
+<strong># While Loop</strong>
+while n > 0:</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">Crucial Number Tricks</div>
+        <div class="cs-code-block"><strong>[::-1]</strong>  &rarr; reverse string
+<strong>% 10</strong>    &rarr; gets last digit
+<strong>// 10</strong>   &rarr; removes last digit</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">Core Logic Patterns</div>
+        <div class="cs-code-block"><strong>Reverse:</strong> start from end
+<strong>Palindrome:</strong> compare reverse
+<strong>Fibonacci:</strong> previous 2 sum
+<strong>Factorial:</strong> repeat multiply
+<strong>Armstrong:</strong> sum of powers
+<strong>Prime:</strong> count divisors</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cheat-sheet-box">
+    <h3>&#x1F3CE;&#xFE0F; FUNDAMENTAL TEST QUESTIONS (LOGIC BASED)</h3>
+    <div class="cs-grid">
+      <div class="cs-card">
+        <div class="cs-card-title">1. Reverse a String (Without [::-1])</div>
+        <div class="cs-code-block">def reverse_string(text):
+    reversed_text = ""
+    index = len(text) - 1
+    while index >= 0:
+        reversed_text += text[index]
+        index -= 1
+    return reversed_text</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">2. Check for Armstrong Number</div>
+        <div class="cs-code-block">def is_armstrong(num):
+    num_str = str(num)
+    power = len(num_str)
+    total_sum = 0
+    for digit in num_str:
+        total_sum += int(digit) ** power
+    return total_sum == num</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">3. Remove Duplicates From List</div>
+        <div class="cs-code-block">def remove_duplicates(arr):
+    unique_list = []
+    for element in arr:
+        if element not in unique_list:
+            unique_list.append(element)
+    return unique_list</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">4. Second Largest Number in List</div>
+        <div class="cs-code-block">def second_largest(arr):
+    largest = arr[0]
+    second = arr[0]
+    for num in arr:
+        if num > largest:
+            second = largest
+            largest = num
+        elif num > second and num != largest:
+            second = num
+    return second</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="aiml" class="page">
+  <div class="cheat-sheet-box">
+    <h3>&#x1F916; CORE MACHINE LEARNING BASICS</h3>
+    <div class="cs-list">
+      <div class="cs-card">
+        <div class="cs-card-title">Q1: What is the difference between Supervised and Unsupervised Learning?</div>
+        <div class="cs-card-desc">
+          <strong>Supervised Learning:</strong> The model learns using <strong>labeled data</strong>. You give it the input along with the correct answer key.<br>
+          <em>Example:</em> Predicting house prices based on size (Regression) or tagging an email as Spam/Not Spam (Classification).<br><br>
+          <strong>Unsupervised Learning:</strong> The model is given <strong>unlabeled data</strong> and must find hidden patterns or groupings on its own.<br>
+          <em>Example:</em> Grouping online shoppers into segments based on their buying habits (Clustering).
+        </div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">Q2: What is Overfitting and how do you prevent it?</div>
+        <div class="cs-card-desc">
+          <strong>What it is:</strong> The model memorizes the training data perfectly (including its random noise). It performs incredibly well on training data but fails miserably on new, unseen test data.<br>
+          <strong>How to prevent it:</strong><br>
+          &bull; Use more training data.<br>
+          &bull; Use <strong>Regularization</strong> (L1/L2 techniques that penalize complex models).<br>
+          &bull; Simplify the model (e.g., reduce the depth of a decision tree).
+        </div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">Q3: What is the Bias-Variance Tradeoff?</div>
+        <div class="cs-card-desc">
+          <strong>Bias:</strong> Mistakes caused by making overly simple assumptions. High bias leads to <strong>underfitting</strong> (the model is too dumb to find the pattern).<br>
+          <strong>Variance:</strong> Extreme sensitivity to small fluctuations in the training data. High variance leads to <strong>overfitting</strong> (the model is too flexible and over-complicates things).<br>
+          <strong>The Tradeoff:</strong> You want to find the perfect middle ground where the total error is minimized.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cheat-sheet-box">
+    <h3>&#x1F4CA; EVALUATION METRICS (Interviewers Love These)</h3>
+    <div class="cs-list">
+      <div class="cs-card">
+        <div class="cs-card-title">Q4: Is Accuracy always a good metric to evaluate a classification model?</div>
+        <div class="cs-card-desc">
+          <strong>No!</strong> Accuracy is highly misleading when dealing with an <strong>imbalanced dataset</strong>.<br><br>
+          <em>Example:</em> If you are building a model to detect a rare disease that only 1 in 100 people have, a dumb model that simply guesses "Healthy" for everyone will be <strong>99% accurate</strong>, but it is completely useless because it catches 0% of the sick patients.
+        </div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">Q5: What is the difference between Precision and Recall?</div>
+        <div class="cs-card-desc">
+          <strong>Precision:</strong> Out of all the cases the model <em>predicted as positive</em>, how many were actually positive? (Focuses on minimizing False Positives).<br>
+          <em>Formula:</em> True Positives &divide; (True Positives + False Positives)<br><br>
+          <strong>Recall:</strong> Out of all the <em>actual positive cases</em> out there, how many did the model successfully catch? (Focuses on minimizing False Negatives).<br>
+          <em>Formula:</em> True Positives &divide; (True Positives + False Negatives)
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cheat-sheet-box">
+    <h3>&#x1F9E0; DEEP LEARNING BASICS</h3>
+    <div class="cs-list">
+      <div class="cs-card">
+        <div class="cs-card-title">Q6: What is the role of an Activation Function in a Neural Network?</div>
+        <div class="cs-card-desc">
+          Without activation functions, a neural network is just multiplying numbers together linearly—which means it can only solve simple, straight-line problems. An activation function (like <strong>ReLU</strong> or <strong>Sigmoid</strong>) introduces <strong>non-linearity</strong>, allowing the network to learn complex, curvy patterns like images, audio, and language.
+        </div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">Q7: Briefly explain what a CNN and an RNN are best used for.</div>
+        <div class="cs-card-desc">
+          <strong>CNN (Convolutional Neural Network):</strong> Best for <strong>spatial data</strong> like images and video frames. It scans small pixel regions to look for edges and shapes.<br><br>
+          <strong>RNN (Recurrent Neural Network):</strong> Best for <strong>sequential data</strong> like text sequences, time-series data, or audio files because it possesses a "memory" of what words or sounds came right before.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cheat-sheet-box">
+    <h3>&#x1F527; DATA PREPROCESSING (Practical Coding Logic)</h3>
+    <div class="cs-list">
+      <div class="cs-card">
+        <div class="cs-card-title">Q8: How do you handle missing values in a dataset?</div>
+        <div class="cs-card-desc">
+          1. <strong>Drop them:</strong> Delete rows or columns if the missing data is minimal (using <code>dropna()</code> in Pandas).<br>
+          2. <strong>Impute them:</strong> Fill in the blank spaces with the column's <strong>Mean, Median, or Mode</strong> values.<br>
+          3. <strong>Flag them:</strong> Create an extra True/False column indicating that the data was missing, so the model knows it was an empty entry.
+        </div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">Q9: What is One-Hot Encoding?</div>
+        <div class="cs-card-desc">
+          Machine learning algorithms only understand numbers, not words. One-hot encoding takes a text category column (like <code>['Red', 'Blue']</code>) and splits it into individual binary columns (<code>Is_Red</code>, <code>Is_Blue</code>) containing 1s and 0s.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cheat-sheet-box">
+    <h3>&#x1F393; AI/ML BASICS INTERVIEW QUESTIONS (INTERN LEVEL)</h3>
+    <div class="cs-list">
+      <div class="cs-card">
+        <div class="cs-card-title">1. What is AI?</div>
+        <div class="cs-card-desc">AI is making machines think or act like humans.<br><em>Example:</em> Chatbots, Face recognition, Self-driving cars.</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">2. What is Machine Learning?</div>
+        <div class="cs-card-desc">Machine Learning is teaching computers to learn from data without hardcoding rules.<br><em>Example:</em> Spam detection, Movie recommendations.</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">3. Difference Between AI and ML</div>
+        <div class="cs-card-desc">
+          <strong>AI:</strong> Bigger concept. Simulates intelligence.<br>
+          <strong>ML:</strong> Subset of AI. Learns from data.<br><br>
+          <em>"All ML is AI, but not all AI is ML."</em>
+        </div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">4. Types of Machine Learning</div>
+        <div class="cs-card-desc">
+          <strong>Supervised Learning:</strong> Data has answers/labels. (e.g. Predict house price, Spam or not spam)<br>
+          <strong>Unsupervised Learning:</strong> No labels. (e.g. Grouping customers)<br>
+          <strong>Reinforcement Learning:</strong> Learning using rewards and punishment. (e.g. Self-driving cars, Game AI)
+        </div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">5. What is a Dataset?</div>
+        <div class="cs-card-desc">Collection of data used for training. <em>Example:</em> CSV file, Excel data.</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">6. What is Training a Model?</div>
+        <div class="cs-card-desc">Teaching model using data patterns.</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">7. What is Testing?</div>
+        <div class="cs-card-desc">Checking how well model performs on new data.</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">8. What is Overfitting?</div>
+        <div class="cs-card-desc">Model memorizes training data too much. Works well on training data but fails on new data.<br><em>Overfitting = memorizing</em></div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">9. What is Underfitting?</div>
+        <div class="cs-card-desc">Model learns too little. Poor performance everywhere.</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">10. What is Accuracy?</div>
+        <div class="cs-card-desc">Percentage of correct predictions.<br><em>Formula:</em> (Correct Predictions &divide; Total Predictions) &times; 100</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">11. What is a Feature?</div>
+        <div class="cs-card-desc">Input variable used for prediction.<br><em>Example for house price:</em> size, rooms, location.</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">12. What is Label/Target?</div>
+        <div class="cs-card-desc">Output to predict.<br><em>Example:</em> House price.</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">13. What is Python Used For in ML?</div>
+        <div class="cs-card-desc">Used for data analysis, model training, and visualization.</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">14. Common Python Libraries</div>
+        <div class="cs-card-desc">
+          <strong>NumPy:</strong> arrays/math<br>
+          <strong>Pandas:</strong> data handling<br>
+          <strong>Matplotlib:</strong> graphs<br>
+          <strong>scikit-learn:</strong> ML models
+        </div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">15. What is Deep Learning?</div>
+        <div class="cs-card-desc">Advanced ML using neural networks. Used in image recognition, speech recognition.</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">16. What is a Neural Network?</div>
+        <div class="cs-card-desc">Model inspired by human brain. Contains layers of neurons.</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">17. Difference Between Training Data and Testing Data</div>
+        <div class="cs-card-desc">
+          <strong>Training:</strong> teaches model<br>
+          <strong>Testing:</strong> evaluates model
+        </div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">18. What is Classification?</div>
+        <div class="cs-card-desc">Predicting categories.<br><em>Examples:</em> spam/not spam, cat/dog.</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">19. What is Regression?</div>
+        <div class="cs-card-desc">Predicting numbers.<br><em>Examples:</em> price prediction, temperature prediction.</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">20. What is Data Preprocessing?</div>
+        <div class="cs-card-desc">Cleaning data before training.<br><em>Examples:</em> removing null values, duplicates, scaling.</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">21. What is Model Evaluation?</div>
+        <div class="cs-card-desc">Checking model performance using metrics.<br><em>Examples:</em> accuracy, precision, recall.</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">22. Why Do You Want AI/ML?</div>
+        <div class="cs-card-desc"><em>Simple answer:</em> "I enjoy solving problems using data and intelligent systems. I'm interested in building practical AI applications and continuously learning ML technologies."</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">23. Explain One Project From Resume (Very Important)</div>
+        <div class="cs-card-desc">Explain: 1. Problem, 2. Technology used, 3. Your role, 4. Result. Keep it simple.</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">24. MOST IMPORTANT QUESTIONS THEY MAY ASK YOU</div>
+        <div class="cs-card-desc">
+          &bull; Difference between AI and ML<br>
+          &bull; Supervised vs unsupervised learning<br>
+          &bull; Explain your project<br>
+          &bull; Why Python for ML?<br>
+          &bull; What is overfitting?<br>
+          &bull; What libraries have you used?<br>
+          &bull; What is a dataset?<br>
+          &bull; What is model training?<br>
+          &bull; What is accuracy?
+        </div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">25. One-Line Revision</div>
+        <div class="cs-card-desc">
+          <strong>AI</strong> = intelligence<br>
+          <strong>ML</strong> = learning from data<br>
+          <strong>Dataset</strong> = collection of data<br>
+          <strong>Feature</strong> = input<br>
+          <strong>Label</strong> = output<br>
+          <strong>Overfitting</strong> = memorizing
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="sql" class="page">
+  <div class="cheat-sheet-box">
+    <h3>&#x1F4BE; OUR DATABASE TABLES</h3>
+    <div class="cs-list">
+      <div class="cs-card">
+        <div class="cs-card-title">Employees Table</div>
+        <div class="cs-card-desc">
+          <table class="sol-table">
+            <thead><tr><th>emp_id</th><th>name</th><th>salary</th><th>dept_id</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>Alice</td><td>90000</td><td>101</td></tr>
+              <tr><td>2</td><td>Bob</td><td>70000</td><td>102</td></tr>
+              <tr><td>3</td><td>Charlie</td><td>90000</td><td>101</td></tr>
+              <tr><td>4</td><td>David</td><td>50000</td><td>NULL</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">Departments Table</div>
+        <div class="cs-card-desc">
+          <table class="sol-table">
+            <thead><tr><th>dept_id</th><th>dept_name</th></tr></thead>
+            <tbody>
+              <tr><td>101</td><td>Tech</td></tr>
+              <tr><td>102</td><td>HR</td></tr>
+              <tr><td>103</td><td>Sales</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cheat-sheet-box">
+    <h3>&#x1F522; 1. SQL BASICS (SELECT, WHERE)</h3>
+    <div class="cs-list">
+      <div class="cs-card">
+        <div class="cs-card-title">Fetching Data</div>
+        <div class="cs-card-desc">
+          To get data out of a table, you use <code>SELECT</code> to pick the columns and <code>WHERE</code> to filter rows.<br><br>
+          <strong>Example:</strong> Find the names of employees earning more than 60,000.
+        </div>
+        <div class="cs-code-block">SELECT name 
+FROM Employees 
+WHERE salary > 60000;</div>
+        <div class="cs-card-desc" style="margin-top:10px;"><strong>Output:</strong> Alice, Bob, Charlie</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cheat-sheet-box">
+    <h3>&#x1F517; 2. JOINS (CONNECTING TABLES)</h3>
+    <div class="cs-list">
+      <div class="cs-card">
+        <div class="cs-card-title">Inner Join (The Matchmaker)</div>
+        <div class="cs-card-desc">
+          Only returns rows where there is a perfect match in <strong>both</strong> tables.<br><br>
+          <strong>Example:</strong> Get employee names and their department names.
+        </div>
+        <div class="cs-code-block">SELECT Employees.name, Departments.dept_name
+FROM Employees
+INNER JOIN Departments 
+ON Employees.dept_id = Departments.dept_id;</div>
+        <div class="cs-card-desc" style="margin-top:10px;"><strong>Output:</strong><br>&bull; Alice - Tech<br>&bull; Bob - HR<br>&bull; Charlie - Tech<br><em>(David is ignored because his dept_id is NULL)</em></div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">Left Join (The Greedy Left)</div>
+        <div class="cs-card-desc">
+          Returns <strong>all</strong> rows from the left table, plus matches from the right. If there's no match, it fills it with <code>NULL</code>.<br><br>
+          <strong>Example:</strong> List all employees and their departments, even if they don't have one.
+        </div>
+        <div class="cs-code-block">SELECT Employees.name, Departments.dept_name
+FROM Employees
+LEFT JOIN Departments 
+ON Employees.dept_id = Departments.dept_id;</div>
+        <div class="cs-card-desc" style="margin-top:10px;"><strong>Output:</strong> David will show up as <code>David - NULL</code>.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cheat-sheet-box">
+    <h3>&#x1F4CA; 3. GROUP BY (AGGREGATING DATA)</h3>
+    <div class="cs-list">
+      <div class="cs-card">
+        <div class="cs-card-title">Grouping and Math Functions</div>
+        <div class="cs-card-desc">
+          <code>GROUP BY</code> gathers rows with the same values into summary rows. It is almost always paired with math functions like <code>COUNT()</code>, <code>MAX()</code>, or <code>AVG()</code>.<br><br>
+          <strong>Example:</strong> Find the total salary spent on each department id.
+        </div>
+        <div class="cs-code-block">SELECT dept_id, SUM(salary)
+FROM Employees
+GROUP BY dept_id;</div>
+        <div class="cs-card-desc" style="margin-top:10px;"><strong>Output:</strong><br>&bull; 101: 180000 (90k + 90k)<br>&bull; 102: 70000<br>&bull; NULL: 50000</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cheat-sheet-box">
+    <h3>&#x2B50; 4. THE FAMOUS INTERVIEW QUESTION: 2ND HIGHEST SALARY</h3>
+    <div class="cs-list">
+      <div class="cs-card">
+        <div class="cs-card-title">Method A: The Logical Trick (Using Subquery)</div>
+        <div class="cs-card-desc">
+          Find the highest salary, ignore it, and then find the highest salary of what is left!
+        </div>
+        <div class="cs-code-block">SELECT MAX(salary) 
+FROM Employees 
+WHERE salary < (SELECT MAX(salary) FROM Employees);</div>
+        <div class="cs-card-desc" style="margin-top:10px;"><strong>How it works:</strong> The inside part <code>(SELECT MAX(salary)...)</code> returns 90,000. The outside query looks for the highest salary <em>less than</em> 90,000, which is <strong>70,000</strong>.</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">Method B: The Sorting Trick (Using LIMIT)</div>
+        <div class="cs-card-desc">
+          Sort the salaries from highest to lowest, skip the first one, and grab the second one.
+        </div>
+        <div class="cs-code-block">SELECT DISTINCT salary 
+FROM Employees 
+ORDER BY salary DESC 
+LIMIT 1 OFFSET 1;</div>
+        <div class="cs-card-desc" style="margin-top:10px;">
+          &bull; <code>ORDER BY salary DESC</code>: Sorts highest to lowest (90000, 70000, 50000).<br>
+          &bull; <code>LIMIT 1</code>: Give me only 1 row.<br>
+          &bull; <code>OFFSET 1</code>: Skip the first row.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cheat-sheet-box">
+    <h3>&#x2728; SQL CHEAT SHEET FOR INTERNSHIP INTERVIEWS</h3>
+    <div class="cs-list">
+      <div class="cs-card">
+        <div class="cs-card-title">1. What is SQL?</div>
+        <div class="cs-card-desc">SQL is used to store data, retrieve data, and update data from database.</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">2. SELECT</div>
+        <div class="cs-card-desc">Used to fetch data. <code>*</code> means get all columns.</div>
+        <div class="cs-code-block">SELECT * FROM employee;</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">3. WHERE</div>
+        <div class="cs-card-desc">Used for condition. Filters rows.</div>
+        <div class="cs-code-block">SELECT * FROM employee
+WHERE salary > 50000;</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">4. ORDER BY</div>
+        <div class="cs-card-desc">Used for sorting.<br><code>DESC</code> = highest to lowest<br><code>ASC</code> = lowest to highest</div>
+        <div class="cs-code-block">SELECT * FROM employee
+ORDER BY salary DESC;</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">5. COUNT</div>
+        <div class="cs-card-desc">Count rows.</div>
+        <div class="cs-code-block">SELECT COUNT(*) FROM employee;</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">6. GROUP BY</div>
+        <div class="cs-card-desc">Used to group similar data (e.g. Count employees in each department).<br><em>Easy Memory: GROUP BY groups same values together.</em></div>
+        <div class="cs-code-block">SELECT dept_id, COUNT(*)
+FROM employee
+GROUP BY dept_id;</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">7. MAX Salary</div>
+        <div class="cs-card-desc">Finds the highest salary.</div>
+        <div class="cs-code-block">SELECT MAX(salary)
+FROM employee;</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">8. 2nd Highest Salary (VERY IMPORTANT)</div>
+        <div class="cs-card-desc"><em>Easy Logic: 1. Find highest salary, 2. Ignore it, 3. Find highest again</em></div>
+        <div class="cs-code-block">SELECT MAX(salary)
+FROM employee
+WHERE salary <
+(
+    SELECT MAX(salary)
+    FROM employee
+);</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">9. JOINS (MOST IMPORTANT)</div>
+        <div class="cs-card-desc">Used to combine tables. <strong>INNER JOIN</strong> shows matching data from both tables.<br>
+          <em>Easy Logic: Employee has dept_id=1. Department has 1=HR. Result = Ram -> HR.</em>
+        </div>
+        <div class="cs-code-block">SELECT employee.name, department.dept_name
+FROM employee
+INNER JOIN department
+ON employee.dept_id = department.dept_id;</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">10. Types of JOIN</div>
+        <div class="cs-card-desc">
+          <strong>INNER JOIN:</strong> matching only (common only)<br>
+          <strong>LEFT JOIN:</strong> all left + matching (everything from left table)<br>
+          <strong>RIGHT JOIN:</strong> all right + matching<br>
+          <strong>FULL JOIN:</strong> everything
+        </div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">11. Difference Between WHERE and HAVING</div>
+        <div class="cs-card-desc">
+          <strong>WHERE:</strong> filters rows (before GROUP BY)<br>
+          <strong>HAVING:</strong> filters groups (after GROUP BY)<br><br>
+          <em>Example: Departments with more than 1 employee</em>
+        </div>
+        <div class="cs-code-block">SELECT dept_id, COUNT(*)
+FROM employee
+GROUP BY dept_id
+HAVING COUNT(*) > 1;</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">12. DISTINCT</div>
+        <div class="cs-card-desc">Removes duplicates.</div>
+        <div class="cs-code-block">SELECT DISTINCT dept_id
+FROM employee;</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">13. LIKE</div>
+        <div class="cs-card-desc">Search pattern. <em>Example: Names starting with R.</em></div>
+        <div class="cs-code-block">SELECT * FROM employee
+WHERE name LIKE 'R%';</div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">14. MOST IMPORTANT INTERVIEW QUESTIONS</div>
+        <div class="cs-card-desc">
+          They LOVE asking:<br>
+          &bull; Difference between WHERE and HAVING<br>
+          &bull; Types of joins<br>
+          &bull; 2nd highest salary<br>
+          &bull; GROUP BY usage<br>
+          &bull; COUNT(*)<br>
+          &bull; MAX()<br>
+          &bull; ORDER BY<br>
+          &bull; Difference between DELETE and DROP
+        </div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">15. DELETE vs DROP</div>
+        <div class="cs-card-desc">
+          <strong>DELETE:</strong> removes rows, table stays.<br>
+          <strong>DROP:</strong> removes whole table, table deleted.
+        </div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-card-title">16. FAST REVISION</div>
+        <div class="cs-card-desc">
+          <strong>SELECT</strong> &rarr; fetch data<br>
+          <strong>WHERE</strong> &rarr; condition<br>
+          <strong>ORDER BY</strong> &rarr; sorting<br>
+          <strong>GROUP BY</strong> &rarr; grouping<br>
+          <strong>COUNT</strong> &rarr; counting<br>
+          <strong>JOIN</strong> &rarr; combine tables
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const data = {
+  sdt: {
+    easy: [
+      {q:"A train travels 60 km in 1 hour. How far in 3 hours?", a:"180 km", t:`<div class="sol-steps"><div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">Use D = S &times; T</span><br><code>60 &times; 3 = <strong>180 km</strong></code></div></div></div><div class="sol-tip">&nbsp;&#128161;&nbsp; Speed &times; Time = Distance. Same speed, more time = more distance!</div>`},
+      {q:"A car covers 120 km in 2 hours. What is its speed?", a:"60 km/h", t:`<div class="sol-steps"><div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">Use S = D &divide; T</span><br><code>120 &divide; 2 = <strong>60 km/h</strong></code></div></div></div><div class="sol-tip">&nbsp;&#128161;&nbsp; Cover Distance with your finger in D=S&times;T &rarr; S = D&divide;T</div>`},
+      {q:"A person walks at 5 km/h for 3 hours. Distance?", a:"15 km", t:`<div class="sol-steps"><div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">Use D = S &times; T</span><br><code>5 &times; 3 = <strong>15 km</strong></code></div></div></div>`},
+      {q:"A bus covers 200 km in 4 hours. Speed?", a:"50 km/h", t:`<div class="sol-steps"><div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">Use S = D &divide; T</span><br><code>200 &divide; 4 = <strong>50 km/h</strong></code></div></div></div>`},
+      {q:"At 60 km/h, how long to travel 300 km?", a:"5 hours", t:`<div class="sol-steps"><div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">Use T = D &divide; S</span><br><code>300 &divide; 60 = <strong>5 hours</strong></code></div></div></div><div class="sol-tip">&nbsp;&#128161;&nbsp; Cover Time in D=S&times;T &rarr; T = D&divide;S</div>`},
+      {q:"Convert 72 km/h to m/s.", a:"20 m/s", t:`<div class="sol-steps"><div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">Multiply by 5/18</span><br><code>72 &times; 5/18 = <strong>20 m/s</strong></code></div></div></div><div class="sol-tip">&nbsp;&#128161;&nbsp; km/h &rarr; m/s: multiply by 5/18 &nbsp;(or divide by 3.6)</div>`},
+      {q:"Convert 15 m/s to km/h.", a:"54 km/h", t:`<div class="sol-steps"><div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">Multiply by 18/5</span><br><code>15 &times; 18/5 = <strong>54 km/h</strong></code></div></div></div><div class="sol-tip">&nbsp;&#128161;&nbsp; m/s &rarr; km/h: multiply by 18/5 &nbsp;(or multiply by 3.6)</div>`},
+      {q:"A cyclist covers 90 km in 3 hours. Speed?", a:"30 km/h", t:`<div class="sol-steps"><div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">Use S = D &divide; T</span><br><code>90 &divide; 3 = <strong>30 km/h</strong></code></div></div></div>`},
+      {q:"At 40 km/h, how far in 2.5 hours?", a:"100 km", t:`<div class="sol-steps"><div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">Use D = S &times; T</span><br><code>40 &times; 2.5 = <strong>100 km</strong></code></div></div></div><div class="sol-tip">&nbsp;&#128161;&nbsp; 40&times;2 = 80, 40&times;0.5 = 20 &rarr; 80+20 = 100</div>`},
+      {q:"Time to cover 450 km at 90 km/h?", a:"5 hours", t:`<div class="sol-steps"><div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">Use T = D &divide; S</span><br><code>450 &divide; 90 = <strong>5 hours</strong></code></div></div></div>`},
+      {q:"Two cities 240 km apart. Car at 80 km/h. Time to reach?", a:"3 hours", t:`<div class="sol-steps"><div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">Use T = D &divide; S</span><br><code>240 &divide; 80 = <strong>3 hours</strong></code></div></div></div>`},
+      {q:"A train 100m long passes a pole at 36 km/h. Time taken?", a:"10 seconds", t:`<div class="sol-steps"><div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">Convert speed to m/s</span><br><code>36 &times; 5/18 = <strong>10 m/s</strong></code></div></div><div class="sol-step"><span class="sol-n">2</span><div><span class="sol-lbl">Time = Distance &divide; Speed (passing a pole = train length only)</span><br><code>100 &divide; 10 = <strong>10 seconds</strong></code></div></div></div>`},
+      {q:"A person walks 4 km/h. Time to walk 1 km?", a:"15 minutes", t:`
+        <div class="sol-steps">
+          <div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">Find time in hours</span><br>T = D &divide; S &nbsp;&rarr;&nbsp; <code>1 &divide; 4 = <strong>1/4 hour</strong></code></div></div>
+          <div class="sol-step"><span class="sol-n">2</span><div><span class="sol-lbl">Convert fraction to decimal</span><br><code>1/4 = <strong>0.25 hours</strong></code></div></div>
+          <div class="sol-step"><span class="sol-n">3</span><div><span class="sol-lbl">Convert hours &rarr; minutes &nbsp;(&times; 60)</span><br><code>0.25 &times; 60 = <strong>15 minutes</strong></code></div></div>
+        </div>
+        <div class="sol-tip">&nbsp;&#128161;&nbsp; Think of a clock face &mdash; one-quarter of 60 minutes = <strong>15 min</strong></div>
+      `},
+      {q:"Car travels 150 km in 2.5 hours. Speed?", a:"60 km/h", t:`
+        <div class="sol-steps">
+          <div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">Identify values</span><br>Distance = <code>150 km</code> &nbsp;&bull;&nbsp; Time = <code>2.5 hours</code></div></div>
+          <div class="sol-step"><span class="sol-n">2</span><div><span class="sol-lbl">Set up the formula</span><br>Speed = Distance &divide; Time &nbsp;&rarr;&nbsp; <code>150 &divide; 2.5</code></div></div>
+          <div class="sol-step"><span class="sol-n">3</span><div><span class="sol-lbl">Eliminate the decimal &mdash; double both numbers</span><br><code>(150&times;2) &divide; (2.5&times;2) = 300 &divide; 5 = <strong>60 km/h</strong></code></div></div>
+        </div>
+        <div class="sol-tip">&nbsp;&#128161;&nbsp; Doubling top <em>and</em> bottom keeps the ratio the same &mdash; it just makes the division clean!</div>
+      `},
+      {q:"At 50 km/h for 4 hours, distance covered?", a:"200 km", t:`<div class="sol-steps"><div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">Use D = S &times; T</span><br><code>50 &times; 4 = <strong>200 km</strong></code></div></div></div>`},
+      {q:"Bike at 45 km/h. Time for 90 km?", a:"2 hours", t:`<div class="sol-steps"><div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">Use T = D &divide; S</span><br><code>90 &divide; 45 = <strong>2 hours</strong></code></div></div></div>`},
+      {q:"Convert 108 km/h to m/s.", a:"30 m/s", t:`<div class="sol-steps"><div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">Multiply by 5/18</span><br><code>108 &times; 5/18 = <strong>30 m/s</strong></code></div></div></div><div class="sol-tip">&nbsp;&#128161;&nbsp; Simplify first: 108/18 = 6, then 6&times;5 = 30</div>`},
+      {q:"A runs 5 km in 25 minutes. Speed in km/h?", a:"12 km/h", t:`
+        <div class="sol-steps">
+          <div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">Convert minutes &rarr; hours</span><br><code>25 min = 25/60 hours</code></div></div>
+          <div class="sol-step"><span class="sol-n">2</span><div><span class="sol-lbl">Set up Speed formula</span><br><code>Speed = 5 &divide; (25/60)</code></div></div>
+          <div class="sol-step"><span class="sol-n">3</span><div><span class="sol-lbl">Flip and multiply (dividing by a fraction)</span><br><code>5 &times; (60/25) = 300/25 = <strong>12 km/h</strong></code></div></div>
+        </div>
+        <div class="sol-tip">&nbsp;&#128161;&nbsp; Dividing by a fraction = multiply by its reciprocal &mdash; flip the bottom and multiply!</div>
+      `},
+      {q:"Car covers 350 km at 70 km/h. Time?", a:"5 hours", t:`<div class="sol-steps"><div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">Use T = D &divide; S</span><br><code>350 &divide; 70 = <strong>5 hours</strong></code></div></div></div>`},
+      {q:"Walking at 6 km/h, time for 9 km?", a:"1.5 hours (90 min)", t:`<div class="sol-steps"><div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">Use T = D &divide; S</span><br><code>9 &divide; 6 = <strong>1.5 hours = 90 min</strong></code></div></div></div>`},
+    ],
+    hard: [
+      {q:"A goes from A to B at 40 km/h and returns at 60 km/h. Average speed for the whole journey?", a:"48 km/h", t:`
+        <div class="sol-steps">
+          <div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">Use Harmonic Mean formula for equal distances</span><br><code>Avg = 2S₁S₂ &divide; (S₁+S₂)</code></div></div>
+          <div class="sol-step"><span class="sol-n">2</span><div><span class="sol-lbl">Plug in values</span><br><code>2 &times; 40 &times; 60 &divide; (40+60) = 4800 &divide; 100 = <strong>48 km/h</strong></code></div></div>
+        </div>
+        <div class="sol-note"><span class="sol-note-lbl">&#x26A0; Classic Trap</span>People average 40 and 60 directly &rarr; get 50 km/h &mdash; <strong>WRONG!</strong> More time is spent at the slower speed, so the average is always closer to the lower speed.</div>
+        <div class="sol-tip">&nbsp;&#128161;&nbsp; Equal distance trips: always use 2ab/(a+b), never (a+b)/2</div>
+      `},
+      {q:"Two trains of 100m and 150m length approach each other at 60 km/h and 40 km/h. Time to completely cross?", a:"9 seconds", t:`
+        <div class="sol-steps">
+          <div class="sol-step">
+            <span class="sol-n">1</span>
+            <div>
+              <span class="sol-lbl">Find the Total Distance</span><br>
+              Both trains must pass each other completely — front to back. Add both lengths.<br>
+              <code>100 m + 150 m = <strong>250 m</strong></code>
+            </div>
+          </div>
+          <div class="sol-step">
+            <span class="sol-n">2</span>
+            <div>
+              <span class="sol-lbl">Find the Relative Speed</span><br>
+              Trains move <em>towards</em> each other → speeds add up.<br>
+              <code>60 + 40 = <strong>100 km/h</strong></code>
+            </div>
+          </div>
+          <div class="sol-step">
+            <span class="sol-n">2b</span>
+            <div>
+              <span class="sol-lbl">Convert km/h → m/s &nbsp;(multiply by 5/18)</span><br>
+              Distance is in metres, so speed must be too.<br>
+              <code>100 × 5/18 = <strong>250/9 m/s</strong></code>
+            </div>
+          </div>
+          <div class="sol-step">
+            <span class="sol-n">3</span>
+            <div>
+              <span class="sol-lbl">Calculate Time = Distance ÷ Speed</span><br>
+              <code>250 ÷ (250/9) = 250 × 9/250 = <strong>9 seconds</strong></code><br>
+              The 250s cancel out completely!
+            </div>
+          </div>
+        </div>
+        <div class="sol-tip">&nbsp;&#128161;&nbsp; Always convert km/h → m/s when distance is in metres. Magic fraction: <strong>× 5/18</strong></div>
+      `},
+      {q:"Train 200m long at 54 km/h crosses a 300m bridge. Time?", a:"33.3 seconds", t:`
+        <div class="sol-steps">
+          <div class="sol-step">
+            <span class="sol-n">1</span>
+            <div>
+              <span class="sol-lbl">Convert Speed: km/h → m/s &nbsp;(× 5/18)</span><br>
+              Distance is in metres, so speed must match.<br>
+              <code>54 × 5/18 = 3 × 5 = <strong>15 m/s</strong></code>
+            </div>
+          </div>
+          <div class="sol-step">
+            <span class="sol-n">2</span>
+            <div>
+              <span class="sol-lbl">Find Total Distance</span><br>
+              Train must travel its own length <em>plus</em> the bridge to fully clear it.<br>
+              <code>200 m + 300 m = <strong>500 m</strong></code>
+            </div>
+          </div>
+          <div class="sol-step">
+            <span class="sol-n">3</span>
+            <div>
+              <span class="sol-lbl">Calculate Time = Distance ÷ Speed</span><br>
+              <code>500 ÷ 15 = 100/3 = <strong>33.3 seconds</strong></code>
+            </div>
+          </div>
+        </div>
+        <div class="sol-tip">&nbsp;&#128161;&nbsp; A train crossing anything = train length + object length. It must fully clear, not just reach!</div>
+      `},
+      {q:"A and B start from the same point in opposite directions at 5 and 7 km/h. Distance between them after 3 hours?", a:"36 km", t:`
+        <div class="sol-steps">
+          <div class="sol-step">
+            <span class="sol-n">1</span>
+            <div>
+              <span class="sol-lbl">Find Relative Speed</span><br>
+              Opposite directions → speeds <em>add</em> up.<br>
+              <code>5 km/h + 7 km/h = <strong>12 km/h</strong></code>
+            </div>
+          </div>
+          <div class="sol-step">
+            <span class="sol-n">2</span>
+            <div>
+              <span class="sol-lbl">Calculate Total Distance</span><br>
+              <code>12 km/h × 3 hours = <strong>36 km</strong></code>
+            </div>
+          </div>
+        </div>
+        <div class="sol-note">
+          <span class="sol-note-lbl">&#x1F4CC; Visualise it</span>
+          A travels: <code>5 × 3 = 15 km</code> &nbsp;&larr;&nbsp; &bull; &nbsp;&rarr;&nbsp; B travels: <code>7 × 3 = 21 km</code><br>
+          Total gap = <code>15 + 21 = <strong>36 km</strong></code>
+        </div>
+        <div class="sol-tip">&nbsp;&#128161;&nbsp; Opposite directions → add speeds. Same direction → subtract speeds.</div>
+      `},
+      {q:"Two trains start simultaneously from A and B (300 km apart) towards each other at 70 and 80 km/h. When do they meet?", a:"2 hours", t:`
+        <div class="sol-steps">
+          <div class="sol-step">
+            <span class="sol-n">1</span>
+            <div>
+              <span class="sol-lbl">Towards each other &rarr; Add speeds</span><br>
+              <code>70 + 80 = <strong>150 km/h</strong></code>
+            </div>
+          </div>
+          <div class="sol-step">
+            <span class="sol-n">2</span>
+            <div>
+              <span class="sol-lbl">Time = Distance &divide; Combined Speed</span><br>
+              <code>300 &divide; 150 = <strong>2 hours</strong></code>
+            </div>
+          </div>
+        </div>
+        <div class="sol-note">
+          <span class="sol-note-lbl">&#x26A1; Even Faster — 3 Second Mental Process</span>
+          Towards each other &rArr; add speeds &nbsp;&bull;&nbsp;
+          <code>70 + 80 = 150</code> &nbsp;&bull;&nbsp;
+          <code>300 &divide; 150 = <strong>2</strong></code>
+        </div>
+        <div class="sol-table-wrap">
+          <div class="sol-table-lbl">&#x1F4CB; Pattern Cheat Sheet</div>
+          <table class="sol-table">
+            <thead><tr><th>Situation</th><th>What to do</th></tr></thead>
+            <tbody>
+              <tr><td>Towards each other</td><td><strong>Add</strong> speeds</td></tr>
+              <tr><td>Same direction</td><td><strong>Subtract</strong> speeds</td></tr>
+              <tr><td>Find Time</td><td>Distance &divide; Speed</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="sol-tip">&nbsp;&#128161;&nbsp; This pattern solves every "when do they meet" question in under 3 seconds!</div>
+      `},
+      {q:"A thief runs at 10 km/h. Police starts chasing 15 minutes later at 15 km/h. When is thief caught?", a:"30 minutes after police start", t:`
+        <div class="sol-steps">
+          <div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">Find thief's head start (15 min = 15/60 hr)</span><br><code>10 &times; 15/60 = <strong>2.5 km</strong></code></div></div>
+          <div class="sol-step"><span class="sol-n">2</span><div><span class="sol-lbl">Relative speed (same direction &rarr; subtract)</span><br><code>15 &minus; 10 = <strong>5 km/h</strong></code></div></div>
+          <div class="sol-step"><span class="sol-n">3</span><div><span class="sol-lbl">Time to close the gap</span><br><code>2.5 &divide; 5 = 0.5 hr = <strong>30 minutes</strong></code></div></div>
+        </div>
+        <div class="sol-tip">&nbsp;&#128161;&nbsp; Head start gap &divide; relative speed = time to catch. Same direction always subtract speeds!</div>
+      `},
+      {q:"A train passes a 200m platform in 20 sec and a man standing on it in 12 sec. Find the train's length.", a:"300 m", t:`
+        <div class="sol-steps">
+          <div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">Let train length = L. Speed = L &divide; 12</span><br><code>Speed = L/12</code></div></div>
+          <div class="sol-step"><span class="sol-n">2</span><div><span class="sol-lbl">Crossing platform: Speed = (L+200) &divide; 20</span><br><code>L/12 = (L+200)/20</code></div></div>
+          <div class="sol-step"><span class="sol-n">3</span><div><span class="sol-lbl">Cross-multiply and solve</span><br><code>20L = 12L + 2400 &rarr; 8L = 2400 &rarr; L = <strong>300 m</strong></code></div></div>
+        </div>
+        <div class="sol-tip">&nbsp;&#128161;&nbsp; Same speed, two equations &rarr; set them equal and solve for the unknown!</div>
+      `},
+      {q:"Ratio of speeds of A and B is 3:5. If B covers 200 km, distance A covers in the same time?", a:"120 km", t:`
+        <div class="sol-steps">
+          <div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">Same time &rarr; distance ratio = speed ratio</span><br><code>A : B = 3 : 5</code></div></div>
+          <div class="sol-step"><span class="sol-n">2</span><div><span class="sol-lbl">If B = 200 km, find A</span><br><code>A = (3/5) &times; 200 = <strong>120 km</strong></code></div></div>
+        </div>
+        <div class="sol-tip">&nbsp;&#128161;&nbsp; Same time &rarr; Distance &prop; Speed. Faster = more distance in same time.</div>
+      `},
+      {q:"A car covers first 150 km at 50 km/h and next 150 km at 75 km/h. Average speed for whole journey?", a:"60 km/h", t:`
+        <div class="sol-steps">
+          <div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">Equal distances &rarr; use harmonic mean</span><br><code>Avg = 2 &times; 50 &times; 75 &divide; (50+75)</code></div></div>
+          <div class="sol-step"><span class="sol-n">2</span><div><span class="sol-lbl">Calculate</span><br><code>7500 &divide; 125 = <strong>60 km/h</strong></code></div></div>
+        </div>
+        <div class="sol-tip">&nbsp;&#128161;&nbsp; Equal distances &rarr; 2ab/(a+b). Unequal distances &rarr; Total D &divide; Total T.</div>
+      `},
+      {q:"A train crosses a pole in 9 sec and a 225m platform in 18 sec. Speed of train?", a:"25 m/s (90 km/h)", t:`
+        <div class="sol-steps">
+          <div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">Pole: train covers its own length L in 9 sec</span><br><code>Speed = L/9</code></div></div>
+          <div class="sol-step"><span class="sol-n">2</span><div><span class="sol-lbl">Platform: covers L+225 in 18 sec. Set speeds equal</span><br><code>L/9 = (L+225)/18 &rarr; 18L = 9L+2025 &rarr; L = <strong>225 m</strong></code></div></div>
+          <div class="sol-step"><span class="sol-n">3</span><div><span class="sol-lbl">Find Speed</span><br><code>225 &divide; 9 = <strong>25 m/s = 90 km/h</strong></code></div></div>
+        </div>
+        <div class="sol-tip">&nbsp;&#128161;&nbsp; Notice 18 = 2&times;9 &rarr; double time means double distance &rarr; L+225 = 2L &rarr; L=225. Elegant shortcut!</div>
+      `}
+    ]
+  },
+  pct: {
+    easy: [
+      {q:"Find 10% of 500.", a:"50", t:`
+        <div class="sol-steps">
+          <div class="sol-step">
+            <span class="sol-n">1</span>
+            <div>
+              <span class="sol-lbl">Move the decimal one place left</span><br>
+              10% of any number = just shift the decimal left by 1.<br>
+              <code>500. &rarr; 50. = <strong>50</strong></code>
+            </div>
+          </div>
+          <div class="sol-step">
+            <span class="sol-n">2</span>
+            <div>
+              <span class="sol-lbl">To get 20% — double it</span><br>
+              <code>50 &times; 2 = <strong>100</strong></code>
+            </div>
+          </div>
+        </div>
+        <div class="sol-note">
+          <span class="sol-note-lbl">&#x26A1; Decimal Shortcut Pattern</span>
+          10% &rarr; move decimal left &nbsp;&bull;&nbsp; 1% &rarr; move decimal left <em>twice</em> &nbsp;&bull;&nbsp; 20% &rarr; 10% &times; 2
+        </div>
+        <div class="sol-tip">&nbsp;&#128161;&nbsp; 10% is your anchor — build every other % from it!</div>
+      `},
+      {q:"Find 20% of 200.", a:"40", t:`<div class="sol-steps"><div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">10% of 200 = 20 (move decimal). Double it for 20%.</span><br><code>20 &times; 2 = <strong>40</strong></code></div></div></div>`},
+      {q:"15% discount on ₹400. Final price?", a:"₹340", t:`
+        <div class="sol-steps">
+          <div class="sol-step">
+            <span class="sol-n">1</span>
+            <div>
+              <span class="sol-lbl">Find 10% &mdash; move decimal left</span><br>
+              <code>₹400 &rarr; ₹<strong>40</strong></code>
+            </div>
+          </div>
+          <div class="sol-step">
+            <span class="sol-n">2</span>
+            <div>
+              <span class="sol-lbl">Find 5% &mdash; half of 10%</span><br>
+              <code>₹40 &divide; 2 = ₹<strong>20</strong></code>
+            </div>
+          </div>
+          <div class="sol-step">
+            <span class="sol-n">3</span>
+            <div>
+              <span class="sol-lbl">Total 15% discount = 10% + 5%</span><br>
+              <code>₹40 + ₹20 = ₹<strong>60</strong></code>
+            </div>
+          </div>
+          <div class="sol-step">
+            <span class="sol-n">4</span>
+            <div>
+              <span class="sol-lbl">Final Price = Original &minus; Discount</span><br>
+              <code>₹400 &minus; ₹60 = ₹<strong>340</strong></code>
+            </div>
+          </div>
+        </div>
+        <div class="sol-tip">&nbsp;&#128161;&nbsp; Build any % from 10%: &nbsp;5% = half of 10% &nbsp;&bull;&nbsp; 15% = 10% + 5% &nbsp;&bull;&nbsp; 25% = 10%+10%+5%</div>
+      `},
+      {q:"Find 25% of 80.", a:"20", t:`
+        <div class="sol-steps">
+          <div class="sol-step">
+            <span class="sol-n">1</span>
+            <div>
+              <span class="sol-lbl">Find 50% first &mdash; just halve it</span><br>
+              <code>80 &divide; 2 = <strong>40</strong> &nbsp;(that's 50%)</code>
+            </div>
+          </div>
+          <div class="sol-step">
+            <span class="sol-n">2</span>
+            <div>
+              <span class="sol-lbl">Cut it in half again for 25%</span><br>
+              <code>40 &divide; 2 = <strong>20</strong> &nbsp;(that's 25%)</code>
+            </div>
+          </div>
+        </div>
+        <div class="sol-note">
+          <span class="sol-note-lbl">&#x26A1; Halving Trick</span>
+          25% = half of half &nbsp;&bull;&nbsp; So 25% of anything = number &divide; 4
+        </div>
+        <div class="sol-tip">&nbsp;&#128161;&nbsp; 25% = &frac14; &nbsp;&bull;&nbsp; 50% = &frac12; &nbsp;&bull;&nbsp; 75% = &frac34; &nbsp;— memorise these fractions!</div>
+      `},
+      {q:"Find 30% of 150.", a:"45", t:`<div class="sol-steps"><div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">10% of 150 = 15. Triple it for 30%.</span><br><code>15 &times; 3 = <strong>45</strong></code></div></div></div><div class="sol-tip">&nbsp;&#128161;&nbsp; 30% = 3 &times; 10%. Find 10% first, then multiply!</div>`},
+      {q:"A shirt costs ₹600 with 10% discount. Final price?", a:"₹540", t:`<div class="sol-steps"><div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">Find 10% discount amount</span><br><code>₹600 &rarr; ₹<strong>60</strong> discount</code></div></div><div class="sol-step"><span class="sol-n">2</span><div><span class="sol-lbl">Subtract</span><br><code>₹600 &minus; ₹60 = ₹<strong>540</strong></code></div></div></div>`},
+      {q:"50 is what percent of 200?", a:"25%", t:`<div class="sol-steps"><div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">Use (Part &divide; Whole) &times; 100</span><br><code>(50 &divide; 200) &times; 100 = 0.25 &times; 100 = <strong>25%</strong></code></div></div></div><div class="sol-tip">&nbsp;&#128161;&nbsp; 50/200 = 1/4 = 25%. Simplify the fraction first!</div>`},
+      {q:"Price increases from ₹400 to ₹500. Percentage increase?", a:"25%", t:`
+        <div class="sol-steps">
+          <div class="sol-step">
+            <span class="sol-n">1</span>
+            <div>
+              <span class="sol-lbl">Find how much it increased</span><br>
+              <code>₹500 &minus; ₹400 = ₹<strong>100</strong></code>
+            </div>
+          </div>
+          <div class="sol-step">
+            <span class="sol-n">2</span>
+            <div>
+              <span class="sol-lbl">Compare increase with the original price</span><br>
+              What fraction is ₹100 of ₹400?<br>
+              <code>100 &divide; 400 = <strong>1/4</strong></code>
+            </div>
+          </div>
+          <div class="sol-step">
+            <span class="sol-n">3</span>
+            <div>
+              <span class="sol-lbl">Convert fraction to percentage</span><br>
+              <code>1/4 = <strong>25%</strong></code>
+            </div>
+          </div>
+        </div>
+        <div class="sol-table-wrap">
+          <div class="sol-table-lbl">&#x1F4CB; % Change Formula</div>
+          <table class="sol-table">
+            <thead><tr><th>Type</th><th>Formula</th></tr></thead>
+            <tbody>
+              <tr><td>% Increase</td><td>(New &minus; Old) &divide; Old &times; 100</td></tr>
+              <tr><td>% Decrease</td><td>(Old &minus; New) &divide; Old &times; 100</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="sol-tip">&nbsp;&#128161;&nbsp; Always divide by the <strong>original</strong> (old) value — never the new one!</div>
+      `},
+      {q:"Find 5% of 1000.", a:"50", t:`<div class="sol-steps"><div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">10% of 1000 = 100. Halve it for 5%.</span><br><code>100 &divide; 2 = <strong>50</strong></code></div></div></div>`},
+      {q:"What is 12% of 250?", a:"30", t:`<div class="sol-steps"><div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">10% of 250 = 25</span><br><code>25</code></div></div><div class="sol-step"><span class="sol-n">2</span><div><span class="sol-lbl">2% = 1% &times; 2. 1% of 250 = 2.5 &rarr; 2% = 5</span><br><code>25 + 5 = <strong>30</strong></code></div></div></div><div class="sol-tip">&nbsp;&#128161;&nbsp; 12% = 10% + 2%. Build from your anchor!</div>`},
+      {q:"₹800 with 20% discount. Discount amount?", a:"₹160", t:`<div class="sol-steps"><div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">10% of ₹800 = ₹80. Double it for 20%.</span><br><code>₹80 &times; 2 = ₹<strong>160</strong></code></div></div></div>`},
+      {q:"Price drops from ₹200 to ₹150. Percentage decrease?", a:"25%", t:`<div class="sol-steps"><div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">Find the drop</span><br><code>₹200 &minus; ₹150 = ₹<strong>50</strong></code></div></div><div class="sol-step"><span class="sol-n">2</span><div><span class="sol-lbl">% = (drop &divide; original) &times; 100</span><br><code>(50 &divide; 200) &times; 100 = <strong>25%</strong></code></div></div></div>`},
+      {q:"Find 40% of 75.", a:"30", t:`<div class="sol-steps"><div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">10% of 75 = 7.5. Multiply by 4 for 40%.</span><br><code>7.5 &times; 4 = <strong>30</strong></code></div></div></div>`},
+      {q:"A product at ₹1000, 15% off. Final price?", a:"₹850", t:`<div class="sol-steps"><div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">10% of ₹1000 = ₹100. 5% = ₹50. Total 15% = ₹150.</span><br><code>₹1000 &minus; ₹150 = ₹<strong>850</strong></code></div></div></div>`},
+      {q:"60 out of 300 as a percentage?", a:"20%", t:`
+        <div class="sol-steps">
+          <div class="sol-step">
+            <span class="sol-n">1</span>
+            <div>
+              <span class="sol-lbl">Split 300 into blocks of 100</span><br>
+              Imagine 300 as 3 equal blocks:<br>
+              <div class="sol-blocks"><span class="sol-block">100</span><span class="sol-block">100</span><span class="sol-block">100</span></div>
+            </div>
+          </div>
+          <div class="sol-step">
+            <span class="sol-n">2</span>
+            <div>
+              <span class="sol-lbl">Share 60 equally across all 3 blocks</span><br>
+              <code>60 &divide; 3 = <strong>20</strong> per block</code>
+            </div>
+          </div>
+          <div class="sol-step">
+            <span class="sol-n">3</span>
+            <div>
+              <span class="sol-lbl">Each block of 100 gets 20 &rarr; that is 20%</span><br>
+              <div class="sol-blocks"><span class="sol-block sol-block-filled">20</span><span class="sol-block sol-block-filled">20</span><span class="sol-block sol-block-filled">20</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="sol-tip">&nbsp;&#128161;&nbsp; % means &ldquo;per 100&rdquo; &mdash; so just find how much lands in each block of 100!</div>
+      `},
+      {q:"Find 35% of 200.", a:"70", t:"200×35/100 = 70"},
+      {q:"₹250 with 8% discount. Final price?", a:"₹230", t:`
+        <div class="sol-steps">
+          <div class="sol-step">
+            <span class="sol-n">1</span>
+            <div>
+              <span class="sol-lbl">Find 10% &mdash; move decimal left</span><br>
+              <code>₹250 &rarr; ₹<strong>25</strong></code>
+            </div>
+          </div>
+          <div class="sol-step">
+            <span class="sol-n">2</span>
+            <div>
+              <span class="sol-lbl">Find 1% &mdash; move decimal left twice</span><br>
+              <code>₹250 &rarr; ₹<strong>2.5</strong></code>
+            </div>
+          </div>
+          <div class="sol-step">
+            <span class="sol-n">3</span>
+            <div>
+              <span class="sol-lbl">Find 2% &mdash; double the 1%</span><br>
+              <code>₹2.5 &times; 2 = ₹<strong>5</strong></code>
+            </div>
+          </div>
+          <div class="sol-step">
+            <span class="sol-n">4</span>
+            <div>
+              <span class="sol-lbl">8% = 10% &minus; 2% &rarr; subtract</span><br>
+              <code>₹25 &minus; ₹5 = ₹<strong>20 discount</strong></code>
+            </div>
+          </div>
+          <div class="sol-step">
+            <span class="sol-n">5</span>
+            <div>
+              <span class="sol-lbl">Final Price = Original &minus; Discount</span><br>
+              <code>₹250 &minus; ₹20 = ₹<strong>230</strong></code>
+            </div>
+          </div>
+        </div>
+        <div class="sol-tip">&nbsp;&#128161;&nbsp; Build any awkward % from 10% and 1%: &nbsp;8% = 10% &minus; 2% &nbsp;&bull;&nbsp; 15% = 10% + 5% &nbsp;&bull;&nbsp; 12% = 10% + 2%</div>
+      `},
+      {q:"Price goes from ₹500 to ₹600. Percentage increase?", a:"20%", t:"Increase = 100. (100/500)×100 = 20%"},
+      {q:"Find 75% of 120.", a:"90", t:"120×0.75 = 90. Shortcut: 75% = ¾. 120×3/4 = 90"},
+      {q:"18 is what percent of 90?", a:"20%", t:"(18/90)×100 = 20%"}
+    ],
+    hard: [
+      {q:"Successive discounts of 20% and 10% on ₹1000. Final price?", a:"₹720", t:`
+        <div class="sol-steps">
+          <div class="sol-step">
+            <span class="sol-n">1</span>
+            <div>
+              <span class="sol-lbl">Apply 20% discount on ₹1000</span><br>
+              10% of ₹1000 = ₹100 &nbsp;&rarr;&nbsp; 20% = ₹200<br>
+              <code>₹1000 &minus; ₹200 = ₹<strong>800</strong> &nbsp;(new price)</code>
+            </div>
+          </div>
+          <div class="sol-step">
+            <span class="sol-n">2</span>
+            <div>
+              <span class="sol-lbl">Apply 10% discount on the NEW price ₹800</span><br>
+              10% of ₹800 = ₹80<br>
+              <code>₹800 &minus; ₹80 = ₹<strong>720</strong></code>
+            </div>
+          </div>
+        </div>
+        <div class="sol-note">
+          <span class="sol-note-lbl">&#x26A0; Common Trap</span>
+          20% + 10% &ne; 30% off &mdash; each discount applies to a <em>smaller</em> price each time!<br>
+          Equivalent single discount = <code>20 + 10 &minus; (20&times;10/100) = <strong>28%</strong></code>, not 30%.
+        </div>
+        <div class="sol-tip">&nbsp;&#128161;&nbsp; Always apply each discount one at a time to the <strong>current</strong> price, not the original!</div>
+      `},
+      {q:"Trader marks price 40% above cost price, gives 20% discount. Profit %?", a:"12%", t:"Let CP=100, MP=140, SP=140×0.8=112. Profit = 12. Profit% = 12%"},
+      {q:"Price increased by 20% then decreased by 20%. Net change?", a:"4% decrease", t:`
+        <div class="sol-steps">
+          <div class="sol-step">
+            <span class="sol-n">1</span>
+            <div>
+              <span class="sol-lbl">Start with ₹100 (any round number works)</span><br>
+              <code>Original price = ₹<strong>100</strong></code>
+            </div>
+          </div>
+          <div class="sol-step">
+            <span class="sol-n">2</span>
+            <div>
+              <span class="sol-lbl">Increase by 20%</span><br>
+              20% of ₹100 = ₹20<br>
+              <code>₹100 + ₹20 = ₹<strong>120</strong></code>
+            </div>
+          </div>
+          <div class="sol-step">
+            <span class="sol-n">3</span>
+            <div>
+              <span class="sol-lbl">Decrease by 20% (of the NEW price ₹120)</span><br>
+              10% of ₹120 = ₹12 &nbsp;&rarr;&nbsp; 20% = ₹24<br>
+              <code>₹120 &minus; ₹24 = ₹<strong>96</strong></code>
+            </div>
+          </div>
+          <div class="sol-step">
+            <span class="sol-n">4</span>
+            <div>
+              <span class="sol-lbl">Find the net change</span><br>
+              Started at ₹100, ended at ₹96 &rarr; lost ₹4<br>
+              <code>₹4 out of ₹100 = <strong>4% decrease</strong></code>
+            </div>
+          </div>
+        </div>
+        <div class="sol-note">
+          <span class="sol-note-lbl">&#x26A0; Classic Exam Trap</span>
+          Most people say <strong>0%</strong> change &mdash; WRONG! The second 20% applies to a bigger number, so the decrease is larger than the increase.
+        </div>
+        <div class="sol-tip">&nbsp;&#128161;&nbsp; +x% then &minus;x% always gives a net <strong>loss</strong> of (x&sup2;/100)% &nbsp;&rarr;&nbsp; here: 20&sup2;/100 = <strong>4%</strong></div>
+      `},
+      {q:"A's salary is 25% more than B's. B's salary is what % less than A's?", a:"20%", t:`
+        <div class="sol-steps">
+          <div class="sol-step">
+            <span class="sol-n">1</span>
+            <div>
+              <span class="sol-lbl">Set B's salary = ₹100</span><br>
+              <code>B = ₹<strong>100</strong></code>
+            </div>
+          </div>
+          <div class="sol-step">
+            <span class="sol-n">2</span>
+            <div>
+              <span class="sol-lbl">A earns 25% more than B</span><br>
+              25% of ₹100 = ₹25<br>
+              <code>A = ₹100 + ₹25 = ₹<strong>125</strong></code>
+            </div>
+          </div>
+          <div class="sol-step">
+            <span class="sol-n">3</span>
+            <div>
+              <span class="sol-lbl">Find the difference</span><br>
+              <code>A &minus; B = ₹125 &minus; ₹100 = ₹<strong>25</strong></code>
+            </div>
+          </div>
+          <div class="sol-step">
+            <span class="sol-n">4</span>
+            <div>
+              <span class="sol-lbl">Compare ₹25 to A's salary (not B's!)</span><br>
+              <code>25 &divide; 125 = 1/5 = <strong>20%</strong></code>
+            </div>
+          </div>
+        </div>
+        <div class="sol-note">
+          <span class="sol-note-lbl">&#x26A0; The Catch</span>
+          &ldquo;B is what % less than A&rdquo; &rarr; compare to <strong>A</strong> (the bigger number). <br>
+          &ldquo;A is what % more than B&rdquo; &rarr; compare to <strong>B</strong> (the smaller number).
+        </div>
+        <div class="sol-tip">&nbsp;&#128161;&nbsp; Always compare to whoever the question asks <em>&ldquo;compared to&rdquo;</em> &mdash; that's always your denominator!</div>
+      `},
+      {q:"If 30% of x = 60, find 45% of x.", a:"90", t:`
+        <div class="sol-steps">
+          <div class="sol-step">
+            <span class="sol-n">1</span>
+            <div>
+              <span class="sol-lbl">Find what 15% equals</span><br>
+              If 30% = 60, then half of 30% must be half of 60.<br>
+              <code>15% = 60 &divide; 2 = <strong>30</strong></code>
+            </div>
+          </div>
+          <div class="sol-step">
+            <span class="sol-n">2</span>
+            <div>
+              <span class="sol-lbl">Build up to 45% = 30% + 15%</span><br>
+              <code>60 + 30 = <strong>90</strong></code>
+            </div>
+          </div>
+        </div>
+        <div class="sol-note">
+          <span class="sol-note-lbl">&#x26A1; No need to find x!</span>
+          30% &rarr; 60 &nbsp;&bull;&nbsp; 15% &rarr; 30 &nbsp;&bull;&nbsp; 45% = 30% + 15% = <code>60 + 30 = <strong>90</strong></code>
+        </div>
+        <div class="sol-tip">&nbsp;&#128161;&nbsp; Break the target % into chunks you already know. You can always halve, double, or add known values!</div>
+      `},
+      {q:"Two successive discounts of 15% and 10%. Single equivalent discount?", a:"23.5%", t:`
+        <div class="sol-steps">
+          <div class="sol-step">
+            <span class="sol-n">1</span>
+            <div>
+              <span class="sol-lbl">Apply 15% discount to ₹100</span><br>
+              15% of ₹100 = ₹15<br>
+              <code>₹100 &minus; ₹15 = ₹<strong>85</strong> &nbsp;(temporary price)</code>
+            </div>
+          </div>
+          <div class="sol-step">
+            <span class="sol-n">2</span>
+            <div>
+              <span class="sol-lbl">Apply 10% discount to the new price ₹85</span><br>
+              10% of ₹85 = ₹8.5<br>
+              <code>₹85 &minus; ₹8.5 = ₹<strong>76.5</strong></code>
+            </div>
+          </div>
+          <div class="sol-step">
+            <span class="sol-n">3</span>
+            <div>
+              <span class="sol-lbl">Total money saved on ₹100</span><br>
+              <code>₹15 + ₹8.5 = ₹<strong>23.5 saved</strong></code>
+            </div>
+          </div>
+          <div class="sol-step">
+            <span class="sol-n">4</span>
+            <div>
+              <span class="sol-lbl">Since we started with ₹100, savings = equivalent %</span><br>
+              <code>Equivalent discount = <strong>23.5%</strong></code>
+            </div>
+          </div>
+        </div>
+        <div class="sol-note">
+          <span class="sol-note-lbl">&#x26A0; Why not 25%?</span>
+          The second 10% cuts into the already-reduced ₹85, <em>not</em> the original ₹100 &mdash; so you save less than expected!
+        </div>
+        <div class="sol-tip">&nbsp;&#128161;&nbsp; Formula shortcut: a + b &minus; (a&times;b/100) &nbsp;&rarr;&nbsp; 15 + 10 &minus; 1.5 = <strong>23.5%</strong></div>
+      `},
+      {q:"Population increases by 10% every year. Population after 2 years from 10,000?", a:"12,100", t:`
+        <div class="sol-steps">
+          <div class="sol-step">
+            <span class="sol-n">1</span>
+            <div>
+              <span class="sol-lbl">Start: 10,000</span><br>
+              <code>Starting population = <strong>10,000</strong></code>
+            </div>
+          </div>
+          <div class="sol-step">
+            <span class="sol-n">2</span>
+            <div>
+              <span class="sol-lbl">After Year 1 &mdash; add 10%</span><br>
+              10% of 10,000 = 1,000 &nbsp;(just drop a zero!)<br>
+              <code>10,000 + 1,000 = <strong>11,000</strong></code>
+            </div>
+          </div>
+          <div class="sol-step">
+            <span class="sol-n">3</span>
+            <div>
+              <span class="sol-lbl">After Year 2 &mdash; add 10% of the NEW population</span><br>
+              10% of 11,000 = 1,100<br>
+              <code>11,000 + 1,100 = <strong>12,100</strong></code>
+            </div>
+          </div>
+        </div>
+        <div class="sol-note">
+          <span class="sol-note-lbl">&#x26A0; Don't add 20% directly!</span>
+          20% of 10,000 = 2,000 &rarr; gives 12,000 &mdash; <strong>WRONG!</strong><br>
+          Each year's growth builds on the previous year's total, not the original.
+        </div>
+        <div class="sol-tip">&nbsp;&#128161;&nbsp; Compound growth = multiply each year: &nbsp;<code>10,000 &times; 1.1 &times; 1.1 = 12,100</code></div>
+      `},
+      {q:"A number increased by 25% gives 100. What is the original number?", a:"80", t:`
+        <div class="sol-steps">
+          <div class="sol-step">
+            <span class="sol-n">1</span>
+            <div>
+              <span class="sol-lbl">Visualise the original as 4 equal blocks (100%)</span><br>
+              <div class="sol-blocks">
+                <span class="sol-block">25%</span><span class="sol-block">25%</span><span class="sol-block">25%</span><span class="sol-block">25%</span>
+              </div>
+            </div>
+          </div>
+          <div class="sol-step">
+            <span class="sol-n">2</span>
+            <div>
+              <span class="sol-lbl">A 25% increase adds one more block</span><br>
+              <div class="sol-blocks">
+                <span class="sol-block">25%</span><span class="sol-block">25%</span><span class="sol-block">25%</span><span class="sol-block">25%</span><span class="sol-block sol-block-filled">+25%</span>
+              </div>
+              <code style="margin-top:6px;display:inline-block">5 equal blocks = <strong>100</strong> (given)</code>
+            </div>
+          </div>
+          <div class="sol-step">
+            <span class="sol-n">3</span>
+            <div>
+              <span class="sol-lbl">Find the value of 1 block</span><br>
+              <code>100 &divide; 5 = <strong>20</strong> per block</code>
+            </div>
+          </div>
+          <div class="sol-step">
+            <span class="sol-n">4</span>
+            <div>
+              <span class="sol-lbl">Original = first 4 blocks</span><br>
+              <code>20 &times; 4 = <strong>80</strong></code>
+            </div>
+          </div>
+        </div>
+        <div class="sol-tip">&nbsp;&#128161;&nbsp; Reverse trick: n &times; 1.25 = 100 &nbsp;&rarr;&nbsp; n = 100 &divide; 1.25 = <strong>80</strong>. Divide by the multiplier to reverse!</div>
+      `},
+      {q:"Shop gives 20% discount, still makes 20% profit. Mark up % over cost price?", a:"50%", t:`
+        <div class="sol-steps">
+          <div class="sol-step">
+            <span class="sol-n">1</span>
+            <div>
+              <span class="sol-lbl">Assume Cost Price (CP) = ₹100</span><br>
+              <code>CP = ₹<strong>100</strong></code>
+            </div>
+          </div>
+          <div class="sol-step">
+            <span class="sol-n">2</span>
+            <div>
+              <span class="sol-lbl">Find the Selling Price (SP) &mdash; 20% profit on CP</span><br>
+              20% of ₹100 = ₹20<br>
+              <code>SP = ₹100 + ₹20 = ₹<strong>120</strong></code>
+            </div>
+          </div>
+          <div class="sol-step">
+            <span class="sol-n">3</span>
+            <div>
+              <span class="sol-lbl">Find the Marked Price (MP) &mdash; 20% discount gives SP</span><br>
+              SP = 80% of MP &nbsp;&rarr;&nbsp; 80% of MP = ₹120<br>
+              If 80% = ₹120, then 40% = ₹60, then 20% = ₹30<br>
+              <code>MP = ₹120 + ₹30 = ₹<strong>150</strong></code>
+            </div>
+          </div>
+          <div class="sol-step">
+            <span class="sol-n">4</span>
+            <div>
+              <span class="sol-lbl">Calculate the Markup %</span><br>
+              Bought for ₹100, tagged at ₹150 &rarr; increase = ₹50<br>
+              <code>₹50 on ₹100 = <strong>50% markup</strong></code>
+            </div>
+          </div>
+        </div>
+        <div class="sol-tip">&nbsp;&#128161;&nbsp; SP = MP &times; 0.8 and SP = CP &times; 1.2 &nbsp;&rarr;&nbsp; MP = 1.5 &times; CP &rarr; <strong>50% above CP</strong></div>
+      `},
+      {q:"If A's income is 20% less than B's, then B's income is what % more than A's?", a:"25%", t:`
+        <div class="sol-steps">
+          <div class="sol-step">
+            <span class="sol-n">1</span>
+            <div>
+              <span class="sol-lbl">Set B's income = ₹100</span><br>
+              <code>B = ₹<strong>100</strong></code>
+            </div>
+          </div>
+          <div class="sol-step">
+            <span class="sol-n">2</span>
+            <div>
+              <span class="sol-lbl">A earns 20% less than B</span><br>
+              20% of ₹100 = ₹20<br>
+              <code>A = ₹100 &minus; ₹20 = ₹<strong>80</strong></code>
+            </div>
+          </div>
+          <div class="sol-step">
+            <span class="sol-n">3</span>
+            <div>
+              <span class="sol-lbl">Find the difference</span><br>
+              <code>B &minus; A = ₹100 &minus; ₹80 = ₹<strong>20</strong></code>
+            </div>
+          </div>
+          <div class="sol-step">
+            <span class="sol-n">4</span>
+            <div>
+              <span class="sol-lbl">Compare ₹20 to A's income (not B's!)</span><br>
+              <code>20 &divide; 80 = 1/4 = <strong>25%</strong></code>
+            </div>
+          </div>
+        </div>
+        <div class="sol-note">
+          <span class="sol-note-lbl">&#x26A0; The Catch</span>
+          &ldquo;B is what % <em>more</em> than A&rdquo; &rarr; compare to <strong>A</strong> (the smaller number).<br>
+          &ldquo;A is what % <em>less</em> than B&rdquo; &rarr; compare to <strong>B</strong> (the bigger number).
+        </div>
+        <div class="sol-tip">&nbsp;&#128161;&nbsp; Always divide by whoever you're comparing <em>to</em> &mdash; that's your denominator!</div>
+      `},
+    ]
+  },
+  wt: {
+    easy: [
+      {q:"A completes work in 10 days. What fraction does A do in 1 day?", a:"1/10", t:"1 day work = 1/total days. Simple!"},
+      {q:"A does work in 5 days, B in 10 days. How long together?", a:"10/3 ≈ 3.3 days", t:`
+        <div class="sol-steps">
+          <div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">Find their 1-day fractions</span><br>A does in 5 days &rarr; 1/5 of the work in 1 day.<br>B does in 10 days &rarr; 1/10 of the work in 1 day.</div></div>
+          <div class="sol-step"><span class="sol-n">2</span><div><span class="sol-lbl">Combine them together</span><br><code>1/5 + 1/10 = 2/10 + 1/10 = <strong>3/10</strong></code><br>They finish 3 parts out of 10 in 1 day.</div></div>
+          <div class="sol-step"><span class="sol-n">3</span><div><span class="sol-lbl">Flip it back to get Total Days</span><br>Flip 3/10 upside down &rarr; <code>10/3 = <strong>3.33 days</strong></code></div></div>
+        </div>
+      `},
+      {q:"6 workers complete a job in 12 days. How many days for 20 workers?", a:"3.6 days", t:`
+        <div class="sol-steps">
+          <div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">Find the Total Work</span><br>Think of work as total daily shifts needed.<br><code>6 workers &times; 12 days = <strong>72 shifts</strong></code></div></div>
+          <div class="sol-step"><span class="sol-n">2</span><div><span class="sol-lbl">Bring in the 20 workers</span><br>Divide the total shifts by the new team size.<br><code>72 &divide; 20 = 36/10 = <strong>3.6 days</strong></code></div></div>
+        </div>
+        <div class="sol-tip">&nbsp;&#128161;&nbsp; The 2-Second Exam Formula: M1 &times; D1 = M2 &times; D2 &nbsp;&rarr;&nbsp; <code>(6 &times; 12) / 20 = <strong>3.6 days</strong></code></div>
+      `},
+      {q:"A does in 12 days, B in 6 days. Together?", a:"4 days", t:"1/12+1/6 = 1/12+2/12 = 3/12 = 1/4 per day → 4 days"},
+      {q:"Pipe A fills in 6 hrs, Pipe B in 3 hrs. Together?", a:"2 hours", t:"1/6+1/3 = 1/6+2/6 = 3/6 = 1/2 per hr → 2 hrs"},
+      {q:"A does in 8 days, B in 8 days. Together?", a:"4 days", t:"1/8+1/8 = 2/8 = 1/4 per day → 4 days. Same efficiency = half time"},
+      {q:"10 men do in 20 days. 5 men take how many days?", a:"40 days", t:"10×20 = 5×d → d=40. Half workers = double days"},
+      {q:"A does in 15 days. How much work done in 5 days?", a:"1/3 of work", t:"5 days × 1/15 per day = 5/15 = 1/3"},
+      {q:"A and B together finish in 6 days. A alone in 9 days. B alone?", a:"18 days", t:`
+        <div class="sol-steps">
+          <div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">Pick a total number of bricks</span><br>Pick a number divisible by 6 and 9. Let's choose <strong>18 bricks</strong> total.</div></div>
+          <div class="sol-step"><span class="sol-n">2</span><div><span class="sol-lbl">Find the daily work speed</span><br>A+B lay 18 bricks in 6 days &rarr; <code>3 bricks/day</code><br>A lays 18 bricks in 9 days &rarr; <code>2 bricks/day</code></div></div>
+          <div class="sol-step"><span class="sol-n">3</span><div><span class="sol-lbl">Find B's speed alone</span><br>If A+B lay 3, and A lays 2, B must lay exactly <strong>1 brick/day</strong>.</div></div>
+          <div class="sol-step"><span class="sol-n">4</span><div><span class="sol-lbl">Find B's total days</span><br><code>18 bricks &divide; 1 brick/day = <strong>18 days</strong></code></div></div>
+        </div>
+        <div class="sol-tip">&nbsp;&#128161;&nbsp; 2-Second Shortcut: Product over Difference &rarr; <code>(9 &times; 6) / (9 - 6) = 54 / 3 = <strong>18 days</strong></code></div>
+      `},
+      {q:"A does in 20 days. What fraction in 4 days?", a:"1/5", t:"4 × 1/20 = 4/20 = 1/5"},
+      {q:"8 workers do in 12 days. 12 workers take?", a:"8 days", t:"8×12 = 12×d → d=8"},
+      {q:"A does in 6 hrs, B in 12 hrs. Together?", a:"4 hours", t:"1/6+1/12 = 2/12+1/12 = 3/12 = 1/4 → 4 hrs"},
+      {q:"A and B together in 4 days. B alone in 12 days. A alone?", a:"6 days", t:`
+        <div class="sol-steps">
+          <div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">Use Product over Difference shortcut</span><br>Together time = 4 days, B's time = 12 days.</div></div>
+          <div class="sol-step"><span class="sol-n">2</span><div><span class="sol-lbl">Calculate A's Days</span><br><code>(12 &times; 4) &divide; (12 - 4) = 48 / 8 = <strong>6 days</strong></code></div></div>
+        </div>
+        <div class="sol-tip">&nbsp;&#128161;&nbsp; When you have "together" and "one person", always subtract on the bottom!</div>
+      `},
+      {q:"A does 1/4 of work in 3 days. Total time for A?", a:"12 days", t:`
+        <div class="sol-steps">
+          <div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">Flip the fraction and multiply</span><br>Fraction = 1/4 &rarr; flip to 4/1.<br><code>3 &times; (4/1) = <strong>12 days</strong></code></div></div>
+        </div>
+        <div class="sol-tip">&nbsp;&#128161;&nbsp; The 1-Second Shortcut: Given fraction and days, flip fraction upside down and multiply!</div>
+      `},
+      {q:"3 men do in 9 days. How many men for 3 days?", a:"9 men", t:"3×9 = x×3 → x=9"},
+      {q:"Pipe fills in 8 hrs, empties in 12 hrs. Net time if both open?", a:"24 hours", t:`
+        <div class="sol-steps">
+          <div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">Use Product over Difference</span><br>Whenever one fills and one empties, it's just like finding the other person's time.</div></div>
+          <div class="sol-step"><span class="sol-n">2</span><div><span class="sol-lbl">Calculate Net Time</span><br><code>(12 &times; 8) &divide; (12 - 8) = 96 / 4 = <strong>24 hours</strong></code></div></div>
+        </div>
+        <div class="sol-tip">&nbsp;&#128161;&nbsp; The 2-Second Shortcut: One fills (+), one empties (-) &rarr; Product over Difference!</div>
+      `},
+      {q:"A is 2x faster than B. B takes 12 days. Together?", a:"4 days", t:`
+        <div class="sol-steps">
+          <div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">Find their daily speeds</span><br>Let B lay 1 block/day. Since A is 2x faster, A lays 2 blocks/day.</div></div>
+          <div class="sol-step"><span class="sol-n">2</span><div><span class="sol-lbl">Find the total size of the job</span><br>B takes 12 days to finish alone.<br><code>1 block/day &times; 12 days = <strong>12 blocks total</strong></code></div></div>
+          <div class="sol-step"><span class="sol-n">3</span><div><span class="sol-lbl">Put them together</span><br>A (2) + B (1) = <strong>3 blocks every day</strong></div></div>
+          <div class="sol-step"><span class="sol-n">4</span><div><span class="sol-lbl">Find total days</span><br><code>12 blocks &divide; 3 blocks/day = <strong>4 days</strong></code></div></div>
+        </div>
+        <div class="sol-tip">&nbsp;&#128161;&nbsp; 2-Second Brain Shortcut: A = 2 copies of B. Together = 3 copies of B. 12 days &divide; 3 = <strong>4 days</strong>.</div>
+      `},
+      {q:"15 workers finish in 8 days. How many days if 3 workers leave?", a:"10 days", t:`
+        <div class="sol-steps">
+          <div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">Use M1 &times; D1 = M2 &times; D2</span><br>Remaining workers = 15 &minus; 3 = 12</div></div>
+          <div class="sol-step"><span class="sol-n">2</span><div><span class="sol-lbl">Calculate New Days</span><br><code>(15 &times; 8) &divide; 12 = 120 / 12 = <strong>10 days</strong></code></div></div>
+        </div>
+        <div class="sol-tip">&nbsp;&#128161;&nbsp; The 2-Second Exam Formula: (Old Workers &times; Old Days) &divide; Remaining Workers = New Days</div>
+      `},
+      {q:"A does in 18 days, B in 9 days. They work together 3 days. Work remaining?", a:"1/2 remaining", t:"3 days together: 3×(1/18+1/9) = 3×(1/18+2/18) = 3×3/18 = 1/2. So 1/2 left"},
+      {q:"A can finish in 20 days. After 5 days B joins. B does in 20 days. Days to finish remaining?", a:"7.5 days", t:`
+        <div class="sol-steps">
+          <div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">Pick a total number of chocolate pieces</span><br>Work = <strong>20 pieces</strong> of chocolate.</div></div>
+          <div class="sol-step"><span class="sol-n">2</span><div><span class="sol-lbl">Find daily eating speeds</span><br>A takes 20 days for 20 pieces &rarr; <strong>1 piece/day</strong><br>B takes 20 days for 20 pieces &rarr; <strong>1 piece/day</strong></div></div>
+          <div class="sol-step"><span class="sol-n">3</span><div><span class="sol-lbl">First 5 days (A works alone)</span><br>A eats 1 piece/day for 5 days = 5 pieces.<br><code>Pieces left = 20 &minus; 5 = <strong>15 pieces</strong></code></div></div>
+          <div class="sol-step"><span class="sol-n">4</span><div><span class="sol-lbl">Finish together</span><br>A (1) + B (1) = 2 pieces/day.<br><code>Remaining Days = 15 &divide; 2 = <strong>7.5 days</strong></code></div></div>
+        </div>
+      `}
+    ],
+    hard: [
+      {q:"A is 3 times as efficient as B. Together they finish in 6 days. A alone takes how many days?", a:"8 days", t:`
+        <div class="sol-steps">
+          <div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">Find Total Work instantly</span><br><code>Total Work = Together Days &times; (Efficiency Ratio Added)</code><br>Since A is 3x B, ratio is 3:1. Sum = 3+1 = 4.<br><code>Total Work = 6 &times; 4 = <strong>24</strong></code></div></div>
+          <div class="sol-step"><span class="sol-n">2</span><div><span class="sol-lbl">Find A's Days</span><br>Divide the total work by A's efficiency (3).<br><code>A's Days = 24 &divide; 3 = <strong>8 days</strong></code></div></div>
+        </div>
+        <div class="sol-tip">&nbsp;&#128161;&nbsp; Efficiency problems &rarr; Total Work = Together Time &times; Total Efficiency!</div>
+      `},
+      {q:"A+B complete in 12 days, B+C in 15 days, A+C in 20 days. All three together?", a:"10 days", t:`
+        <div class="sol-steps">
+          <div class="sol-step"><span class="sol-n">1</span><div><span class="sol-lbl">Find Total Chocolate Pieces</span><br>LCM of 12, 15, 20 = <strong>60 pieces</strong>.</div></div>
+          <div class="sol-step"><span class="sol-n">2</span><div><span class="sol-lbl">Find individual pair speeds</span><br>A+B = 60&divide;12 = 5<br>B+C = 60&divide;15 = 4<br>A+C = 60&divide;20 = 3</div></div>
+          <div class="sol-step"><span class="sol-n">3</span><div><span class="sol-lbl">Use the 2-Second Exam Formula</span><br><code>Together Days = (2 &times; Total Pieces) &divide; (Sum of pair speeds)</code><br><code>Together Days = (2 &times; 60) &divide; (5 + 4 + 3)</code><br><code>120 &divide; 12 = <strong>10 days</strong></code></div></div>
+        </div>
+        <div class="sol-tip">&nbsp;&#128161;&nbsp; Pair problems (A+B, B+C, C+A) &rarr; always multiply total work by 2 because everyone is counted twice!</div>
+      `},
+      {q:"30 men do work in 15 days. After 5 days, 10 men leave. How many more days to finish?", a:"15 days", t:"Total work=450 man-days. Done=30×5=150. Remaining=300. 20 men×d=300 → d=15 days"},
+      {q:"A does in 20 days, B in 30 days. Work together 5 days, then A leaves. B finishes alone. Total days?", a:"22.5 days", t:"5 days together: 5×(1/20+1/30)=5×5/60=5/12 done. Remaining=7/12. B alone: (7/12)÷(1/30)=17.5 days. Total=22.5"},
+      {q:"A alone in 10 days, B alone in 15 days. A leaves 2 days before completion. Total days?", a:"7.2 days", t:"Let total=d. A works (d−2) days, B works d days. (d−2)/10+d/15=1 → 3(d−2)+2d=30 → 5d=36 → d=7.2"},
+      {q:"4 men or 6 women finish in 12 days. How many days for 2 men + 3 women?", a:"12 days", t:"4m=6w → 1m=1.5w. 2m+3w = 3w+3w = 6w → same as 6 women → 12 days"},
+      {q:"A does in 12 days, B in 16 days. A works 3 days, then B joins. Days for both to finish remaining?", a:"5 1/7 days", t:"A's 3 days: 3/12=1/4. Remaining=3/4. Together rate=1/12+1/16=7/48. Days=(3/4)÷(7/48)=36/7≈5.1 days"},
+      {q:"Pipe A fills in 12 hrs, B in 15 hrs, C empties in 10 hrs. All open together. When is tank full?", a:"20 hours", t:"Net=1/12+1/15−1/10 = 5/60+4/60−6/60 = 3/60 = 1/20 per hr → 20 hours"},
+      {q:"A does work in 6 days, B in 8 days. They alternate daily starting with A. Total days?", a:"6¾ days", t:"Per 2-day cycle: 1/6+1/8=7/24. After 3 cycles(6 days)=21/24=7/8. Remaining=1/8. Day 7 is A's turn: 1/8÷1/6=3/4 day. Total=6¾"},
+      {q:"6 men + 8 boys do in 10 days. 26 men + 48 boys do in 2 days. 15 men + 20 boys take?", a:"4 days", t:"60m+80b=1 and 52m+96b=1. Solving: 8m=16b→m=2b. 120b+80b=200b=1→b=1/200,m=1/100. 15m+20b=15/100+10/100=1/4→4 days"}
+    ]
+  }
+};
+
+const counters = {sdt:0, pct:0, wt:0};
+
+function buildQs(topic, type, containerId) {
+  const qs = data[topic][type];
+  const el = document.getElementById(containerId);
+  qs.forEach((item, i) => {
+    const num = type==='easy' ? i+1 : i+21;
+    const badge = type==='easy' ? '<span class="badge easy">easy</span>' : '<span class="badge tricky">tricky</span>';
+    const div = document.createElement('div');
+    div.className = 'q-card';
+    div.innerHTML =
+      '<div class="q-top" onclick="toggleQ(this,\'' + topic + '\')">' +
+        '<span class="q-num">Q' + num + '</span>' +
+        '<span class="q-text">' + item.q + '</span>' +
+        badge +
+      '</div>' +
+      '<div class="q-ans" data-open="false">' +
+        '<div class="ans-tag">Answer</div>' +
+        '<div class="ans-val">' + item.a + '</div>' +
+        '<div class="trick-tag">How to solve</div>' +
+        '<div class="trick-val"></div>' +
+      '</div>';
+    div.querySelector('.trick-val').innerHTML = item.t;
+    el.appendChild(div);
+  });
+}
+
+
+function toggleQ(header, topic) {
+  const ans = header.nextElementSibling;
+  const isOpen = ans.dataset.open === 'true';
+  if (!isOpen) {
+    counters[topic]++;
+    document.getElementById(topic+'-done').textContent = counters[topic];
+  }
+  ans.style.display = isOpen ? 'none' : 'block';
+  ans.dataset.open = isOpen ? 'false' : 'true';
+}
+
+function show(id) {
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+}
+
+buildQs('sdt','easy','sdt-easy');
+buildQs('sdt','hard','sdt-hard');
+buildQs('pct','easy','pct-easy');
+buildQs('pct','hard','pct-hard');
+buildQs('wt','easy','wt-easy');
+buildQs('wt','hard','wt-hard');
+</script>
+</div><!-- /.app-shell -->
+</body>
+</html>
