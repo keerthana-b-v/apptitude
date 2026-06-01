@@ -1,0 +1,1844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI/ML Interview Master Notes — CirrusLabs</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f7f5f0;
+  --surface: #ffffff;
+  --surface2: #f0ede6;
+  --border: #e0dbd0;
+  --border2: #d4cfc3;
+  --ink: #1a1814;
+  --ink2: #4a4640;
+  --ink3: #7a7570;
+  --accent: #c84b2f;
+  --accent2: #2563a8;
+  --accent3: #1a8a5a;
+  --accent4: #b06a00;
+  --accent5: #7c3aed;
+  --tag-bg: #fff8f0;
+  --shadow: 0 1px 4px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.04);
+  --shadow-lg: 0 4px 20px rgba(0,0,0,0.1);
+  --sidebar-w: 260px;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ── PROGRESS BAR ── */
+#progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  background: var(--accent);
+  width: 0%;
+  transition: width 0.1s;
+  z-index: 200;
+}
+
+/* ── SIDEBAR ── */
+.sidebar {
+  width: var(--sidebar-w);
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  position: fixed;
+  top: 0; left: 0; bottom: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 100;
+  padding-bottom: 40px;
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
+
+.sidebar-logo {
+  padding: 20px 20px 16px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.sidebar-logo-title {
+  font-family: 'Fraunces', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.2;
+}
+.sidebar-logo-sub {
+  font-size: 11px;
+  color: var(--ink3);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.nav-section {
+  padding: 12px 0 4px;
+}
+.nav-section-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  padding: 0 20px;
+  margin-bottom: 4px;
+}
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 20px;
+  font-size: 13px;
+  color: var(--ink2);
+  text-decoration: none;
+  transition: all 0.15s;
+  border-left: 2px solid transparent;
+  cursor: pointer;
+}
+.nav-item:hover { background: var(--surface2); color: var(--ink); }
+.nav-item.active { background: #fff4f0; color: var(--accent); border-left-color: var(--accent); font-weight: 500; }
+.nav-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── MAIN ── */
+.main {
+  margin-left: var(--sidebar-w);
+  flex: 1;
+  padding: 0 0 80px;
+  max-width: 860px;
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 48px 56px 40px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(200,75,47,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.hero-eyebrow::before { content: ''; display: inline-block; width: 20px; height: 1px; background: var(--accent); }
+.hero h1 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(30px, 4vw, 46px);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+.hero h1 em { color: var(--accent); font-style: italic; }
+.hero-desc {
+  color: var(--ink2);
+  font-size: 14px;
+  max-width: 520px;
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+.hero-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.03em;
+}
+.chip-r { background: #fff0ed; color: var(--accent); border: 1px solid #f5c5bb; }
+.chip-b { background: #eff5ff; color: var(--accent2); border: 1px solid #c0d5f0; }
+.chip-g { background: #edfaf4; color: var(--accent3); border: 1px solid #b0ddc8; }
+.chip-y { background: #fff8ed; color: var(--accent4); border: 1px solid #f0d5a0; }
+.chip-p { background: #f5f0ff; color: var(--accent5); border: 1px solid #d0bff0; }
+
+/* ── SECTIONS ── */
+.section {
+  padding: 48px 56px;
+  border-bottom: 1px solid var(--border);
+}
+.section:last-child { border-bottom: none; }
+
+.section-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.section-num {
+  font-family: 'Fraunces', serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink3);
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  width: 32px; height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+.section-title-wrap { flex: 1; }
+.section-title {
+  font-family: 'Fraunces', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.15;
+  margin-bottom: 4px;
+}
+.section-sub {
+  font-size: 13px;
+  color: var(--ink3);
+}
+
+/* ── CONCEPT CARDS ── */
+.concept-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.2s;
+}
+.concept-card:hover { box-shadow: var(--shadow-lg); }
+.concept-card.open { border-color: var(--border2); }
+
+.card-header {
+  padding: 16px 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  user-select: none;
+  background: var(--surface);
+}
+.card-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+  width: 36px; height: 36px;
+  background: var(--surface2);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+}
+.card-title-wrap { flex: 1; }
+.card-title {
+  font-family: 'Fraunces', serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.3;
+}
+.card-subtitle {
+  font-size: 12px;
+  color: var(--ink3);
+  margin-top: 2px;
+}
+.card-arrow {
+  font-size: 11px;
+  color: var(--ink3);
+  transition: transform 0.3s;
+  flex-shrink: 0;
+}
+.concept-card.open .card-arrow { transform: rotate(180deg); }
+
+.card-body {
+  display: none;
+  padding: 0 20px 20px;
+  border-top: 1px solid var(--border);
+  animation: fadeIn 0.2s ease;
+}
+.concept-card.open .card-body { display: block; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ── CONTENT ELEMENTS ── */
+.body-section {
+  margin-top: 16px;
+}
+.body-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.body-label::before { content: ''; display: inline-block; width: 12px; height: 1px; background: var(--border2); }
+
+p.explain {
+  font-size: 14px;
+  color: var(--ink2);
+  line-height: 1.75;
+  margin-bottom: 12px;
+}
+p.explain strong { color: var(--ink); font-weight: 600; }
+p.explain code {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  background: var(--surface2);
+  padding: 1px 5px;
+  border-radius: 3px;
+  color: var(--accent2);
+  border: 1px solid var(--border);
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 12px;
+}
+@media (max-width: 600px) { .two-col { grid-template-columns: 1fr; } .section { padding: 32px 24px; } .hero { padding: 36px 24px; } }
+
+.mini-card {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+.mini-card-title {
+  font-family: 'Fraunces', serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.mini-card p { font-size: 12.5px; color: var(--ink2); line-height: 1.6; }
+.mini-card code { font-family: 'DM Mono', monospace; font-size: 11px; background: var(--surface); padding: 1px 4px; border-radius: 3px; color: var(--accent2); border: 1px solid var(--border); }
+
+.example-box {
+  background: #fffbf5;
+  border: 1px solid #e8d8b8;
+  border-left: 3px solid var(--accent4);
+  border-radius: 0 8px 8px 0;
+  padding: 14px 16px;
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--ink2);
+  line-height: 1.65;
+}
+.example-box strong { color: var(--accent4); }
+.example-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent4);
+  margin-bottom: 6px;
+  display: block;
+}
+
+.code-block {
+  background: #1e1e2e;
+  border-radius: 8px;
+  padding: 16px 18px;
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  line-height: 1.7;
+  color: #cdd6f4;
+  overflow-x: auto;
+  margin-top: 10px;
+  white-space: pre;
+  position: relative;
+}
+.code-block .kw { color: #cba6f7; }
+.code-block .fn { color: #89b4fa; }
+.code-block .str { color: #a6e3a1; }
+.code-block .cm { color: #6c7086; font-style: italic; }
+.code-block .num { color: #fab387; }
+.code-block .cls { color: #f9e2af; }
+.code-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  margin-top: 14px;
+  margin-bottom: 4px;
+}
+
+ul.dot-list { list-style: none; margin-top: 8px; }
+ul.dot-list li {
+  padding: 5px 0 5px 18px;
+  font-size: 13.5px;
+  color: var(--ink2);
+  position: relative;
+  line-height: 1.5;
+  border-bottom: 1px solid #f0ece4;
+}
+ul.dot-list li:last-child { border-bottom: none; }
+ul.dot-list li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 12px; top: 6px; }
+ul.dot-list li strong { color: var(--ink); }
+ul.dot-list li code { font-family: 'DM Mono', monospace; font-size: 11px; background: var(--surface2); padding: 1px 5px; border-radius: 3px; color: var(--accent2); border: 1px solid var(--border); }
+
+/* ── Q&A BLOCKS ── */
+.qa-section {
+  margin-top: 20px;
+  background: #f8f5ff;
+  border: 1px solid #ddd5f5;
+  border-radius: 10px;
+  padding: 16px 18px;
+}
+.qa-section-title {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent5);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.qa-item {
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px dashed #e0d8f5;
+}
+.qa-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.qa-q {
+  font-family: 'Fraunces', serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 7px;
+  display: flex;
+  gap: 8px;
+  line-height: 1.4;
+}
+.qa-q::before { content: 'Q'; color: var(--accent5); font-weight: 700; flex-shrink: 0; font-style: italic; }
+.qa-a {
+  font-size: 13px;
+  color: var(--ink2);
+  line-height: 1.7;
+  padding-left: 18px;
+  border-left: 2px solid #c4b5f0;
+}
+.qa-a strong { color: var(--accent3); }
+.qa-a code { font-family: 'DM Mono', monospace; font-size: 11px; background: var(--surface); padding: 1px 4px; border-radius: 3px; color: var(--accent2); border: 1px solid var(--border); }
+
+/* ── COMPARISON TABLE ── */
+.comp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-top: 12px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.comp-table th {
+  background: var(--surface2);
+  padding: 10px 14px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink2);
+  border-bottom: 1px solid var(--border);
+}
+.comp-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #f0ece4;
+  color: var(--ink2);
+  vertical-align: top;
+  line-height: 1.5;
+}
+.comp-table tr:last-child td { border-bottom: none; }
+.comp-table tr:hover td { background: #fafaf7; }
+.comp-table td:first-child { font-weight: 500; color: var(--ink); }
+
+/* ── FORMULA BOX ── */
+.formula-box {
+  background: var(--surface);
+  border: 2px solid var(--border2);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-top: 10px;
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  color: var(--accent2);
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+
+/* ── NOTE BOX ── */
+.note-box {
+  background: #fffbf0;
+  border: 1px solid #f0e0a0;
+  border-left: 3px solid var(--accent4);
+  border-radius: 0 8px 8px 0;
+  padding: 11px 14px;
+  font-size: 13px;
+  color: #7a5800;
+  margin-top: 12px;
+  line-height: 1.55;
+}
+.note-box::before { content: '💡 '; }
+
+.alert-box {
+  background: #fff4f0;
+  border: 1px solid #f0c8b8;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  padding: 11px 14px;
+  font-size: 13px;
+  color: var(--accent);
+  margin-top: 12px;
+  line-height: 1.55;
+}
+.alert-box::before { content: '🔥 '; }
+
+/* ── CHEATSHEET ── */
+.cheatsheet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+.cheat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  box-shadow: var(--shadow);
+}
+.cheat-card-title {
+  font-family: 'Fraunces', serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.cheat-card p { font-size: 12px; color: var(--ink2); line-height: 1.6; }
+.cheat-card code { font-family: 'DM Mono', monospace; font-size: 11px; background: var(--surface2); padding: 1px 4px; border-radius: 3px; color: var(--accent2); }
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+</style>
+</head>
+<body>
+<div id="progress-bar"></div>
+<!-- SIDEBAR -->
+<nav class="sidebar">
+  <div class="sidebar-logo">
+    <div class="sidebar-logo-title">AI/ML Interview Notes</div>
+    <div class="sidebar-logo-sub">CirrusLabs Intern Prep</div>
+  </div>
+  <div class="nav-section">
+    <div class="nav-section-label">Core ML</div>
+    <a class="nav-item" href="#s1"><span class="nav-dot" style="background:#c84b2f"></span>ML Fundamentals</a>
+    <a class="nav-item" href="#s2"><span class="nav-dot" style="background:#e07040"></span>Algorithms</a>
+    <a class="nav-item" href="#s3"><span class="nav-dot" style="background:#e09020"></span>Model Evaluation</a>
+  </div>
+  <div class="nav-section">
+    <div class="nav-section-label">Deep Learning & NLP</div>
+    <a class="nav-item" href="#s4"><span class="nav-dot" style="background:#2563a8"></span>Neural Networks</a>
+    <a class="nav-item" href="#s5"><span class="nav-dot" style="background:#4080cc"></span>NLP & Transformers</a>
+    <a class="nav-item" href="#s6"><span class="nav-dot" style="background:#1a8a5a"></span>LLMs & Generative AI</a>
+  </div>
+  <div class="nav-section">
+    <div class="nav-section-label">Practical</div>
+    <a class="nav-item" href="#s7"><span class="nav-dot" style="background:#7c3aed"></span>Feature Engineering</a>
+    <a class="nav-item" href="#s8"><span class="nav-dot" style="background:#b06a00"></span>MLOps & Pipelines</a>
+    <a class="nav-item" href="#s9"><span class="nav-dot" style="background:#888"></span>AI Ethics</a>
+    <a class="nav-item" href="#s10"><span class="nav-dot" style="background:#333"></span>Quick Cheatsheet</a>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main class="main">
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">Complete Interview Notes</div>
+  <h1>AI/ML <em>Master Notes</em></h1>
+  <p class="hero-desc">Every concept you need for the CirrusLabs AI/ML Intern interview. Click any card to expand. Every topic has a real-world example + likely interview questions. Focus extra on Sections 1, 4, 5, and 6 — they're most likely for an AI intern role.</p>
+  <div class="hero-chips">
+    <span class="chip chip-r">🤖 ML Fundamentals</span>
+    <span class="chip chip-b">🧠 Neural Networks</span>
+    <span class="chip chip-b">💬 NLP & Transformers</span>
+    <span class="chip chip-g">✨ LLMs & GenAI</span>
+    <span class="chip chip-y">🔧 MLOps</span>
+    <span class="chip chip-p">⚖️ AI Ethics</span>
+  </div>
+</div>
+
+<!-- ═══════════ SECTION 1: ML FUNDAMENTALS ═══════════ -->
+<section class="section" id="s1">
+<div class="section-header">
+  <div class="section-num">01</div>
+  <div class="section-title-wrap">
+    <div class="section-title">ML Fundamentals</div>
+    <div class="section-sub">The core concepts every AI intern must know cold</div>
+  </div>
+</div>
+
+<!-- Card: Supervised vs Unsupervised -->
+<div class="concept-card" onclick="tog(this)">
+  <div class="card-header">
+    <div class="card-icon">📊</div>
+    <div class="card-title-wrap">
+      <div class="card-title">Supervised vs Unsupervised vs Reinforcement Learning</div>
+      <div class="card-subtitle">The 3 main types of ML — definition + example + when to use</div>
+    </div>
+    <span class="card-arrow">▼</span>
+  </div>
+  <div class="card-body">
+    <div class="two-col">
+      <div class="mini-card">
+        <div class="mini-card-title">🏷️ Supervised Learning</div>
+        <p>Trained on <strong>labelled data</strong> — input + correct output pairs. The model learns to predict the output for new inputs.<br><br>
+        <strong>Types:</strong> Classification (discrete output) and Regression (continuous output).<br><br>
+        <strong>Examples:</strong> Spam detection, house price prediction, image classification.</p>
+      </div>
+      <div class="mini-card">
+        <div class="mini-card-title">🔍 Unsupervised Learning</div>
+        <p>No labels — the model finds <strong>hidden patterns and structure</strong> on its own.<br><br>
+        <strong>Types:</strong> Clustering (group similar items) and Dimensionality reduction.<br><br>
+        <strong>Examples:</strong> Customer segmentation, topic modelling, anomaly detection.</p>
+      </div>
+    </div>
+    <div class="mini-card" style="margin-top:10px;">
+      <div class="mini-card-title">🎮 Reinforcement Learning (RL)</div>
+      <p>An agent learns by taking actions in an environment and receiving <strong>rewards or penalties</strong>. No labelled data — just trial and error.<br>
+      <strong>Example:</strong> AlphaGo learning chess, robots learning to walk, recommendation systems optimising click-through rate.</p>
+    </div>
+    <div class="example-box">
+      <span class="example-label">Real-World Example</span>
+      Netflix uses <strong>supervised learning</strong> to predict your rating for a movie (from your watch history). It uses <strong>unsupervised clustering</strong> to group users with similar tastes. And it uses <strong>reinforcement learning</strong> to optimise which thumbnail to show you to maximise clicks.
+    </div>
+    <div class="qa-section">
+      <div class="qa-section-title">💬 Interview Questions</div>
+      <div class="qa-item">
+        <div class="qa-q">What is the key difference between classification and regression?</div>
+        <div class="qa-a"><strong>Classification</strong> predicts a discrete category — yes/no, cat/dog/bird. <strong>Regression</strong> predicts a continuous numeric value — price, temperature, age. Same algorithm family (e.g., Decision Trees) can do both; the difference is the output type and loss function used.</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-q">Can you give an example of an unsupervised learning task in business?</div>
+        <div class="qa-a">Customer segmentation for an e-commerce company. You feed purchase history into K-Means clustering — no labels needed. The algorithm finds natural groups: "budget shoppers", "luxury buyers", "frequent returners". Marketing then tailors campaigns per segment. No one told the model what the groups should be — it discovered them.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Card: Overfitting -->
+<div class="concept-card" onclick="tog(this)">
+  <div class="card-header">
+    <div class="card-icon">📉</div>
+    <div class="card-title-wrap">
+      <div class="card-title">Overfitting, Underfitting & Bias-Variance Tradeoff</div>
+      <div class="card-subtitle">The most important concept in all of ML</div>
+    </div>
+    <span class="card-arrow">▼</span>
+  </div>
+  <div class="card-body">
+    <p class="explain"><strong>Overfitting:</strong> Model learns training data <em>too well</em> — memorises noise. High train accuracy, low test accuracy. Model is too complex relative to the data.</p>
+    <p class="explain"><strong>Underfitting:</strong> Model is too simple to capture the pattern. Low accuracy on both train and test. Needs more features or a more complex model.</p>
+    <p class="explain"><strong>Bias-Variance Tradeoff:</strong> Bias = how far off predictions are on average (underfitting = high bias). Variance = how much predictions vary across datasets (overfitting = high variance). The goal is a model with low bias AND low variance — they pull in opposite directions.</p>
+    <div class="example-box">
+      <span class="example-label">Example</span>
+      A student who <strong>memorises</strong> exam answers but can't solve new questions = overfitting. A student who <strong>never studies</strong> = underfitting. A student who <strong>understands concepts</strong> and applies them = good generalisation.
+    </div>
+    <div class="body-section">
+      <div class="body-label">How to fix overfitting</div>
+      <ul class="dot-list">
+        <li><strong>More training data</strong> — the most effective fix</li>
+        <li><strong>Regularization (L1/L2)</strong> — penalise large weights; forces model to stay simple</li>
+        <li><strong>Dropout</strong> — randomly turn off neurons during training (neural networks)</li>
+        <li><strong>Cross-validation</strong> — evaluate on multiple folds; catches overfitting early</li>
+        <li><strong>Early stopping</strong> — stop training when validation loss starts increasing</li>
+        <li><strong>Pruning</strong> — cut branches of decision trees that don't add value</li>
+      </ul>
+    </div>
+    <div class="qa-section">
+      <div class="qa-section-title">💬 Interview Questions</div>
+      <div class="qa-item">
+        <div class="qa-q">Your model has 98% training accuracy but 62% test accuracy. What happened and what do you do?</div>
+        <div class="qa-a">Classic overfitting. The model memorised training data including noise. I'd: (1) collect more training data, (2) add regularization (L2/dropout), (3) reduce model complexity, (4) check for data leakage (train data accidentally appearing in test set), (5) use cross-validation for a better estimate of real performance.</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-q">What is L1 vs L2 regularization?</div>
+        <div class="qa-a"><strong>L1 (Lasso)</strong> adds the sum of absolute values of weights to the loss. It drives some weights to exactly zero — effectively doing <strong>feature selection</strong>. <strong>L2 (Ridge)</strong> adds the sum of squared weights. It shrinks all weights towards zero but rarely to exactly zero — it distributes the penalty. L1 is better when you suspect many features are irrelevant. L2 is better when all features contribute somewhat.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Card: Linear Regression -->
+<div class="concept-card" onclick="tog(this)">
+  <div class="card-header">
+    <div class="card-icon">📈</div>
+    <div class="card-title-wrap">
+      <div class="card-title">Linear Regression</div>
+      <div class="card-subtitle">Predict continuous values — the foundation of ML</div>
+    </div>
+    <span class="card-arrow">▼</span>
+  </div>
+  <div class="card-body">
+    <p class="explain">Linear Regression finds the <strong>best-fit line</strong> through data points that minimises the sum of squared errors between predicted and actual values. It models a linear relationship between input features and a continuous output.</p>
+    <div class="formula-box">y = w₀ + w₁x₁ + w₂x₂ + ... + wₙxₙ</div>
+    <p class="explain" style="margin-top:10px;">Where <strong>w</strong> = weights (coefficients learned during training), <strong>x</strong> = input features, <strong>y</strong> = predicted output.</p>
+    <p class="explain"><strong>Loss function:</strong> Mean Squared Error (MSE) — average of squared differences between predicted and actual values. Training minimises this using gradient descent.</p>
+    <div class="example-box">
+      <span class="example-label">Real Example</span>
+      Predicting house price: <code>price = 200 + 150×(sq_ft) + 20000×(bedrooms) - 5000×(age)</code>. Given a house with 1200 sq ft, 3 bedrooms, 5 years old → price ≈ ₹24 lakhs (hypothetical).
+    </div>
+    <div class="code-label">Python with sklearn</div>
+    <div class="code-block"><span class="kw">from</span> sklearn.linear_model <span class="kw">import</span> LinearRegression
+<span class="kw">from</span> sklearn.model_selection <span class="kw">import</span> train_test_split
+<span class="kw">import</span> numpy <span class="kw">as</span> np
+
+X = np.array([[<span class="num">1200</span>, <span class="num">3</span>], [<span class="num">1500</span>, <span class="num">4</span>], [<span class="num">800</span>, <span class="num">2</span>]])  <span class="cm"># sqft, bedrooms</span>
+y = np.array([<span class="num">24</span>, <span class="num">30</span>, <span class="num">16</span>])               <span class="cm"># price in lakhs</span>
+
+model = LinearRegression()
+model.fit(X, y)
+prediction = model.predict([[<span class="num">1100</span>, <span class="num">3</span>]])    <span class="cm"># new house</span>
+print(prediction)                           <span class="cm"># → ~21.5</span></div>
+    <div class="qa-section">
+      <div class="qa-section-title">💬 Interview Questions</div>
+      <div class="qa-item">
+        <div class="qa-q">What are the assumptions of linear regression?</div>
+        <div class="qa-a">1. <strong>Linearity</strong> — relationship between X and y is linear. 2. <strong>Independence</strong> — observations are independent. 3. <strong>Homoscedasticity</strong> — constant variance in errors. 4. <strong>No multicollinearity</strong> — features aren't highly correlated with each other. 5. <strong>Normally distributed errors</strong>. If these are violated, the model's coefficients and predictions become unreliable.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Card: Logistic Regression -->
+<div class="concept-card" onclick="tog(this)">
+  <div class="card-header">
+    <div class="card-icon">🔀</div>
+    <div class="card-title-wrap">
+      <div class="card-title">Logistic Regression</div>
+      <div class="card-subtitle">Classification despite the "regression" name — output is a probability</div>
+    </div>
+    <span class="card-arrow">▼</span>
+  </div>
+  <div class="card-body">
+    <p class="explain">Despite the name, Logistic Regression is a <strong>classification algorithm</strong>. It applies a sigmoid function to a linear equation to output a probability between 0 and 1. If probability > 0.5 → class 1, else class 0.</p>
+    <div class="formula-box">P(y=1) = 1 / (1 + e^(−z))  where z = w₀ + w₁x₁ + ...</div>
+    <div class="example-box">
+      <span class="example-label">Example</span>
+      Email spam detection: given features like "contains 'free money'", "unknown sender", "all caps subject" — logistic regression outputs P(spam) = 0.92. Since > 0.5, it's classified as spam.
+    </div>
+    <div class="note-box">Key difference from Linear Regression: Linear → continuous output (price). Logistic → probability → class label (spam/not spam). Loss function is Cross-Entropy, not MSE.</div>
+    <div class="qa-section">
+      <div class="qa-section-title">💬 Interview Questions</div>
+      <div class="qa-item">
+        <div class="qa-q">Why can't we use linear regression for classification?</div>
+        <div class="qa-a">Linear regression can output any value from -∞ to +∞, which can't be interpreted as a probability. For a binary classification, we need outputs between 0 and 1. The sigmoid function squashes any value into (0,1). Also, with linear regression, outliers dramatically skew the decision boundary. Logistic regression is more robust for classification tasks.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Card: Decision Trees & Random Forest -->
+<div class="concept-card" onclick="tog(this)">
+  <div class="card-header">
+    <div class="card-icon">🌳</div>
+    <div class="card-title-wrap">
+      <div class="card-title">Decision Trees & Random Forest</div>
+      <div class="card-subtitle">Intuitive, explainable models — and their ensemble upgrade</div>
+    </div>
+    <span class="card-arrow">▼</span>
+  </div>
+  <div class="card-body">
+    <p class="explain"><strong>Decision Tree:</strong> A tree-like flowchart of decisions. At each <strong>node</strong>, it splits the data on the feature that gives the best separation (maximum information gain / minimum Gini impurity). Leaves are the final class predictions.</p>
+    <p class="explain"><strong>Gini Impurity:</strong> Measures how mixed a node is. A node of all same class = 0 (pure). If 50/50 split = 0.5 (most impure). The algorithm always picks the split that minimises Gini impurity.</p>
+    <p class="explain"><strong>Random Forest:</strong> An <strong>ensemble</strong> of hundreds of decision trees trained on random subsets of data and features. Final prediction = majority vote (classification) or average (regression). This reduces variance and overfitting massively.</p>
+    <div class="example-box">
+      <span class="example-label">Example</span>
+      Loan approval: Decision tree asks → Income > ₹50k? → Credit score > 700? → Existing loans < 2? → Approve/Reject. Random forest trains 500 such trees on different data samples and takes the majority vote, making it far more reliable than a single tree.
+    </div>
+    <div class="two-col" style="margin-top:12px;">
+      <div class="mini-card">
+        <div class="mini-card-title">✅ Pros of Decision Tree</div>
+        <p>Easy to visualise and explain. No feature scaling needed. Handles both categorical and numerical data. Fast prediction.</p>
+      </div>
+      <div class="mini-card">
+        <div class="mini-card-title">⚠️ Cons</div>
+        <p>Prone to overfitting (grows too deep). Unstable — small data change = very different tree. Not ideal for very complex relationships.</p>
+      </div>
+    </div>
+    <div class="qa-section">
+      <div class="qa-section-title">💬 Interview Questions</div>
+      <div class="qa-item">
+        <div class="qa-q">How does Random Forest improve over a single Decision Tree?</div>
+        <div class="qa-a">Random Forest uses <strong>bagging</strong> (Bootstrap AGGregating): it trains many trees on random subsets of training data (with replacement) and random subsets of features. This introduces diversity between trees. When they vote, individual errors cancel out. The result has lower variance, better generalisation, and is resistant to overfitting — at the cost of interpretability and speed.</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-q">What is the difference between Gini Impurity and Entropy?</div>
+        <div class="qa-a">Both measure node impurity. <strong>Gini</strong> is computationally faster (no logarithm). <strong>Entropy</strong> (from information theory) sometimes produces slightly more balanced trees. In practice, both give very similar results. Gini tends to isolate the most frequent class; entropy tends to create more balanced trees. sklearn uses Gini by default.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Card: K-Means -->
+<div class="concept-card" onclick="tog(this)">
+  <div class="card-header">
+    <div class="card-icon">🔵</div>
+    <div class="card-title-wrap">
+      <div class="card-title">K-Means Clustering</div>
+      <div class="card-subtitle">The most popular unsupervised learning algorithm</div>
+    </div>
+    <span class="card-arrow">▼</span>
+  </div>
+  <div class="card-body">
+    <p class="explain">K-Means groups data into <strong>K clusters</strong> by minimising the distance between each point and the centroid (center) of its cluster.</p>
+    <div class="body-section">
+      <div class="body-label">Step by Step</div>
+      <ul class="dot-list">
+        <li><strong>Step 1:</strong> Choose K (number of clusters)</li>
+        <li><strong>Step 2:</strong> Randomly initialise K centroids</li>
+        <li><strong>Step 3:</strong> Assign each data point to the nearest centroid</li>
+        <li><strong>Step 4:</strong> Recalculate centroids as mean of all points in the cluster</li>
+        <li><strong>Step 5:</strong> Repeat steps 3-4 until centroids stop moving (convergence)</li>
+      </ul>
+    </div>
+    <div class="example-box">
+      <span class="example-label">Example</span>
+      Segmenting 10,000 Swiggy customers into K=3 groups: Cluster 1 = "order weekly, avg ₹300" (regulars), Cluster 2 = "order once a month, avg ₹800" (special occasion), Cluster 3 = "order daily, avg ₹150" (daily lunch crowd). Swiggy can target each differently.
+    </div>
+    <div class="note-box">How to choose K? Use the <strong>Elbow Method</strong> — plot inertia (sum of squared distances from centroid) vs K. The "elbow" where the curve bends is the optimal K.</div>
+    <div class="qa-section">
+      <div class="qa-section-title">💬 Interview Questions</div>
+      <div class="qa-item">
+        <div class="qa-q">What is a limitation of K-Means?</div>
+        <div class="qa-a">1. You must specify K in advance (use Elbow method to find it). 2. Sensitive to outliers (one extreme point can pull a centroid far off). 3. Assumes spherical clusters — doesn't work well for elongated or oddly-shaped clusters (use DBSCAN instead). 4. Results vary with random initialisation (use K-Means++ for better initialisation).</div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════ SECTION 2: ALGORITHMS ═══════════ -->
+<section class="section" id="s2">
+<div class="section-header">
+  <div class="section-num">02</div>
+  <div class="section-title-wrap">
+    <div class="section-title">Key ML Algorithms</div>
+    <div class="section-sub">SVM, KNN, Gradient Boosting, Naive Bayes — with when-to-use guides</div>
+  </div>
+</div>
+
+<!-- KNN -->
+<div class="concept-card" onclick="tog(this)">
+  <div class="card-header">
+    <div class="card-icon">🎯</div>
+    <div class="card-title-wrap">
+      <div class="card-title">K-Nearest Neighbours (KNN)</div>
+      <div class="card-subtitle">Classify by looking at your neighbours — the simplest algorithm</div>
+    </div>
+    <span class="card-arrow">▼</span>
+  </div>
+  <div class="card-body">
+    <p class="explain">KNN classifies a new point by finding the <strong>K nearest data points</strong> in the training set (by Euclidean distance) and taking a majority vote of their classes. No training phase — it's a "lazy learner".</p>
+    <div class="example-box">
+      <span class="example-label">Example</span>
+      You're recommending a movie. K=5 → find the 5 users most similar to you by watch history. 4 of them liked "Interstellar" → predict you'll like it too. This is literally how collaborative filtering (Netflix) works at its core.
+    </div>
+    <div class="two-col" style="margin-top:10px;">
+      <div class="mini-card">
+        <div class="mini-card-title">✅ Pros</div>
+        <p>Simple, no training time, naturally handles multi-class, works well for small datasets, good for recommendation systems.</p>
+      </div>
+      <div class="mini-card">
+        <div class="mini-card-title">⚠️ Cons</div>
+        <p>Slow at prediction (computes distance to all points). Sensitive to scale — must normalise features. Struggles with high dimensions (curse of dimensionality).</p>
+      </div>
+    </div>
+    <div class="note-box">Always normalise/scale features before KNN. A feature measured in thousands (salary) would dominate one measured in single digits (years) purely due to scale.</div>
+    <div class="qa-section">
+      <div class="qa-section-title">💬 Interview Questions</div>
+      <div class="qa-item">
+        <div class="qa-q">How do you choose K in KNN?</div>
+        <div class="qa-a">Use cross-validation: try K = 1, 3, 5, 7... and pick the one with the lowest validation error. Rule of thumb: K = √n (where n = training samples). Odd K is preferred to avoid ties in binary classification. Low K = overfit (too sensitive to noise), High K = underfit (too generalised, ignores local patterns).</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SVM -->
+<div class="concept-card" onclick="tog(this)">
+  <div class="card-header">
+    <div class="card-icon">✂️</div>
+    <div class="card-title-wrap">
+      <div class="card-title">Support Vector Machine (SVM)</div>
+      <div class="card-subtitle">Find the widest possible margin between classes</div>
+    </div>
+    <span class="card-arrow">▼</span>
+  </div>
+  <div class="card-body">
+    <p class="explain">SVM finds a <strong>hyperplane</strong> that best separates two classes with the <strong>maximum margin</strong>. The data points closest to the boundary are called <strong>support vectors</strong> — they define the margin. Maximising the margin improves generalisation.</p>
+    <p class="explain">For non-linearly separable data, SVM uses a <strong>kernel trick</strong> — it maps data to a higher-dimensional space where it becomes linearly separable, without actually computing in that space.</p>
+    <div class="example-box">
+      <span class="example-label">Example</span>
+      Classifying tumours as malignant/benign. The features (cell size, shape) might not be linearly separable in 2D. An RBF kernel maps them to 3D where a flat plane perfectly separates them. SVM finds that plane.
+    </div>
+    <div class="body-section">
+      <div class="body-label">Common Kernels</div>
+      <ul class="dot-list">
+        <li><strong>Linear kernel</strong> — for linearly separable data; fast</li>
+        <li><strong>RBF (Radial Basis Function)</strong> — most popular; handles non-linear; works with most data</li>
+        <li><strong>Polynomial kernel</strong> — for polynomial relationships between features</li>
+      </ul>
+    </div>
+    <div class="qa-section">
+      <div class="qa-section-title">💬 Interview Questions</div>
+      <div class="qa-item">
+        <div class="qa-q">What is the C parameter in SVM?</div>
+        <div class="qa-a">C is the <strong>regularization parameter</strong>. High C = small margin, fewer misclassifications on training data (may overfit). Low C = wider margin, allows more misclassifications (better generalisation). Think of C as how much you penalise misclassifications: high penalty → the model tries hard to classify everything correctly → smaller margin → overfitting risk.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Gradient Boosting -->
+<div class="concept-card" onclick="tog(this)">
+  <div class="card-header">
+    <div class="card-icon">🚀</div>
+    <div class="card-title-wrap">
+      <div class="card-title">Gradient Boosting & XGBoost</div>
+      <div class="card-subtitle">The algorithm that wins most Kaggle competitions</div>
+    </div>
+    <span class="card-arrow">▼</span>
+  </div>
+  <div class="card-body">
+    <p class="explain"><strong>Boosting:</strong> An ensemble technique that builds trees <strong>sequentially</strong>. Each new tree focuses on correcting the errors of the previous trees. Final prediction = weighted sum of all trees.</p>
+    <p class="explain"><strong>XGBoost</strong> (Extreme Gradient Boosting) is an optimised, faster implementation with built-in regularisation, missing value handling, and parallel processing. It's the industry standard for structured/tabular data.</p>
+    <div class="two-col" style="margin-top:10px;">
+      <div class="mini-card">
+        <div class="mini-card-title">🆚 Boosting vs Bagging</div>
+        <p><strong>Bagging</strong> (Random Forest): Trees trained in <em>parallel</em> on random subsets. Reduces variance. <strong>Boosting</strong> (XGBoost): Trees trained <em>sequentially</em>, each fixing previous errors. Reduces bias. Boosting is usually more accurate; bagging is more robust to outliers.</p>
+      </div>
+      <div class="mini-card">
+        <div class="mini-card-title">📊 When to Use XGBoost</div>
+        <p>Structured/tabular data (CSV, databases). When you need high accuracy. Kaggle competitions. When features are numeric with some nulls. Not ideal for images, text (use deep learning instead).</p>
+      </div>
+    </div>
+    <div class="example-box">
+      <span class="example-label">Example</span>
+      Predicting loan default: Tree 1 predicts, makes some errors on high-risk customers. Tree 2 focuses on those high-risk cases. Tree 3 fixes what Tree 2 got wrong. After 100 trees, the combined model is highly accurate. Banks use XGBoost for exactly this.
+    </div>
+    <div class="qa-section">
+      <div class="qa-section-title">💬 Interview Questions</div>
+      <div class="qa-item">
+        <div class="qa-q">What is the difference between Random Forest and XGBoost?</div>
+        <div class="qa-a"><strong>Random Forest</strong> builds trees in parallel, independently, and averages them (bagging). Reduces variance. More robust, harder to overfit. <strong>XGBoost</strong> builds trees sequentially, each correcting previous errors (boosting). Reduces bias. Generally more accurate on tabular data but more prone to overfitting if not tuned. RF is more interpretable; XGBoost typically wins on performance benchmarks.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Naive Bayes -->
+<div class="concept-card" onclick="tog(this)">
+  <div class="card-header">
+    <div class="card-icon">📬</div>
+    <div class="card-title-wrap">
+      <div class="card-title">Naive Bayes</div>
+      <div class="card-subtitle">Probabilistic classifier — surprisingly effective for text</div>
+    </div>
+    <span class="card-arrow">▼</span>
+  </div>
+  <div class="card-body">
+    <p class="explain">Naive Bayes applies <strong>Bayes' Theorem</strong> to classify data. "Naive" because it assumes all features are <strong>independent</strong> given the class label — which is rarely true but surprisingly works well in practice.</p>
+    <div class="formula-box">P(class | features) ∝ P(class) × P(feature₁|class) × P(feature₂|class) × ...</div>
+    <div class="example-box">
+      <span class="example-label">Email Spam Example</span>
+      For a new email containing "FREE", "WIN", "CLICK": P(spam | "FREE","WIN","CLICK") ∝ P(spam) × P("FREE"|spam) × P("WIN"|spam) × P("CLICK"|spam). If this > P(not spam | words), classify as spam. It learns these probabilities from training emails.
+    </div>
+    <div class="note-box">Naive Bayes is extremely fast and works brilliantly for text classification (spam filters, sentiment analysis) despite its simplistic assumption. It's often used as a strong baseline.</div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════ SECTION 3: MODEL EVALUATION ═══════════ -->
+<section class="section" id="s3">
+<div class="section-header">
+  <div class="section-num">03</div>
+  <div class="section-title-wrap">
+    <div class="section-title">Model Evaluation & Metrics</div>
+    <div class="section-sub">How do we know if a model is actually good?</div>
+  </div>
+</div>
+
+<div class="concept-card" onclick="tog(this)">
+  <div class="card-header">
+    <div class="card-icon">🎯</div>
+    <div class="card-title-wrap">
+      <div class="card-title">Confusion Matrix, Precision, Recall, F1</div>
+      <div class="card-subtitle">The most important evaluation metrics — asked in almost every interview</div>
+    </div>
+    <span class="card-arrow">▼</span>
+  </div>
+  <div class="card-body">
+    <p class="explain">A <strong>confusion matrix</strong> shows how many predictions were correct vs incorrect for each class.</p>
+    <table class="comp-table" style="margin-top:10px;">
+      <tr><th></th><th>Predicted Positive</th><th>Predicted Negative</th></tr>
+      <tr><td>Actually Positive</td><td style="color:#1a8a5a;font-weight:600;">TP (True Positive)</td><td style="color:#c84b2f;font-weight:600;">FN (False Negative) — missed it</td></tr>
+      <tr><td>Actually Negative</td><td style="color:#c84b2f;font-weight:600;">FP (False Positive) — false alarm</td><td style="color:#1a8a5a;font-weight:600;">TN (True Negative)</td></tr>
+    </table>
+    <div class="two-col" style="margin-top:12px;">
+      <div class="mini-card">
+        <div class="mini-card-title">Precision</div>
+        <p>Of all the times we predicted positive, how often were we right?<br><code>TP / (TP + FP)</code><br>High precision = few false alarms. Optimise when false positives are costly (spam filter — don't mark real emails as spam).</p>
+      </div>
+      <div class="mini-card">
+        <div class="mini-card-title">Recall (Sensitivity)</div>
+        <p>Of all actual positives, how many did we catch?<br><code>TP / (TP + FN)</code><br>High recall = don't miss real cases. Optimise when false negatives are costly (cancer detection — don't miss a real tumour).</p>
+      </div>
+    </div>
+    <div class="formula-box" style="margin-top:12px;">F1 Score = 2 × (Precision × Recall) / (Precision + Recall)</div>
+    <p class="explain" style="margin-top:10px;"><strong>F1 Score:</strong> Harmonic mean of precision and recall. Use when both matter and dataset is imbalanced. Accuracy is misleading on imbalanced data (99% "not fraud" dataset → model that always predicts "not fraud" gets 99% accuracy but detects 0 frauds).</p>
+    <div class="example-box">
+      <span class="example-label">When to use what</span>
+      <strong>Cancer detection:</strong> optimise Recall (catch every case). <strong>Spam filter:</strong> optimise Precision (don't block real emails). <strong>Customer churn prediction:</strong> use F1 (care about both). <strong>Search engine ranking:</strong> use Precision@K.
+    </div>
+    <div class="qa-section">
+      <div class="qa-section-title">💬 Interview Questions</div>
+      <div class="qa-item">
+        <div class="qa-q">Why is accuracy a bad metric for imbalanced datasets?</div>
+        <div class="qa-a">If 99% of credit card transactions are legitimate and only 1% are fraud, a model that always predicts "not fraud" gets 99% accuracy but catches zero frauds — which is useless. Instead use <strong>Precision, Recall, F1, or AUC-ROC</strong>, which measure how well the model handles the minority class (fraud). This is why in fraud detection, banking, and medical diagnosis, we never use accuracy alone.</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-q">What is AUC-ROC?</div>
+        <div class="qa-a">ROC (Receiver Operating Characteristic) curve plots True Positive Rate vs False Positive Rate at different classification thresholds. AUC (Area Under Curve) summarises this as a single number 0–1. AUC = 0.5 → random guessing. AUC = 1.0 → perfect model. AUC = 0.85 → model correctly ranks a random positive above a random negative 85% of the time. It's threshold-independent — useful for comparing models.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="concept-card" onclick="tog(this)">
+  <div class="card-header">
+    <div class="card-icon">✂️</div>
+    <div class="card-title-wrap">
+      <div class="card-title">Train/Validation/Test Split & Cross-Validation</div>
+      <div class="card-subtitle">The right way to evaluate model performance without data leakage</div>
+    </div>
+    <span class="card-arrow">▼</span>
+  </div>
+  <div class="card-body">
+    <p class="explain"><strong>Train set (70-80%):</strong> Model learns from this. <strong>Validation set (10-15%):</strong> Used during development to tune hyperparameters and compare models. <strong>Test set (10-20%):</strong> Held out completely until final evaluation — never touch during development.</p>
+    <p class="explain"><strong>Data Leakage:</strong> When information from outside the training set "leaks" into the model during training, making it look better than it actually is. Classic mistake: normalising using statistics from the full dataset before splitting — the test set's mean/std influenced the training, so test performance is fake.</p>
+    <div class="example-box">
+      <span class="example-label">K-Fold Cross Validation</span>
+      Split data into K folds (e.g., 5). Train on 4 folds, test on 1. Repeat 5 times, each time using a different fold as test. Average the 5 scores. This gives a more reliable performance estimate, especially for small datasets. 5-fold CV is the standard.
+    </div>
+    <div class="alert-box">Always split data FIRST, then apply any preprocessing (scaling, encoding) to train set only. Then apply the same transformation to validation/test using train set statistics.</div>
+    <div class="qa-section">
+      <div class="qa-section-title">💬 Interview Questions</div>
+      <div class="qa-item">
+        <div class="qa-q">What is data leakage and give an example?</div>
+        <div class="qa-a">Data leakage means the model has access to information it wouldn't have in production. Example: predicting if a patient will be hospitalised next month, but including "number of hospital visits this month" as a feature. That data wouldn't be available at prediction time. Another classic: including the label-derived features (e.g., using "fraud flag" to predict fraud). Leakage inflates validation scores but the model fails catastrophically in production.</div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════ SECTION 4: NEURAL NETWORKS ═══════════ -->
+<section class="section" id="s4">
+<div class="section-header">
+  <div class="section-num">04</div>
+  <div class="section-title-wrap">
+    <div class="section-title">Neural Networks & Deep Learning</div>
+    <div class="section-sub">The engine behind modern AI — architecture, training, CNNs</div>
+  </div>
+</div>
+
+<div class="concept-card" onclick="tog(this)">
+  <div class="card-header">
+    <div class="card-icon">🧠</div>
+    <div class="card-title-wrap">
+      <div class="card-title">Neural Network Architecture & Forward Pass</div>
+      <div class="card-subtitle">Layers, neurons, weights, activation functions — how data flows</div>
+    </div>
+    <span class="card-arrow">▼</span>
+  </div>
+  <div class="card-body">
+    <p class="explain">A neural network is made of layers of <strong>neurons</strong>. Each neuron computes a <strong>weighted sum of its inputs + bias</strong>, then applies an <strong>activation function</strong> to introduce non-linearity. Without activation functions, stacked linear layers are still just one linear transformation.</p>
+    <div class="body-section">
+      <div class="body-label">Layer types</div>
+      <ul class="dot-list">
+        <li><strong>Input Layer</strong> — receives raw features (one neuron per feature)</li>
+        <li><strong>Hidden Layers</strong> — learn intermediate representations; deeper = more complex patterns</li>
+        <li><strong>Output Layer</strong> — final prediction (1 neuron for regression; N neurons for N-class classification)</li>
+      </ul>
+    </div>
+    <div class="body-section">
+      <div class="body-label">Activation Functions</div>
+      <table class="comp-table">
+        <tr><th>Function</th><th>Output Range</th><th>When to Use</th></tr>
+        <tr><td>ReLU</td><td>0 to +∞</td><td>Default for hidden layers — fast, avoids vanishing gradient</td></tr>
+        <tr><td>Sigmoid</td><td>0 to 1</td><td>Binary classification output layer (probability)</td></tr>
+        <tr><td>Softmax</td><td>0 to 1 (sums to 1)</td><td>Multi-class output layer (probability per class)</td></tr>
+        <tr><td>Tanh</td><td>-1 to 1</td><td>Hidden layers when negative values matter; better than sigmoid</td></tr>
+        <tr><td>Leaky ReLU</td><td>-∞ to +∞</td><td>Fixes "dying ReLU" problem; small negative slope</td></tr>
+      </table>
+    </div>
+    <div class="qa-section">
+      <div class="qa-section-title">💬 Interview Questions</div>
+      <div class="qa-item">
+        <div class="qa-q">What is the vanishing gradient problem?</div>
+        <div class="qa-a">During backpropagation, gradients are multiplied layer by layer. Sigmoid/tanh functions have gradients between 0 and 0.25 — multiplying many small numbers together → gradient approaches 0 in early layers → those layers barely update → deep networks don't learn. Solution: use <strong>ReLU</strong> (gradient is 1 for positive inputs, no squashing), <strong>batch normalisation</strong>, or <strong>residual connections</strong> (like in ResNet which adds skip connections).</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="concept-card" onclick="tog(this)">
+  <div class="card-header">
+    <div class="card-icon">⚙️</div>
+    <div class="card-title-wrap">
+      <div class="card-title">Backpropagation & Gradient Descent</div>
+      <div class="card-subtitle">How neural networks actually learn — the core training algorithm</div>
+    </div>
+    <span class="card-arrow">▼</span>
+  </div>
+  <div class="card-body">
+    <p class="explain"><strong>Forward pass:</strong> Input flows through the network, producing a prediction. Loss is calculated (difference from truth).</p>
+    <p class="explain"><strong>Backward pass (Backpropagation):</strong> Using the chain rule of calculus, compute the gradient of the loss with respect to each weight. This tells us which direction to nudge each weight to reduce loss.</p>
+    <p class="explain"><strong>Gradient Descent:</strong> Update each weight: <code>w = w - learning_rate × gradient</code>. Learning rate controls step size — too large = overshooting, too small = very slow training.</p>
+    <div class="body-section">
+      <div class="body-label">Optimisers</div>
+      <ul class="dot-list">
+        <li><strong>SGD</strong> — basic; update weights after each sample; noisy but can escape local minima</li>
+        <li><strong>Mini-batch SGD</strong> — update after a batch (32/64/128 samples); balance of speed and accuracy</li>
+        <li><strong>Adam</strong> — Adaptive Moment Estimation; adjusts learning rate per parameter; <strong>most popular choice</strong></li>
+        <li><strong>RMSprop</strong> — good for RNNs; adapts learning rate based on recent gradient magnitudes</li>
+      </ul>
+    </div>
+    <div class="example-box">
+      <span class="example-label">Analogy</span>
+      Imagine you're blindfolded on a hilly landscape trying to reach the valley (minimum loss). Each step, you feel the slope (gradient) and take a step downhill (gradient descent). The step size is the learning rate. Too big a step and you jump over the valley. Too small and it takes forever. Adam is like having a smart guide who adjusts your step size dynamically.
+    </div>
+    <div class="qa-section">
+      <div class="qa-section-title">💬 Interview Questions</div>
+      <div class="qa-item">
+        <div class="qa-q">What is the difference between batch gradient descent and mini-batch?</div>
+        <div class="qa-a"><strong>Batch GD</strong>: uses all training data to compute one gradient update. Very stable but extremely slow for large datasets. <strong>Mini-batch GD</strong>: uses a random subset (e.g., 64 samples). Much faster, has some noise that helps escape local minima, is the standard in practice. <strong>Stochastic GD</strong>: one sample at a time — fastest updates but very noisy. Mini-batch is the sweet spot used in virtually every neural network training pipeline today.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="concept-card" onclick="tog(this)">
+  <div class="card-header">
+    <div class="card-icon">🖼️</div>
+    <div class="card-title-wrap">
+      <div class="card-title">Convolutional Neural Networks (CNN)</div>
+      <div class="card-subtitle">The architecture for images, video, and anything spatial</div>
+    </div>
+    <span class="card-arrow">▼</span>
+  </div>
+  <div class="card-body">
+    <p class="explain">CNNs use <strong>convolutional layers</strong> that apply learnable filters (kernels) to detect local features — edges, textures, shapes in images. Key advantage: <strong>parameter sharing</strong> — the same filter is used across the entire image, massively reducing parameters vs a fully connected network.</p>
+    <div class="body-section">
+      <div class="body-label">CNN Layer Types</div>
+      <ul class="dot-list">
+        <li><strong>Conv Layer</strong> — applies filters to detect features (edges, textures); outputs feature maps</li>
+        <li><strong>ReLU</strong> — activation after each conv layer</li>
+        <li><strong>Pooling (Max/Avg)</strong> — reduces spatial dimensions; adds translation invariance (cat is a cat anywhere in image)</li>
+        <li><strong>Flatten</strong> — convert 2D feature maps to 1D vector</li>
+        <li><strong>Fully Connected (Dense)</strong> — final classification layers</li>
+      </ul>
+    </div>
+    <div class="example-box">
+      <span class="example-label">Real Application</span>
+      Google Photos face recognition: first conv layers detect edges → deeper layers detect eyes, noses → final layers detect faces. Same architecture used in medical imaging (tumour detection in X-rays), self-driving car lane detection, and document scanner apps.
+    </div>
+    <div class="qa-section">
+      <div class="qa-section-title">💬 Interview Questions</div>
+      <div class="qa-item">
+        <div class="qa-q">Why do we use Pooling layers in CNNs?</div>
+        <div class="qa-a">Pooling (typically Max Pooling) reduces the spatial size of feature maps, which: (1) reduces computation and parameters, (2) adds translation invariance — the model recognises a cat whether it's in the top-left or bottom-right of the image, (3) helps prevent overfitting by discarding precise positional information and keeping only the dominant features. A 4×4 feature map → 2×2 after max pooling (75% fewer values to process in next layer).</div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════ SECTION 5: NLP & TRANSFORMERS ═══════════ -->
+<section class="section" id="s5">
+<div class="section-header">
+  <div class="section-num">05</div>
+  <div class="section-title-wrap">
+    <div class="section-title">NLP & Transformers</div>
+    <div class="section-sub">The core of modern AI — this section is critical for AI intern roles</div>
+  </div>
+</div>
+
+<div class="concept-card" onclick="tog(this)">
+  <div class="card-header">
+    <div class="card-icon">🔤</div>
+    <div class="card-title-wrap">
+      <div class="card-title">Text Processing: Tokenization, Embeddings, TF-IDF</div>
+      <div class="card-subtitle">How computers understand text — from characters to meaning</div>
+    </div>
+    <span class="card-arrow">▼</span>
+  </div>
+  <div class="card-body">
+    <p class="explain"><strong>Tokenization:</strong> Splitting text into units (tokens). Can be words, subwords, or characters. Modern LLMs use subword tokenization (BPE / WordPiece) — "unhappiness" → ["un", "happiness"]. This handles rare words gracefully.</p>
+    <p class="explain"><strong>Word Embeddings:</strong> Map words to dense numerical vectors where similar words have similar vectors. The vector captures semantic meaning.</p>
+    <div class="example-box">
+      <span class="example-label">Word2Vec magic</span>
+      king - man + woman ≈ queen. "Paris" - "France" + "Germany" ≈ "Berlin". These relationships emerge automatically from training on large text corpus. This is what makes embeddings so powerful.
+    </div>
+    <div class="body-section">
+      <div class="body-label">Embedding types</div>
+      <ul class="dot-list">
+        <li><strong>Word2Vec</strong> — static embeddings; each word has one fixed vector regardless of context</li>
+        <li><strong>GloVe</strong> — similar to Word2Vec; trained on global co-occurrence statistics</li>
+        <li><strong>Contextual (BERT)</strong> — same word gets different vector based on context. "bank" in "river bank" ≠ "bank account"</li>
+      </ul>
+    </div>
+    <p class="explain"><strong>TF-IDF (Term Frequency-Inverse Document Frequency):</strong> Measures how important a word is to a document in a corpus. High TF-IDF = word appears often in this doc but rarely in others (= distinctive). Used in search engines and keyword extraction.</p>
+    <div class="formula-box">TF-IDF = TF(t,d) × log(N / df(t))</div>
+    <div class="qa-section">
+      <div class="qa-section-title">💬 Interview Questions</div>
+      <div class="qa-item">
+        <div class="qa-q">What is the difference between Word2Vec and BERT embeddings?</div>
+        <div class="qa-a"><strong>Word2Vec</strong> is a static embedding — "Apple" always maps to the same vector whether in "Apple iPhone" or "apple pie". <strong>BERT</strong> produces contextual embeddings — the same word gets a different vector based on surrounding words. This is why BERT understands "I went to the river bank" vs "I went to the bank to deposit money" correctly. BERT representations are far richer and power modern NLP applications.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="concept-card" onclick="tog(this)">
+  <div class="card-header">
+    <div class="card-icon">⚡</div>
+    <div class="card-title-wrap">
+      <div class="card-title">Transformers & Self-Attention (MUST KNOW)</div>
+      <div class="card-subtitle">The architecture powering GPT, BERT, and every modern LLM</div>
+    </div>
+    <span class="card-arrow">▼</span>
+  </div>
+  <div class="card-body">
+    <p class="explain">The <strong>Transformer</strong> (introduced in "Attention Is All You Need", 2017) processes sequences in <strong>parallel</strong> using self-attention, unlike RNNs which process sequentially. This makes training dramatically faster and allows capturing long-range dependencies.</p>
+    <div class="body-section">
+      <div class="body-label">Self-Attention — the key idea</div>
+      <p class="explain">For each word in a sequence, self-attention computes how much <strong>attention to pay to every other word</strong>. It creates three vectors per word: <strong>Query (Q)</strong>, <strong>Key (K)</strong>, <strong>Value (V)</strong>.</p>
+    </div>
+    <div class="formula-box">Attention(Q, K, V) = softmax(QKᵀ / √d_k) × V</div>
+    <div class="example-box">
+      <span class="example-label">Intuition</span>
+      Sentence: "The animal didn't cross the street because <u>it</u> was too tired." — What does "it" refer to? Self-attention lets the word "it" strongly attend to "animal". The model learns these relationships automatically from training data.
+    </div>
+    <div class="body-section">
+      <div class="body-label">Transformer Architecture</div>
+      <ul class="dot-list">
+        <li><strong>Encoder</strong> — reads and understands input; produces rich contextual representations</li>
+        <li><strong>Decoder</strong> — generates output sequence token by token</li>
+        <li><strong>Multi-head Attention</strong> — runs attention multiple times in parallel (different "perspectives")</li>
+        <li><strong>Positional Encoding</strong> — since there's no recurrence, position info is added to embeddings</li>
+        <li><strong>Feed-forward layers</strong> — applied after attention in each block</li>
+        <li><strong>Layer normalisation</strong> — stabilises training</li>
+      </ul>
+    </div>
+    <table class="comp-table" style="margin-top:12px;">
+      <tr><th>Model</th><th>Architecture</th><th>Best For</th></tr>
+      <tr><td>BERT</td><td>Encoder-only</td><td>Understanding text — classification, NER, QA</td></tr>
+      <tr><td>GPT</td><td>Decoder-only</td><td>Generating text — chatbots, completion, summarisation</td></tr>
+      <tr><td>T5 / BART</td><td>Encoder-Decoder</td><td>Seq-to-seq — translation, summarisation</td></tr>
+    </table>
+    <div class="qa-section">
+      <div class="qa-section-title">💬 Interview Questions</div>
+      <div class="qa-item">
+        <div class="qa-q">Explain transformers to a non-technical person.</div>
+        <div class="qa-a">Imagine reading a book with a sticky note for every word, and each sticky note tells you which other words are related and how much. Transformers do this for every word simultaneously — each word "pays attention" to relevant context words, no matter how far apart. This lets the model understand "it was tired" refers to "the animal" even at the start of the sentence. And unlike reading one word at a time, it reads the whole sentence in parallel — making it very fast.</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-q">Why did transformers replace RNNs/LSTMs?</div>
+        <div class="qa-a">RNNs process tokens one by one — can't parallelise, slow to train. They also struggle with <strong>long-range dependencies</strong> (information from early tokens gets "forgotten" by the time we process late tokens, despite LSTMs helping). Transformers: (1) process all tokens in parallel → 10-100x faster training, (2) self-attention lets any token directly attend to any other token regardless of distance, (3) scale much better with more data and compute.</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-q">What is positional encoding in transformers?</div>
+        <div class="qa-a">Since transformers process all tokens simultaneously (not sequentially), they have no inherent sense of word order. "Dog bites man" and "Man bites dog" would look the same without position info. Positional encoding adds a unique vector to each token embedding based on its position, so the model knows which word came first, second, etc. The original paper used sine/cosine functions of different frequencies; modern models often learn positional embeddings during training.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="concept-card" onclick="tog(this)">
+  <div class="card-header">
+    <div class="card-icon">🎭</div>
+    <div class="card-title-wrap">
+      <div class="card-title">NLP Tasks & Applications</div>
+      <div class="card-subtitle">Sentiment analysis, NER, text classification, machine translation</div>
+    </div>
+    <span class="card-arrow">▼</span>
+  </div>
+  <div class="card-body">
+    <table class="comp-table">
+      <tr><th>NLP Task</th><th>What it does</th><th>Real Example</th></tr>
+      <tr><td>Sentiment Analysis</td><td>Classify opinion: positive/negative/neutral</td><td>Twitter brand monitoring, product review analysis</td></tr>
+      <tr><td>Named Entity Recognition (NER)</td><td>Identify entities: person, org, location, date</td><td>Extracting company names from news articles</td></tr>
+      <tr><td>Text Classification</td><td>Categorise text into predefined classes</td><td>Spam detection, topic labelling, intent classification</td></tr>
+      <tr><td>Machine Translation</td><td>Translate text between languages</td><td>Google Translate, DeepL</td></tr>
+      <tr><td>Question Answering</td><td>Extract answer from context for a given question</td><td>Chatbots, document search (RAG)</td></tr>
+      <tr><td>Text Summarisation</td><td>Condense long text to key points</td><td>Meeting transcripts, news articles, legal docs</td></tr>
+      <tr><td>Text Generation</td><td>Generate coherent new text</td><td>ChatGPT, GitHub Copilot, email autocomplete</td></tr>
+    </table>
+    <div class="example-box">
+      <span class="example-label">CirrusLabs angle — this is their business!</span>
+      CirrusLabs builds enterprise AI including NLP pipelines. A real use case: <strong>customer support automation</strong> — use NER to extract product names and issue type from emails, sentiment analysis to prioritise angry customers, and text classification to route tickets to the right team. You can mention this!
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════ SECTION 6: LLMs & GENERATIVE AI ═══════════ -->
+<section class="section" id="s6">
+<div class="section-header">
+  <div class="section-num">06</div>
+  <div class="section-title-wrap">
+    <div class="section-title">LLMs & Generative AI</div>
+    <div class="section-sub">GPT, BERT, RAG, prompt engineering — the AI intern's home turf</div>
+  </div>
+</div>
+
+<div class="concept-card" onclick="tog(this)">
+  <div class="card-header">
+    <div class="card-icon">🤖</div>
+    <div class="card-title-wrap">
+      <div class="card-title">Large Language Models (LLMs) — How They're Built</div>
+      <div class="card-subtitle">Pre-training → Fine-tuning → RLHF — the 3-stage training pipeline</div>
+    </div>
+    <span class="card-arrow">▼</span>
+  </div>
+  <div class="card-body">
+    <div class="body-section">
+      <div class="body-label">Stage 1: Pre-training</div>
+      <p class="explain">Train a giant transformer on massive text data (Common Crawl, Wikipedia, books). Task: predict the next token given context. This teaches the model language, world knowledge, reasoning, and code. GPT-4 was trained on ~10 trillion tokens. Cost: tens of millions of dollars in compute.</p>
+    </div>
+    <div class="body-section">
+      <div class="body-label">Stage 2: Fine-tuning (SFT)</div>
+      <p class="explain">Take the pre-trained model and train further on a smaller, high-quality dataset of instruction-response pairs. This teaches it to be helpful and follow instructions. Example: fine-tune on 10,000 examples of "instruction → ideal response".</p>
+    </div>
+    <div class="body-section">
+      <div class="body-label">Stage 3: RLHF (Reinforcement Learning from Human Feedback)</div>
+      <p class="explain">Human raters compare model outputs and rank them. A <strong>Reward Model</strong> is trained to predict human preference. Then the LLM is fine-tuned to maximise this reward using RL (PPO algorithm). This is what makes ChatGPT helpful, harmless, and honest.</p>
+    </div>
+    <div class="example-box">
+      <span class="example-label">Analogy</span>
+      Pre-training = reading every book ever written (general knowledge). Fine-tuning = taking a course on customer service (specific task). RLHF = getting feedback from customers and improving your responses based on what they liked (alignment with preferences).
+    </div>
+    <div class="qa-section">
+      <div class="qa-section-title">💬 Interview Questions</div>
+      <div class="qa-item">
+        <div class="qa-q">What is RLHF and why is it important?</div>
+        <div class="qa-a">RLHF (Reinforcement Learning from Human Feedback) aligns LLMs with human values and preferences. Without it, a model trained to predict text might generate harmful content, be sycophantic, or give confidently wrong answers. RLHF teaches the model what "good" looks like by learning from human rankings of model outputs, then optimising the model to produce those preferred outputs. It's what turns a raw language model into ChatGPT.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="concept-card" onclick="tog(this)">
+  <div class="card-header">
+    <div class="card-icon">🔍</div>
+    <div class="card-title-wrap">
+      <div class="card-title">RAG — Retrieval-Augmented Generation</div>
+      <div class="card-subtitle">How to give LLMs knowledge beyond their training data</div>
+    </div>
+    <span class="card-arrow">▼</span>
+  </div>
+  <div class="card-body">
+    <p class="explain">RAG combines a <strong>retrieval system</strong> (search over your documents) with a <strong>generative LLM</strong>. Instead of relying purely on training data, the LLM can look up relevant information at inference time and include it in its context.</p>
+    <div class="body-section">
+      <div class="body-label">RAG Pipeline</div>
+      <ul class="dot-list">
+        <li><strong>Ingestion:</strong> Take your documents → split into chunks → convert to embeddings → store in vector database (Pinecone, pgvector, Weaviate)</li>
+        <li><strong>Retrieval:</strong> User query → convert to embedding → find top-K most similar chunks via cosine similarity</li>
+        <li><strong>Augmentation:</strong> Inject retrieved chunks into the LLM prompt as context</li>
+        <li><strong>Generation:</strong> LLM answers using both its training knowledge + retrieved context</li>
+      </ul>
+    </div>
+    <div class="example-box">
+      <span class="example-label">Real Example — Your PromptRoute experience applies here!</span>
+      CirrusLabs enterprise chatbot: upload 1000 internal policy PDFs → chunk + embed → store in vector DB. User asks "What's the leave policy for remote employees?" → retrieve top 3 relevant chunks → LLM answers accurately with citations. Without RAG, the LLM would either make up an answer or say "I don't know".
+    </div>
+    <div class="note-box">You built a RAG chatbot for ruthvikrr.in! Mention this: "I built a production RAG system using Node.js, pgvector, Groq, and Xenova embeddings. I debugged vector dimension mismatches and implemented rate limiting."</div>
+    <div class="qa-section">
+      <div class="qa-section-title">💬 Interview Questions</div>
+      <div class="qa-item">
+        <div class="qa-q">What is the difference between fine-tuning and RAG? When would you choose each?</div>
+        <div class="qa-a"><strong>Fine-tuning</strong> bakes knowledge into model weights — good for teaching consistent style/behavior, domain-specific language, or reasoning patterns. Expensive to update when knowledge changes. <strong>RAG</strong> retrieves knowledge at runtime — good for factual, frequently-updated information (policies, product docs, legal texts). Easy to update — just update the document store. <strong>Choose RAG</strong> for knowledge-intensive tasks with changing data. <strong>Choose fine-tuning</strong> for consistent formatting, tone, or domain-specific generation styles. Often combine both for best results.</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-q">What is "hallucination" in LLMs?</div>
+        <div class="qa-a">Hallucination is when an LLM generates plausible-sounding but factually incorrect information with high confidence. Example: GPT might invent a fake research paper with a real-sounding author and journal title. It happens because LLMs are trained to predict likely next tokens — not to verify truth. Mitigations: RAG (ground answers in real documents), temperature=0 (more deterministic), asking the model to cite sources, and having the model say "I don't know" when uncertain.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="concept-card" onclick="tog(this)">
+  <div class="card-header">
+    <div class="card-icon">💡</div>
+    <div class="card-title-wrap">
+      <div class="card-title">Prompt Engineering</div>
+      <div class="card-subtitle">Getting the best out of LLMs — CoT, few-shot, system prompts</div>
+    </div>
+    <span class="card-arrow">▼</span>
+  </div>
+  <div class="card-body">
+    <p class="explain">Prompt engineering is the practice of crafting inputs to LLMs to get reliable, high-quality outputs. It's a key skill for AI interns at companies building AI products.</p>
+    <div class="body-section">
+      <div class="body-label">Key Techniques</div>
+      <ul class="dot-list">
+        <li><strong>Zero-shot prompting</strong> — just ask the question; no examples. Works for simple tasks.</li>
+        <li><strong>Few-shot prompting</strong> — provide 2-5 examples of input→output before your actual question. Model learns the pattern from examples.</li>
+        <li><strong>Chain-of-Thought (CoT)</strong> — ask model to "think step by step". Dramatically improves reasoning on math/logic problems.</li>
+        <li><strong>System prompt</strong> — set context and persona before the conversation. "You are a helpful customer support agent for CirrusLabs…"</li>
+        <li><strong>ReAct (Reason + Act)</strong> — model alternates between reasoning and taking actions (calling tools, searching). Used in AI agents.</li>
+        <li><strong>Self-consistency</strong> — generate multiple responses and take majority answer. More reliable for tricky questions.</li>
+      </ul>
+    </div>
+    <div class="example-box">
+      <span class="example-label">CoT Example</span>
+      <strong>Without CoT:</strong> "What is 23 × 47?" → "1081" (often wrong). <br>
+      <strong>With CoT:</strong> "Think step by step: 23 × 47 = 23 × 40 + 23 × 7 = 920 + 161 = 1081." → Correct. CoT forces the model to show its work, catching errors at each step. This is why you built PromptRoute — classifying which technique to apply!
+    </div>
+    <div class="qa-section">
+      <div class="qa-section-title">💬 Interview Questions</div>
+      <div class="qa-item">
+        <div class="qa-q">Why does Chain-of-Thought prompting improve LLM performance?</div>
+        <div class="qa-a">CoT forces the model to decompose complex problems into intermediate steps. Instead of trying to predict the final answer in one leap (which requires holding too much in context), it works through sub-problems sequentially. Each step is simpler to get right. It also makes errors visible and correctable. Research shows CoT can improve performance on multi-step math and logic problems by 30-50% compared to direct prompting.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="concept-card" onclick="tog(this)">
+  <div class="card-header">
+    <div class="card-icon">🎨</div>
+    <div class="card-title-wrap">
+      <div class="card-title">GANs & Diffusion Models</div>
+      <div class="card-subtitle">Generative models for images — Stable Diffusion, DALL-E, Midjourney</div>
+    </div>
+    <span class="card-arrow">▼</span>
+  </div>
+  <div class="card-body">
+    <p class="explain"><strong>GAN (Generative Adversarial Network):</strong> Two networks compete — the <strong>Generator</strong> tries to create fake images realistic enough to fool the <strong>Discriminator</strong>. The Discriminator tries to distinguish real from fake. They train together until Generator produces convincing images. Used for: deepfakes, face generation (ThisPersonDoesNotExist.com), image-to-image translation.</p>
+    <p class="explain"><strong>Diffusion Models:</strong> Train by gradually adding noise to an image until it's pure noise, then learn to reverse this process (denoise step by step). Generation = start from random noise, denoise 50-1000 steps guided by a text prompt. More stable to train than GANs, better quality.</p>
+    <div class="example-box">
+      <span class="example-label">Examples</span>
+      <strong>GANs:</strong> StyleGAN (hyperrealistic face generation), CycleGAN (horse→zebra, summer→winter). <strong>Diffusion:</strong> Stable Diffusion, DALL-E 3, Midjourney, Adobe Firefly. Most modern image generation is now diffusion-based.
+    </div>
+    <div class="qa-section">
+      <div class="qa-section-title">💬 Interview Questions</div>
+      <div class="qa-item">
+        <div class="qa-q">What is "mode collapse" in GANs?</div>
+        <div class="qa-a">Mode collapse happens when the Generator finds one type of output that fools the Discriminator and keeps generating only that — producing very similar outputs with no diversity. For example, a GAN trained on faces might only generate blond women. Solutions include training multiple Generators, using Wasserstein loss (WGAN), or mini-batch discrimination. This is a major practical challenge with GANs and one reason diffusion models have become preferred.</div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════ SECTION 7: FEATURE ENGINEERING ═══════════ -->
+<section class="section" id="s7">
+<div class="section-header">
+  <div class="section-num">07</div>
+  <div class="section-title-wrap">
+    <div class="section-title">Feature Engineering & Data Preprocessing</div>
+    <div class="section-sub">Garbage in, garbage out — data quality determines model quality</div>
+  </div>
+</div>
+
+<div class="concept-card" onclick="tog(this)">
+  <div class="card-header">
+    <div class="card-icon">🔧</div>
+    <div class="card-title-wrap">
+      <div class="card-title">Scaling, Encoding, Missing Values</div>
+      <div class="card-subtitle">The unglamorous work that makes or breaks a model</div>
+    </div>
+    <span class="card-arrow">▼</span>
+  </div>
+  <div class="card-body">
+    <div class="body-section">
+      <div class="body-label">Feature Scaling</div>
+      <ul class="dot-list">
+        <li><strong>Min-Max Normalisation</strong> — scales to [0,1]. Good when you need bounded output. Sensitive to outliers. <code>(x - min) / (max - min)</code></li>
+        <li><strong>Standardisation (Z-score)</strong> — mean=0, std=1. Better for algorithms assuming normal distribution (SVM, PCA, linear regression). <code>(x - mean) / std</code></li>
+        <li><strong>When NOT needed:</strong> Decision Trees and Random Forest — they split on thresholds, scale doesn't matter.</li>
+        <li><strong>When essential:</strong> KNN, SVM, neural networks, PCA — they use distances or gradient descent.</li>
+      </ul>
+    </div>
+    <div class="body-section">
+      <div class="body-label">Encoding Categorical Features</div>
+      <ul class="dot-list">
+        <li><strong>One-Hot Encoding</strong> — create binary column per category. "City: Mumbai/Delhi/Chennai" → 3 binary columns. Use for nominal (no order) categories with few values.</li>
+        <li><strong>Label Encoding</strong> — assign integer per category (Mumbai=0, Delhi=1). Use only for ordinal data (small/medium/large) or tree-based models.</li>
+        <li><strong>Target Encoding</strong> — replace category with mean of target variable. Powerful but risk of leakage if not done carefully.</li>
+      </ul>
+    </div>
+    <div class="body-section">
+      <div class="body-label">Handling Missing Values</div>
+      <ul class="dot-list">
+        <li><strong>Drop rows/columns</strong> — if missing < 5% of rows, or column has > 80% missing. Quick but loses data.</li>
+        <li><strong>Mean/Median imputation</strong> — replace with mean (numerical, no outliers) or median (outliers present). Simple and often fine.</li>
+        <li><strong>Mode imputation</strong> — for categorical: fill with most frequent value.</li>
+        <li><strong>KNN imputation</strong> — fill missing values based on similar rows. More sophisticated.</li>
+        <li><strong>Model-based imputation</strong> — train a model to predict missing feature from other features.</li>
+      </ul>
+    </div>
+    <div class="example-box">
+      <span class="example-label">Common Mistake</span>
+      Filling missing values with the mean calculated on the ENTIRE dataset (including test set) = data leakage. Always compute statistics on the TRAINING set only, then apply to test set.
+    </div>
+    <div class="qa-section">
+      <div class="qa-section-title">💬 Interview Questions</div>
+      <div class="qa-item">
+        <div class="qa-q">Why do we use median instead of mean for imputation sometimes?</div>
+        <div class="qa-a">The mean is sensitive to outliers. If house prices are: [20L, 25L, 22L, 150L], the mean is 54.25L but most houses are around 22L. The median (23.5L) is more representative. Use median when the data has outliers — which is common in real-world data like income, prices, or durations. Median is a "robust statistic" — it doesn't change much when you add an extreme value.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="concept-card" onclick="tog(this)">
+  <div class="card-header">
+    <div class="card-icon">📐</div>
+    <div class="card-title-wrap">
+      <div class="card-title">Dimensionality Reduction — PCA & t-SNE</div>
+      <div class="card-subtitle">When you have too many features — reduce without losing information</div>
+    </div>
+    <span class="card-arrow">▼</span>
+  </div>
+  <div class="card-body">
+    <p class="explain"><strong>PCA (Principal Component Analysis):</strong> Finds the directions (principal components) in which data varies most, and projects data onto a lower-dimensional space while retaining maximum variance. The components are orthogonal (uncorrelated).</p>
+    <div class="example-box">
+      <span class="example-label">PCA Example</span>
+      100 features describing a customer (age, spending habits, click patterns…). PCA finds the top 10 "directions of variation" that capture 95% of the data's information. Now you train on 10 features instead of 100 — 10x faster, less overfitting, often better performance.
+    </div>
+    <p class="explain"><strong>t-SNE:</strong> A non-linear dimensionality reduction technique mainly used for <strong>visualisation</strong>. Maps high-dimensional data to 2D/3D while preserving local neighbourhood structure. Great for exploring whether clusters exist in your data. NOT suitable for actual model training (not deterministic, doesn't preserve global structure).</p>
+    <div class="qa-section">
+      <div class="qa-section-title">💬 Interview Questions</div>
+      <div class="qa-item">
+        <div class="qa-q">When would you use PCA vs t-SNE?</div>
+        <div class="qa-a"><strong>PCA</strong>: when you need to reduce features for model training, remove multicollinearity, speed up computation, or reduce noise. It's linear, fast, interpretable, and reproducible. <strong>t-SNE</strong>: purely for <em>visualisation</em> of high-dimensional data — to explore if clusters exist. It's non-linear, slow, non-deterministic (varies per run), and the dimensions have no interpretable meaning. Never use t-SNE as a preprocessing step for training.</div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════ SECTION 8: MLOps ═══════════ -->
+<section class="section" id="s8">
+<div class="section-header">
+  <div class="section-num">08</div>
+  <div class="section-title-wrap">
+    <div class="section-title">MLOps & ML Pipelines</div>
+    <div class="section-sub">Taking models from Jupyter notebook to production — critical for enterprise AI</div>
+  </div>
+</div>
+
+<div class="concept-card" onclick="tog(this)">
+  <div class="card-header">
+    <div class="card-icon">🏭</div>
+    <div class="card-title-wrap">
+      <div class="card-title">End-to-End ML Pipeline</div>
+      <div class="card-subtitle">The full lifecycle from raw data to deployed model</div>
+    </div>
+    <span class="card-arrow">▼</span>
+  </div>
+  <div class="card-body">
+    <div class="body-section">
+      <div class="body-label">Pipeline Stages</div>
+      <ul class="dot-list">
+        <li><strong>1. Data Collection</strong> — databases, APIs, scraping, sensors, user events</li>
+        <li><strong>2. Data Preprocessing</strong> — clean, handle missing values, remove duplicates, fix types</li>
+        <li><strong>3. Feature Engineering</strong> — scale, encode, create new features, reduce dimensions</li>
+        <li><strong>4. Model Training</strong> — train multiple algorithms, tune hyperparameters</li>
+        <li><strong>5. Evaluation</strong> — precision/recall/F1 on held-out test set</li>
+        <li><strong>6. Packaging</strong> — save model (pickle, ONNX, SavedModel format), containerise with Docker</li>
+        <li><strong>7. Deployment</strong> — REST API (FastAPI/Flask), cloud ML endpoint (SageMaker, Azure ML)</li>
+        <li><strong>8. Monitoring</strong> — track accuracy, latency, data drift, model drift over time</li>
+      </ul>
+    </div>
+    <div class="body-section">
+      <div class="body-label">Key MLOps Tools</div>
+      <table class="comp-table">
+        <tr><th>Category</th><th>Tools</th></tr>
+        <tr><td>Experiment Tracking</td><td>MLflow, W&B (Weights & Biases), Neptune</td></tr>
+        <tr><td>Pipeline Orchestration</td><td>Airflow, Kubeflow, Prefect, ZenML</td></tr>
+        <tr><td>Model Registry</td><td>MLflow Model Registry, Azure ML Registry</td></tr>
+        <tr><td>Serving / Deployment</td><td>FastAPI, BentoML, TorchServe, Azure ML, SageMaker</td></tr>
+        <tr><td>Monitoring</td><td>Evidently AI, WhyLabs, Azure Monitor</td></tr>
+        <tr><td>Feature Store</td><td>Feast, Tecton, AWS Feature Store</td></tr>
+      </table>
+    </div>
+    <div class="qa-section">
+      <div class="qa-section-title">💬 Interview Questions</div>
+      <div class="qa-item">
+        <div class="qa-q">What is model drift and how do you detect/handle it?</div>
+        <div class="qa-a"><strong>Data drift:</strong> the statistical distribution of input features changes over time (e.g., customer demographics shift). <strong>Concept drift:</strong> the relationship between features and target changes (e.g., fraudsters change their patterns). <strong>Detection:</strong> monitor input feature distributions (PSI, KL divergence), and track model performance metrics over time. <strong>Response:</strong> alert on drift, retrain on recent data, potentially update features. For example, a COVID lockdown dramatically drifted all consumer behaviour models — companies had to retrain monthly instead of annually.</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-q">What is A/B testing in ML?</div>
+        <div class="qa-a">A/B testing in ML means deploying two model versions simultaneously to different user groups and measuring real-world performance. Group A gets the old model, Group B gets the new model. After enough traffic (statistical significance), compare metrics. This validates offline improvements (lower loss) actually translate to real-world gains (higher click rate, lower churn). Online metrics can differ from offline — a model better by 2% F1 offline might improve revenue by 0% online due to unrelated factors.</div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════ SECTION 9: AI ETHICS ═══════════ -->
+<section class="section" id="s9">
+<div class="section-header">
+  <div class="section-num">09</div>
+  <div class="section-title-wrap">
+    <div class="section-title">AI Ethics & Responsible AI</div>
+    <div class="section-sub">Enterprise AI companies care deeply about this — CirrusLabs especially</div>
+  </div>
+</div>
+
+<div class="concept-card" onclick="tog(this)">
+  <div class="card-header">
+    <div class="card-icon">⚖️</div>
+    <div class="card-title-wrap">
+      <div class="card-title">Bias, Fairness & Explainability</div>
+      <div class="card-subtitle">Real-world AI must be fair, transparent, and accountable</div>
+    </div>
+    <span class="card-arrow">▼</span>
+  </div>
+  <div class="card-body">
+    <div class="body-section">
+      <div class="body-label">Types of AI Bias</div>
+      <ul class="dot-list">
+        <li><strong>Historical bias</strong> — training data reflects past inequalities (e.g., historical hiring data that skewed male for tech roles)</li>
+        <li><strong>Representation bias</strong> — some groups underrepresented in training data (facial recognition failing on dark skin tones)</li>
+        <li><strong>Measurement bias</strong> — proxy features introducing bias (using ZIP code as proxy for race in loan approval)</li>
+        <li><strong>Feedback loop bias</strong> — biased predictions → biased outcomes → biased new data → more biased model</li>
+      </ul>
+    </div>
+    <div class="body-section">
+      <div class="body-label">Explainability Tools</div>
+      <ul class="dot-list">
+        <li><strong>SHAP (SHapley Additive exPlanations)</strong> — shows each feature's contribution to a specific prediction. "Loan denied because: income (-0.3), credit score (+0.1), location (-0.2)…"</li>
+        <li><strong>LIME</strong> — creates a local linear approximation around any prediction to explain it</li>
+        <li><strong>Attention weights</strong> — in transformers, show which input tokens the model attended to</li>
+        <li><strong>Feature importance</strong> — in tree-based models, which features were used most in splitting</li>
+      </ul>
+    </div>
+    <div class="example-box">
+      <span class="example-label">Real Case — Amazon's Recruiting AI</span>
+      Amazon built an AI to screen resumes. It learned to penalise resumes containing "women's" (as in "women's chess club") because it was trained on historical hiring data dominated by male engineers. They scrapped the system. <strong>Lesson:</strong> bias in training data → biased model → real harm. Always audit for bias before deployment.
+    </div>
+    <div class="qa-section">
+      <div class="qa-section-title">💬 Interview Questions</div>
+      <div class="qa-item">
+        <div class="qa-q">What is the trade-off between model accuracy and explainability?</div>
+        <div class="qa-a">Generally, more complex models (deep learning, XGBoost) are more accurate but harder to explain. Simpler models (logistic regression, decision trees) are more explainable but often less accurate. In <strong>high-stakes domains</strong> (loan approval, medical diagnosis, hiring), explainability is mandatory — regulations like GDPR require "right to explanation". In lower-stakes domains (recommendation systems), accuracy may trump explainability. Tools like SHAP help bridge this gap — you can use a complex model and still explain individual predictions.</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-q">What are the key principles of Responsible AI?</div>
+        <div class="qa-a"><strong>Fairness</strong> — model doesn't discriminate based on protected attributes (race, gender, age). <strong>Transparency</strong> — how the model makes decisions is understandable. <strong>Accountability</strong> — humans are responsible for AI decisions, not "the algorithm". <strong>Privacy</strong> — training data collected with consent, anonymised where possible. <strong>Safety</strong> — model doesn't cause physical, psychological, or social harm. <strong>Reliability</strong> — model behaves consistently and predictably. These are part of Microsoft and Google's responsible AI frameworks — and what CirrusLabs would implement for enterprise clients.</div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════ SECTION 10: CHEATSHEET ═══════════ -->
+<section class="section" id="s10">
+<div class="section-header">
+  <div class="section-num">10</div>
+  <div class="section-title-wrap">
+    <div class="section-title">Quick Reference Cheatsheet</div>
+    <div class="section-sub">30-second answers for the most likely AI/ML interview questions</div>
+  </div>
+</div>
+
+<div class="cheatsheet-grid">
+  <div class="cheat-card">
+    <div class="cheat-card-title">🎯 Algorithm Picker</div>
+    <p><strong>Predict a number</strong> → Linear Regression<br>
+    <strong>Classify (binary)</strong> → Logistic Regression / SVM<br>
+    <strong>Tabular data + accuracy</strong> → XGBoost<br>
+    <strong>Images</strong> → CNN<br>
+    <strong>Text</strong> → BERT / GPT<br>
+    <strong>Cluster data</strong> → K-Means<br>
+    <strong>Recommendation</strong> → KNN / Matrix Factorisation</p>
+  </div>
+  <div class="cheat-card">
+    <div class="cheat-card-title">📏 Metrics Cheat</div>
+    <p><strong>Imbalanced classes</strong> → F1 Score<br>
+    <strong>Max recall (medical)</strong> → Recall / Sensitivity<br>
+    <strong>Min false alarms (spam)</strong> → Precision<br>
+    <strong>Compare models</strong> → AUC-ROC<br>
+    <strong>Regression error</strong> → RMSE, MAE<br>
+    <strong>Regression fit</strong> → R² score</p>
+  </div>
+  <div class="cheat-card">
+    <div class="cheat-card-title">⚡ Activation Functions</div>
+    <p><strong>Hidden layers</strong> → ReLU (default)<br>
+    <strong>Vanishing gradient fix</strong> → Leaky ReLU<br>
+    <strong>Binary output</strong> → Sigmoid<br>
+    <strong>Multi-class output</strong> → Softmax<br>
+    <strong>Recurrent networks</strong> → Tanh</p>
+  </div>
+  <div class="cheat-card">
+    <div class="cheat-card-title">🔧 Overfitting Fixes</div>
+    <p><strong>#1:</strong> More training data<br>
+    <strong>#2:</strong> Regularisation (L1/L2)<br>
+    <strong>#3:</strong> Dropout (neural nets)<br>
+    <strong>#4:</strong> Early stopping<br>
+    <strong>#5:</strong> Cross-validation<br>
+    <strong>#6:</strong> Reduce model complexity</p>
+  </div>
+  <div class="cheat-card">
+    <div class="cheat-card-title">📊 Scaling Guide</div>
+    <p><strong>Need scaling:</strong> KNN, SVM, Neural Nets, PCA, Logistic Regression<br><br>
+    <strong>Don't need scaling:</strong> Decision Trees, Random Forest, XGBoost, Naive Bayes</p>
+  </div>
+  <div class="cheat-card">
+    <div class="cheat-card-title">🤖 LLM Key Terms</div>
+    <p><strong>Token</strong> → ~¾ of a word<br>
+    <strong>Context window</strong> → max tokens LLM can "see"<br>
+    <strong>Temperature</strong> → randomness (0=deterministic)<br>
+    <strong>Embedding</strong> → text as a vector<br>
+    <strong>RAG</strong> → LLM + search over your docs<br>
+    <strong>Fine-tuning</strong> → retrain on your data</p>
+  </div>
+  <div class="cheat-card">
+    <div class="cheat-card-title">🏗️ ML Pipeline Order</div>
+    <p>1. Collect data<br>
+    2. Clean + preprocess<br>
+    3. Split train/val/test<br>
+    4. Feature engineering (on train only!)<br>
+    5. Train models<br>
+    6. Evaluate on val<br>
+    7. Final eval on test (once!)<br>
+    8. Deploy + monitor</p>
+  </div>
+  <div class="cheat-card">
+    <div class="cheat-card-title">💬 Transformer Models</div>
+    <p><strong>BERT</strong> → Encoder-only; classification, NER, QA<br>
+    <strong>GPT</strong> → Decoder-only; text generation<br>
+    <strong>T5/BART</strong> → Encoder-decoder; translation, summary<br>
+    <strong>ViT</strong> → Vision Transformer; images<br>
+    <strong>Whisper</strong> → Audio; speech-to-text</p>
+  </div>
+  <div class="cheat-card">
+    <div class="cheat-card-title">🔢 Big O Reminder</div>
+    <p><strong>O(1)</strong> → constant; hash table lookup<br>
+    <strong>O(log n)</strong> → binary search<br>
+    <strong>O(n)</strong> → linear scan<br>
+    <strong>O(n log n)</strong> → merge sort<br>
+    <strong>O(n²)</strong> → bubble sort, nested loop<br>
+    <strong>O(2ⁿ)</strong> → recursive backtracking</p>
+  </div>
+  <div class="cheat-card">
+    <div class="cheat-card-title">🎲 Ensemble Methods</div>
+    <p><strong>Bagging</strong> → parallel trees, reduces variance → Random Forest<br>
+    <strong>Boosting</strong> → sequential, corrects errors → XGBoost, AdaBoost<br>
+    <strong>Stacking</strong> → train a meta-model on predictions of base models</p>
+  </div>
+  <div class="cheat-card">
+    <div class="cheat-card-title">🔑 Key Hyperparameters</div>
+    <p><strong>Learning rate</strong> → how fast model learns (Adam default: 0.001)<br>
+    <strong>Batch size</strong> → samples per update (32/64/128)<br>
+    <strong>Epochs</strong> → full passes through data<br>
+    <strong>n_estimators</strong> → trees in forest<br>
+    <strong>max_depth</strong> → tree depth limit<br>
+    <strong>dropout rate</strong> → % neurons dropped (0.2-0.5)</p>
+  </div>
+  <div class="cheat-card">
+    <div class="cheat-card-title">📌 CirrusLabs AI Use Cases</div>
+    <p><strong>Your angle:</strong> Mention Azure ML, enterprise NLP, customer support automation, document intelligence, SAFe Agile sprints for AI features, responsible AI for financial/healthcare clients.</p>
+  </div>
+</div>
+
+</section>
+
+</main>
+
+<script>
+function tog(card) {
+  card.classList.toggle('open');
+}
+
+// Sidebar active link on scroll
+const sections = document.querySelectorAll('section[id]');
+const navItems = document.querySelectorAll('.nav-item');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 100) current = s.id;
+  });
+  navItems.forEach(n => {
+    n.classList.remove('active');
+    if (n.getAttribute('href') === '#' + current) n.classList.add('active');
+  });
+  // progress bar
+  const h = document.body.scrollHeight - window.innerHeight;
+  document.getElementById('progress-bar').style.width = (window.scrollY / h * 100) + '%';
+});
+
+// Open first card in each section on load for orientation
+document.querySelectorAll('.section').forEach(sec => {
+  const first = sec.querySelector('.concept-card');
+  if (first) first.classList.add('open');
+});
+</script>
+</body>
+</html>
