@@ -1178,32 +1178,81 @@ print(prediction)
     <span class="card-arrow">▼</span>
   </div>
   <div class="card-body">
-    <p class="explain"><strong>Decision Tree:</strong> A tree-like flowchart of decisions. At each <strong>node</strong>, it splits the data on the feature that gives the best separation (maximum information gain / minimum Gini impurity). Leaves are the final class predictions.</p>
-    <p class="explain"><strong>Gini Impurity:</strong> Measures how mixed a node is. A node of all same class = 0 (pure). If 50/50 split = 0.5 (most impure). The algorithm always picks the split that minimises Gini impurity.</p>
-    <p class="explain"><strong>Random Forest:</strong> An <strong>ensemble</strong> of hundreds of decision trees trained on random subsets of data and features. Final prediction = majority vote (classification) or average (regression). This reduces variance and overfitting massively.</p>
-    <div class="example-box">
-      <span class="example-label">Example</span>
-      Loan approval: Decision tree asks → Income > ₹50k? → Credit score > 700? → Existing loans < 2? → Approve/Reject. Random forest trains 500 such trees on different data samples and takes the majority vote, making it far more reliable than a single tree.
+    <div class="two-col">
+      <div class="mini-card">
+        <div class="mini-card-title">🌳 1. Decision Tree</div>
+        <p class="explain" style="margin-top:4px;"><strong>Interview Definition:</strong> "A supervised machine learning algorithm that makes predictions by splitting data into smaller groups based on feature values."</p>
+        <p class="explain">It makes decisions like a flowchart. It keeps asking questions until it reaches a final answer.</p>
+        
+        <p style="margin-top:10px; font-weight:600;">How it Works (Example):</p>
+        <pre class="code" style="font-size:11px; padding: 10px; margin: 0;">Is Age > 18?
+   /    \
+ Yes     No
+  |       |
+ Buy  Don't Buy</pre>
+      </div>
+      <div class="mini-card">
+        <div class="mini-card-title">🌲 2. Random Forest</div>
+        <p class="explain" style="margin-top:4px;"><strong>Interview Definition:</strong> "An ensemble learning algorithm that combines multiple Decision Trees and uses voting or averaging to make predictions."</p>
+        <p class="explain"><strong>Random:</strong> Each tree gets random rows and random features.<br><strong>Forest:</strong> Many trees together.</p>
+        <p style="margin-top:10px; font-weight:600;">How it Works (Example):</p>
+        <pre class="code" style="font-size:11px; padding: 10px; margin: 0;">Tree 1 → Spam
+Tree 2 → Spam
+Tree 3 → Not Spam
+Voting: 2 Spam, 1 Not Spam
+Final Prediction = Spam</pre>
+      </div>
     </div>
+
+    <div class="note-box" style="margin-top:12px;">
+      <strong>Why Decision Trees Overfit:</strong> Imagine <code>Student A = Pass, Student B = Pass, Student C = Fail</code>. The tree keeps branching until it memorizes every example. Instead of learning patterns, it learns the training data by heart.
+    </div>
+
+    <div class="mini-card" style="margin-top:12px;">
+      <div class="mini-card-title">🌲 How Random Forest Works (Step-by-Step)</div>
+      <ul class="steps">
+        <li><strong>Step 1:</strong> Take random samples from the dataset.</li>
+        <li><strong>Step 2:</strong> Build separate Decision Trees.</li>
+        <li><strong>Step 3:</strong> All trees predict.</li>
+        <li><strong>Step 4:</strong> Majority voting for the final answer.</li>
+      </ul>
+    </div>
+
+    <table class="cmp-table" style="margin-top: 16px;">
+      <tr>
+        <th>Feature</th>
+        <th>Decision Tree</th>
+        <th>Random Forest</th>
+      </tr>
+      <tr><td>Number of Trees</td><td>1</td><td>Many</td></tr>
+      <tr><td>Accuracy</td><td>Lower</td><td>Higher</td></tr>
+      <tr><td>Speed</td><td>Faster</td><td>Slower</td></tr>
+      <tr><td>Overfitting</td><td>High</td><td>Low</td></tr>
+      <tr><td>Interpretation</td><td>Easy</td><td>Difficult</td></tr>
+      <tr><td>Performance</td><td>Moderate</td><td>Better</td></tr>
+    </table>
+
     <div class="two-col" style="margin-top:12px;">
       <div class="mini-card">
-        <div class="mini-card-title">✅ Pros of Decision Tree</div>
-        <p>Easy to visualise and explain. No feature scaling needed. Handles both categorical and numerical data. Fast prediction.</p>
+        <div class="mini-card-title">✅ Pros / ⚠️ Cons of Decision Tree</div>
+        <p>✅ Easy to understand and visualize. Works for classification/regression. No feature scaling needed.</p>
+        <p>⚠️ Can overfit. Sensitive to small data changes. Lower accuracy than ensemble methods.</p>
       </div>
       <div class="mini-card">
-        <div class="mini-card-title">⚠️ Cons</div>
-        <p>Prone to overfitting (grows too deep). Unstable — small data change = very different tree. Not ideal for very complex relationships.</p>
+        <div class="mini-card-title">✅ Pros / ⚠️ Cons of Random Forest</div>
+        <p>✅ Higher accuracy. Reduces overfitting. Works well on large datasets. Robust.</p>
+        <p>⚠️ Slower than Decision Tree. More memory usage. Harder to interpret.</p>
       </div>
     </div>
+
     <div class="qa-section">
-      <div class="qa-section-title">💬 Interview Questions</div>
+      <div class="qa-section-title">💬 30-Second Interview Answer</div>
       <div class="qa-item">
-        <div class="qa-q">How does Random Forest improve over a single Decision Tree?</div>
-        <div class="qa-a">Random Forest uses <strong>bagging</strong> (Bootstrap AGGregating): it trains many trees on random subsets of training data (with replacement) and random subsets of features. This introduces diversity between trees. When they vote, individual errors cancel out. The result has lower variance, better generalisation, and is resistant to overfitting — at the cost of interpretability and speed.</div>
+        <div class="qa-q">Why is Random Forest better than Decision Tree?</div>
+        <div class="qa-a">"Decision Trees can overfit the training data. Random Forest reduces overfitting by combining multiple trees and taking the majority vote, which usually gives better accuracy and generalization."</div>
       </div>
       <div class="qa-item">
-        <div class="qa-q">What is the difference between Gini Impurity and Entropy?</div>
-        <div class="qa-a">Both measure node impurity. <strong>Gini</strong> is computationally faster (no logarithm). <strong>Entropy</strong> (from information theory) sometimes produces slightly more balanced trees. In practice, both give very similar results. Gini tends to isolate the most frequent class; entropy tends to create more balanced trees. sklearn uses Gini by default.</div>
+        <div class="qa-a">"A Decision Tree is a supervised learning algorithm that makes predictions using a tree-like structure of decisions. It is simple and easy to understand but can overfit. Random Forest is an ensemble method that combines multiple Decision Trees and uses majority voting for classification or averaging for regression. It reduces overfitting and generally provides better accuracy than a single Decision Tree."</div>
       </div>
     </div>
   </div>
@@ -1220,27 +1269,68 @@ print(prediction)
     <span class="card-arrow">▼</span>
   </div>
   <div class="card-body">
-    <p class="explain">K-Means groups data into <strong>K clusters</strong> by minimising the distance between each point and the centroid (center) of its cluster.</p>
-    <div class="body-section">
-      <div class="body-label">Step by Step</div>
-      <ul class="dot-list">
-        <li><strong>Step 1:</strong> Choose K (number of clusters)</li>
-        <li><strong>Step 2:</strong> Randomly initialise K centroids</li>
-        <li><strong>Step 3:</strong> Assign each data point to the nearest centroid</li>
-        <li><strong>Step 4:</strong> Recalculate centroids as mean of all points in the cluster</li>
-        <li><strong>Step 5:</strong> Repeat steps 3-4 until centroids stop moving (convergence)</li>
+    <p class="explain"><strong>What is K-Means?</strong> An unsupervised machine learning algorithm used to group similar data points into K clusters. The goal is: <em>Put similar points together and keep different points apart.</em></p>
+    
+    <div class="two-col" style="margin-top:12px;">
+      <div class="mini-card">
+        <div class="mini-card-title">📊 Simple Example</div>
+        <p>Suppose we have customers with Monthly Spend:<br>
+        A: ₹100, B: ₹120, C: ₹110<br>
+        D: ₹900, E: ₹950, F: ₹1000<br><br>
+        K-Means might create:<br>
+        <strong>Cluster 1:</strong> A, B, C (Low spenders)<br>
+        <strong>Cluster 2:</strong> D, E, F (High spenders)</p>
+      </div>
+      <div class="mini-card">
+        <div class="mini-card-title">🎯 What is a Centroid?</div>
+        <p><strong>Centroid = Average position of all points in a cluster.</strong><br>
+        Example: Points = 2, 4, 6.<br>
+        Centroid = (2 + 4 + 6) / 3 = 4.</p>
+      </div>
+    </div>
+
+    <div class="body-section" style="margin-top:12px;">
+      <div class="body-label">How K-Means Works (Step-by-Step)</div>
+      <ul class="steps">
+        <li><strong>Choose K</strong> — (e.g. K=3 means 3 clusters).</li>
+        <li><strong>Pick Random Centroids</strong> — The centers of each cluster.</li>
+        <li><strong>Assign Points</strong> — Each point goes to the nearest centroid.</li>
+        <li><strong>Recalculate Centroids</strong> — Find the average position of all points in each cluster.</li>
+        <li><strong>Repeat</strong> — Reassign points and recalculate until centroids stop moving (<strong>convergence</strong>).</li>
       </ul>
     </div>
-    <div class="example-box">
-      <span class="example-label">Example</span>
-      Segmenting 10,000 Swiggy customers into K=3 groups: Cluster 1 = "order weekly, avg ₹300" (regulars), Cluster 2 = "order once a month, avg ₹800" (special occasion), Cluster 3 = "order daily, avg ₹150" (daily lunch crowd). Swiggy can target each differently.
+
+    <div class="note-box">
+      <strong>How to Choose K?</strong> Use the <strong>Elbow Method</strong>. Plot K vs Inertia. As K increases, error decreases. Find the bend (elbow) in the graph. That K is usually chosen.
     </div>
-    <div class="note-box">How to choose K? Use the <strong>Elbow Method</strong> — plot inertia (sum of squared distances from centroid) vs K. The "elbow" where the curve bends is the optimal K.</div>
-    <div class="qa-section">
-      <div class="qa-section-title">💬 Interview Questions</div>
+
+    <div class="mini-card" style="margin-top:16px;">
+      <div class="mini-card-title">⚠️ Limitations of K-Means</div>
+      <ul class="ul" style="margin-top:6px;">
+        <li><strong>Need to Choose K:</strong> You must tell the algorithm K before training.</li>
+        <li><strong>Sensitive to Outliers:</strong> One extreme value can pull the centroid far away.</li>
+        <li><strong>Assumes Round Clusters:</strong> Struggles with long, curved, or irregular shapes.</li>
+        <li><strong>Random Initialization:</strong> Different starting centroids give different results (Solution: K-Means++).</li>
+      </ul>
+    </div>
+
+    <table class="cmp-table" style="margin-top: 16px;">
+      <tr>
+        <th>Feature</th>
+        <th>K-Means</th>
+        <th>KNN</th>
+      </tr>
+      <tr><td>Type</td><td>Unsupervised</td><td>Supervised</td></tr>
+      <tr><td>Goal</td><td>Creates clusters</td><td>Predicts labels</td></tr>
+      <tr><td>Target Column?</td><td>No</td><td>Yes</td></tr>
+      <tr><td>Usage</td><td>Finds patterns</td><td>Classifies new data</td></tr>
+    </table>
+    <div class="explain" style="text-align: center; margin-top: 8px;"><em>Memory Trick: K-Means → <strong>M</strong>akes Groups | KNN → <strong>K</strong>nows <strong>N</strong>eighbors</em></div>
+
+    <div class="qa-section" style="margin-top: 16px;">
+      <div class="qa-section-title">💬 30-Second Interview Answer</div>
       <div class="qa-item">
-        <div class="qa-q">What is a limitation of K-Means?</div>
-        <div class="qa-a">1. You must specify K in advance (use Elbow method to find it). 2. Sensitive to outliers (one extreme point can pull a centroid far off). 3. Assumes spherical clusters — doesn't work well for elongated or oddly-shaped clusters (use DBSCAN instead). 4. Results vary with random initialisation (use K-Means++ for better initialisation).</div>
+        <div class="qa-a">"K-Means is an unsupervised learning algorithm used to group similar data points into K clusters. It works by choosing K centroids, assigning points to the nearest centroid, recalculating centroids, and repeating until convergence. It is commonly used for customer segmentation. Its limitations include choosing K beforehand, sensitivity to outliers, and difficulty handling non-spherical clusters."</div>
       </div>
     </div>
   </div>
