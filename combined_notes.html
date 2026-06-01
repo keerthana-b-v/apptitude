@@ -63,7 +63,6 @@ html { scroll-behavior: smooth; }
   font-family: 'DM Sans', sans-serif;
   font-size: 15px;
   line-height: 1.65;
-  display: flex;
   min-height: 100vh;
 }
 
@@ -614,7 +613,7 @@ ul.dot-list li code { font-family: 'DM Mono', monospace; font-size: 11px; backgr
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-.tab-panel{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.65;display:flex;}
+.tab-panel{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.65;}
 #pb{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--r),var(--o));width:0%;z-index:300;transition:width 0.1s;}
 .sidebar{width:252px;flex-shrink:0;background:var(--surface);border-right:1px solid var(--border);position:fixed;top:0;left:0;bottom:0;overflow-y:auto;z-index:100;padding-bottom:40px;}
 .sidebar::-webkit-scrollbar{width:3px;}
@@ -1554,8 +1553,43 @@ Final Prediction = Spam</pre>
     <div class="qa-section">
       <div class="qa-section-title">💬 Interview Questions</div>
       <div class="qa-item">
-        <div class="qa-q">What is data leakage and give an example?</div>
-        <div class="qa-a">Data leakage means the model has access to information it wouldn't have in production. Example: predicting if a patient will be hospitalised next month, but including "number of hospital visits this month" as a feature. That data wouldn't be available at prediction time. Another classic: including the label-derived features (e.g., using "fraud flag" to predict fraud). Leakage inflates validation scores but the model fails catastrophically in production.</div>
+        <div class="qa-q">What is Data Leakage? (Give real business examples)</div>
+        <div class="qa-a">
+          <p>Good interview answers use <strong>real business scenarios</strong>, not just "scaling before splitting."</p>
+          
+          <div class="mini-card" style="margin-top: 10px;">
+            <div class="mini-card-title">🏦 Example 1: Loan Approval (Finance)</div>
+            <p><strong>Goal:</strong> Predict whether a customer will default on a loan.</p>
+            <p><strong>Features:</strong> Age, Salary, Credit Score, Loan Amount.</p>
+            <p><strong>Leakage Feature:</strong> Number of missed payments after loan approval.</p>
+            <p><strong>Why leakage?</strong> Because when the bank is deciding today, it doesn't know future missed payments.</p>
+            <div class="note-box" style="margin-top: 6px;">
+              <strong>Interview Answer:</strong> "If I'm predicting whether a customer will default on a loan, I cannot use the number of missed payments that occur after the loan is approved. That information is only available in the future, so using it would cause data leakage."
+            </div>
+          </div>
+
+          <div class="mini-card" style="margin-top: 10px;">
+            <div class="mini-card-title">🏥 Example 2: Patient Readmission (Healthcare)</div>
+            <p><strong>Goal:</strong> Predict if a patient will be readmitted to the hospital within 30 days of discharge.</p>
+            <p><strong>Features:</strong> Age, Diagnosis, Vitals at discharge, Previous admissions.</p>
+            <p><strong>Leakage Feature:</strong> Medications prescribed during the readmission visit.</p>
+            <p><strong>Why leakage?</strong> The model is supposed to predict the readmission <em>before</em> it happens. Using data from the future visit is cheating.</p>
+            <div class="note-box" style="margin-top: 6px;">
+              <strong>Interview Answer:</strong> "In healthcare, if we predict 30-day patient readmission, we can't include treatments given during that future readmission. That data leaks the target variable, making the model look 100% accurate in training but useless in real life."
+            </div>
+          </div>
+
+          <div class="mini-card" style="margin-top: 10px;">
+            <div class="mini-card-title">🛒 Example 3: Customer Churn (Retail / E-commerce)</div>
+            <p><strong>Goal:</strong> Predict if a customer will stop using the service next month.</p>
+            <p><strong>Features:</strong> Purchase history, Login frequency, Account age, App usage.</p>
+            <p><strong>Leakage Feature:</strong> "Account Cancellation Date" or "Exit Survey Score".</p>
+            <p><strong>Why leakage?</strong> If a customer has an exit survey score, they have already churned. The model must predict churn using only data available <em>before</em> the cancellation.</p>
+            <div class="note-box" style="margin-top: 6px;">
+              <strong>Interview Answer:</strong> "If we are predicting e-commerce churn, using a feature like 'cancellation date' is data leakage. We must carefully time-stamp our data and ensure the model only uses features from strictly before the prediction window."
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
