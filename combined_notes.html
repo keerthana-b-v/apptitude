@@ -1037,10 +1037,74 @@ Agent discovers best POLICY (strategy)</pre>
     <span class="card-arrow">▼</span>
   </div>
   <div class="card-body">
-    <p class="explain">Linear Regression finds the <strong>best-fit line</strong> through data points that minimises the sum of squared errors between predicted and actual values. It models a linear relationship between input features and a continuous output.</p>
-    <div class="formula-box">y = w₀ + w₁x₁ + w₂x₂ + ... + wₙxₙ</div>
-    <p class="explain" style="margin-top:10px;">Where <strong>w</strong> = weights (coefficients learned during training), <strong>x</strong> = input features, <strong>y</strong> = predicted output.</p>
-    <p class="explain"><strong>Loss function:</strong> Mean Squared Error (MSE) — average of squared differences between predicted and actual values. Training minimises this using gradient descent.</p>
+    <p class="explain"><strong>Definition:</strong> Linear regression takes your past data, finds the overarching trend, draws a straight line through it, and uses that line to guess the answers to new questions.</p>
+    
+    <div class="two-col" style="margin-top:12px;">
+      <div class="mini-card">
+        <div class="mini-card-title">Slope (w / weight)</div>
+        <p>How steep a line is. How much does Y change when X increases by 1?</p>
+      </div>
+      <div class="mini-card">
+        <div class="mini-card-title">Bias (b)</div>
+        <p>Where does the line touch the Y-axis? What is Y when X = 0?</p>
+      </div>
+    </div>
+
+    <div class="formula-box" style="margin-top: 12px;">y' = b + w₁x₁</div>
+    
+    <table class="cmp-table" style="margin-top: 10px;">
+      <tr>
+        <th>Symbol</th>
+        <th>ML Name</th>
+        <th>Plain English</th>
+      </tr>
+      <tr>
+        <td><strong>y'</strong></td>
+        <td>Prediction</td>
+        <td>The answer the model gives</td>
+      </tr>
+      <tr>
+        <td><strong>b</strong></td>
+        <td>Bias</td>
+        <td>Where the line starts (Y-intercept)</td>
+      </tr>
+      <tr>
+        <td><strong>w₁</strong></td>
+        <td>Weight</td>
+        <td>How steep the line is (Slope)</td>
+      </tr>
+      <tr>
+        <td><strong>x₁</strong></td>
+        <td>Feature</td>
+        <td>Your input</td>
+      </tr>
+    </table>
+
+    <div class="mini-card" style="margin-top: 16px;">
+      <div class="mini-card-title">📉 Loss</div>
+      <p>A number that tells the model how wrong its prediction was. The bigger the loss → the more wrong the model is. The smaller the loss → the more accurate the model is. <strong>The entire goal of training = make loss as small as possible.</strong></p>
+      
+      <p style="margin-top: 8px;"><strong>The 5 Types of Loss:</strong></p>
+      <ul class="ul">
+        <li><strong>L1 Loss</strong> — add up all absolute differences: <code>|actual - predicted| + ...</code></li>
+        <li><strong>L2 Loss</strong> — add up all squared differences: <code>(actual - predicted)² + ...</code></li>
+        <li><strong>MAE (Mean Absolute Error)</strong> — Average of absolute differences.</li>
+        <li><strong>MSE (Mean Squared Error)</strong> — Average of squared differences.</li>
+        <li><strong>RMSE (Root Mean Squared Error)</strong> — √MSE (brings units back to normal).</li>
+      </ul>
+    </div>
+
+    <div class="mini-card" style="margin-top: 10px; margin-bottom: 16px;">
+      <div class="mini-card-title">💡 Gradient Descent</div>
+      <p>A step-by-step process that automatically finds the weight and bias that give the LOWEST possible loss.</p>
+      <div class="warn"><strong>Important:</strong> Gradient Descent is NOT specific to Linear Regression! It is a general optimization algorithm used across ALL of ML.</div>
+      
+      <ul class="ul" style="margin-top: 8px;">
+        <li><strong>Convergence:</strong> The model has found the weight and bias that produce the lowest possible loss. It can't improve anymore.</li>
+        <li><strong>Learning Rate:</strong> How big a step the model takes when updating weights.</li>
+      </ul>
+      <div class="code-block" style="margin-top: 6px;">new weight = old weight - (learning rate × slope)</div>
+    </div>
     <div class="example-box">
       <span class="example-label">Real Example</span>
       Predicting house price: <code>price = 200 + 150×(sq_ft) + 20000×(bedrooms) - 5000×(age)</code>. Given a house with 1200 sq ft, 3 bedrooms, 5 years old → price ≈ ₹24 lakhs (hypothetical).
