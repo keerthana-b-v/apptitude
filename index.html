@@ -2437,7 +2437,14 @@ matrix = [[<span class="nm">1</span>,<span class="nm">2</span>,<span class="nm">
   <div class="qa-sec">
     <div class="qa-sec-label">💬 CirrusLabs-Style Interview Questions</div>
     <div class="qa-item"><div class="qa-q">What is the difference between an array and a linked list?</div>
-    <div class="qa-a"><strong>Array:</strong> elements stored in contiguous memory, O(1) access by index, but O(n) insert/delete in middle (need to shift). Fixed or pre-allocated size in most languages. <strong>Linked List:</strong> elements stored anywhere in memory, connected by pointers, O(n) access (traverse from head), but O(1) insert/delete once you have the pointer. No wasted pre-allocation. Use arrays when you need fast random access; use linked lists when you do frequent insert/delete in the middle.</div></div>
+    <div class="qa-a">
+      <p><strong>Array:</strong> elements stored in contiguous memory, O(1) access by index, but O(n) insert/delete in middle (need to shift). Fixed or pre-allocated size in most languages.</p>
+      <p><strong>Linked List:</strong> elements stored anywhere in memory, connected by pointers, O(n) access (traverse from head), but O(1) insert/delete once you have the pointer. No wasted pre-allocation.</p>
+      <div class="note-box" style="margin-top: 10px;">
+        <strong>Array</strong> is best when you need fast indexing and read operations.<br>
+        <strong>Linked List</strong> is best when you need frequent insertions and deletions with a dynamically changing size.
+      </div>
+    </div></div>
     <div class="qa-item"><div class="qa-q">How do you reverse an array without using built-in functions?</div>
     <div class="qa-a">Two-pointer approach: one pointer at start (left=0), one at end (right=len-1). Swap arr[left] and arr[right], then move left forward and right backward. Stop when they meet. Time: O(n), Space: O(1).<br><code>while left &lt; right: arr[left], arr[right] = arr[right], arr[left]; left+=1; right-=1</code></div></div>
   </div>
@@ -2454,8 +2461,11 @@ matrix = [[<span class="nm">1</span>,<span class="nm">2</span>,<span class="nm">
 <div class="cc-body">
   <p class="ex">A <strong>linked list</strong> is a linear data structure where each element (<strong>node</strong>) stores data AND a <strong>pointer/reference to the next node</strong>. Unlike arrays, elements are not in contiguous memory — they can be anywhere on the heap.</p>
   <div class="two-col">
-    <div class="mc"><div class="mc-t">Singly Linked List</div><p>Each node points to the next node only. You can only traverse <strong>forward</strong>. Last node points to <code>None</code>.<br><br><code>Head → [1|→] → [2|→] → [3|None]</code></p></div>
-    <div class="mc"><div class="mc-t">Doubly Linked List</div><p>Each node has pointers to <strong>both next AND previous</strong>. Can traverse forward AND backward. More memory per node but more flexible.<br><br><code>None ← [1] ↔ [2] ↔ [3] → None</code></p></div>
+    <div class="mc"><div class="mc-t">Singly Linked List</div><p>A linked list where each node contains data and a pointer to the next node. Traversal is only possible in the forward direction.<br><br><code>Head → [1|→] → [2|→] → [3|None]</code></p></div>
+    <div class="mc"><div class="mc-t">Doubly Linked List</div><p>A linked list where each node contains data, a pointer to the next node, and a pointer to the previous node. Traversal is possible in both forward and backward directions.<br><br><code>None ← [1] ↔ [2] ↔ [3] → None</code></p></div>
+  </div>
+  <div class="note-box" style="margin-top: 10px; margin-bottom: 10px;">
+    <strong>Main Difference:</strong> Singly linked lists use less memory and are simpler, while doubly linked lists use extra memory for the previous pointer but allow easier backward traversal and deletion operations.
   </div>
   <div class="two-col">
     <div class="mc"><div class="mc-t">⚡ Time Complexity</div><p>
@@ -2519,7 +2529,18 @@ ll.traverse()  <span class="cm"># → 1 → 2 → 3 → None</span></pre>
   <span class="cc-badge bh">🔥 Likely Asked</span><span class="cc-arr">▼</span>
 </div>
 <div class="cc-body">
-  <p class="ex">A <strong>stack</strong> follows <strong>LIFO (Last In, First Out)</strong>. Think of a stack of plates — you can only add or remove from the TOP. Three core operations: <strong>push</strong> (add to top), <strong>pop</strong> (remove from top), <strong>peek</strong> (look at top without removing).</p>
+  <p class="ex"><strong>Definition:</strong> A Stack is a linear data structure that follows the LIFO principle: <strong>LIFO = Last In, First Out</strong>. This means the element that is inserted last is the first one to be removed. Think of a stack of plates.</p>
+  <div class="two-col" style="margin-top:10px;">
+    <div class="mc"><div class="mc-t">Core Operations</div><p>
+      <strong>push(item)</strong> — add to top<br>
+      <strong>pop()</strong> — remove from top<br>
+      <strong>peek()</strong> — look at top without removing
+    </p></div>
+    <div class="mc"><div class="mc-t">Edge Cases</div><p>
+      Stack overflow: push onto a full stack<br>
+      Stack underflow: pop from an empty stack
+    </p></div>
+  </div>
   <div class="two-col">
     <div class="mc"><div class="mc-t">⚡ All Operations O(1)</div><p>
       <code>push(x)</code>: add x to top — O(1)<br>
