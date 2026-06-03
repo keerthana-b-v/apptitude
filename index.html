@@ -2726,6 +2726,114 @@ print_q.enqueue(<span class="st">"Invoice.pdf"</span>)
   </div>
 </div>
 </div>
+<!-- TREES -->
+<div class="cc">
+<div class="cc-hdr" onclick="togDsa(this)">
+  <div class="cc-ico">🌲</div>
+  <div class="cc-tw"><div class="cc-title">Trees</div><div class="cc-sub">Hierarchical data — binary trees, BST, heaps, and tries</div></div>
+  <span class="cc-badge bc">Core</span><span class="cc-arr">▼</span>
+</div>
+<div class="cc-body">
+  <p class="ex">A <strong>Tree</strong> is a non-linear hierarchical data structure consisting of nodes connected by edges. It starts with a <strong>Root Node</strong>, and each node can have zero or more child nodes. Unlike linked lists, trees represent <strong>parent-child relationships</strong>.</p>
+  
+  <div class="two-col">
+    <div class="mc"><div class="mc-t">Basic Terminology</div><p>
+      <strong>Root:</strong> Top-most node<br>
+      <strong>Parent:</strong> A node having children<br>
+      <strong>Child:</strong> A node connected below a parent<br>
+      <strong>Leaf:</strong> Node with no children<br>
+      <strong>Edge:</strong> Connection between nodes<br>
+      <strong>Height:</strong> Longest path from root to leaf
+    </p></div>
+    <div class="mc"><div class="mc-t">Code Example (Binary Tree Node)</div>
+      <pre class="code" style="margin-top: 4px;"><span class="kw">class</span> <span class="op">TreeNode</span>:
+    <span class="kw">def</span> <span class="fn">__init__</span>(self, val):
+        self.val = val
+        self.left = <span class="kw">None</span>
+        self.right = <span class="kw">None</span></pre>
+    </div>
+  </div>
+
+  <table class="cmp-table" style="margin-top: 10px; margin-bottom: 15px;">
+    <tr>
+      <th>Tree Type</th>
+      <th>Definition</th>
+    </tr>
+    <tr><td><strong>General Tree</strong></td><td>Node can have any number of children</td></tr>
+    <tr><td><strong>Binary Tree</strong></td><td>Node can have at most 2 children</td></tr>
+    <tr><td><strong>Full Binary Tree</strong></td><td>Every node has 0 or 2 children (no node has only 1 child)</td></tr>
+    <tr><td><strong>Complete Binary Tree</strong></td><td>All levels filled except possibly the last, which is filled left to right</td></tr>
+    <tr><td><strong>Perfect Binary Tree</strong></td><td>All internal nodes have 2 children and leaves are at the same level</td></tr>
+    <tr><td><strong>Balanced Tree</strong></td><td>Height difference between left and right subtrees is small (≤ 1)</td></tr>
+    <tr><td><strong>BST (Binary Search Tree)</strong></td><td>Left child &lt; Root &lt; Right child</td></tr>
+    <tr><td><strong>AVL Tree</strong></td><td>Self-balancing BST (guarantees O(log n) search)</td></tr>
+    <tr><td><strong>Heap</strong></td><td>Complete binary tree following min/max property (Min Heap or Max Heap)</td></tr>
+    <tr><td><strong>Trie</strong></td><td>Prefix tree used for storing and searching strings efficiently</td></tr>
+  </table>
+
+  <div class="note-box" style="margin-bottom: 15px;">
+    <strong>1-Minute Interview Answer:</strong><br>
+    "A tree is a hierarchical non-linear data structure made up of nodes connected by edges. The top node is called the root, and nodes can have parent-child relationships. Common tree types include Binary Tree, Full Binary Tree, Complete Binary Tree, Perfect Binary Tree, Balanced Tree, Binary Search Tree (BST), AVL Tree, Heap, and Trie. Trees are widely used for searching, hierarchical data storage, databases, file systems, and autocomplete systems."
+  </div>
+</div>
+</div>
+
+<!-- GRAPHS -->
+<div class="cc">
+<div class="cc-hdr" onclick="togDsa(this)">
+  <div class="cc-ico">🕸️</div>
+  <div class="cc-tw"><div class="cc-title">Graphs</div><div class="cc-sub">Networks of nodes and edges — BFS, DFS, and representations</div></div>
+  <span class="cc-badge bc">Core</span><span class="cc-arr">▼</span>
+</div>
+<div class="cc-body">
+  <p class="ex">A <strong>Graph</strong> is a non-linear data structure consisting of <strong>Vertices (Nodes)</strong> and <strong>Edges</strong> (connections between vertices). It is used to represent relationships between objects. Real-world examples include Social Networks, Google Maps, and Flight Routes.</p>
+
+  <div class="two-col">
+    <div class="mc"><div class="mc-t">Terminology</div><p>
+      <strong>Vertex (Node):</strong> A point in a graph<br>
+      <strong>Edge:</strong> Connection between two vertices<br>
+      <strong>Degree:</strong> Number of edges connected to a node<br>
+      <strong>Path:</strong> A sequence of connected nodes<br>
+      <strong>Cycle:</strong> A path that starts and ends at the same node
+    </p></div>
+    <div class="mc"><div class="mc-t">Types of Graphs</div><p>
+      <strong>Undirected vs Directed (Digraph):</strong> 2-way vs 1-way connections<br>
+      <strong>Weighted vs Unweighted:</strong> Edges have cost/distance or not<br>
+      <strong>Cyclic vs Acyclic:</strong> Contains a loop vs no loops
+    </p></div>
+  </div>
+
+  <div class="two-col">
+    <div class="mc"><div class="mc-t">Adjacency Matrix</div><p>A 2D array where <code>matrix[i][j] = 1</code> means connected. Fast to check if an edge exists (O(1)), but uses <strong>O(V²) memory</strong>. Best for dense graphs.</p></div>
+    <div class="mc"><div class="mc-t">Adjacency List (Used Most Often)</div><p>A dictionary/map where each vertex points to a list of its neighbors. Saves memory (<strong>O(V + E)</strong>). Best for sparse graphs.</p>
+    <pre class="code" style="margin-top: 4px;">graph = {
+    'A': ['B', 'C'],
+    'B': ['A'],
+    'C': ['A']
+}</pre>
+    </div>
+  </div>
+
+  <table class="cmp-table" style="margin-top: 10px; margin-bottom: 15px;">
+    <tr>
+      <th>Feature</th>
+      <th>BFS (Breadth First Search)</th>
+      <th>DFS (Depth First Search)</th>
+    </tr>
+    <tr><td><strong>Data Structure</strong></td><td>Queue</td><td>Stack</td></tr>
+    <tr><td><strong>Traversal</strong></td><td>Level by Level</td><td>Depth Wise (as deep as possible)</td></tr>
+    <tr><td><strong>Shortest Path</strong></td><td>Good (finds shortest path in unweighted graph)</td><td>Not Guaranteed</td></tr>
+    <tr><td><strong>Memory Usage</strong></td><td>More (stores level)</td><td>Less</td></tr>
+    <tr><td><strong>Time Complexity</strong></td><td>O(V + E)</td><td>O(V + E)</td></tr>
+  </table>
+
+  <div class="note-box" style="margin-bottom: 15px;">
+    <strong>1-Minute Interview Answer:</strong><br>
+    "A graph is a non-linear data structure made up of vertices (nodes) and edges (connections). It is used to represent relationships between objects, such as social networks, maps, and computer networks. Graphs can be directed or undirected, weighted or unweighted, cyclic or acyclic. The two main graph traversal algorithms are BFS, which uses a queue and explores level by level, and DFS, which uses a stack and explores depth first. Graphs are commonly represented using adjacency matrices or adjacency lists."
+  </div>
+</div>
+</div>
+
 </section>
 
 <!-- ═══ S2: TIME COMPLEXITY ═══ -->
