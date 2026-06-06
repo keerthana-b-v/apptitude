@@ -1781,8 +1781,30 @@ Final Prediction = Spam</pre>
     </div>
     <div class="formula-box">Attention(Q, K, V) = softmax(QKᵀ / √d_k) × V</div>
     <div class="example-box">
-      <span class="example-label">Intuition</span>
-      Sentence: "The animal didn't cross the street because <u>it</u> was too tired." — What does "it" refer to? Self-attention lets the word "it" strongly attend to "animal". The model learns these relationships automatically from training data.
+      <span class="example-label">The Core Concept: An Intuitive Example</span>
+      <p style="margin-top: 5px;">Self-attention is the core mechanism that allows Transformer models (like GPT-4 and BERT) to understand the context of a word by looking at all the other words in the same sentence.</p>
+      <p style="margin-top: 5px;">Before Transformers, older models like RNNs processed text word-by-word in a straight line. If a sentence was long, the model would "forget" what it read at the beginning. Self-attention solves this by allowing every word to look at ("attend to") every other word simultaneously, calculating how relevant they are to one another.</p>
+      
+      <p style="margin-top: 10px;"><strong>Consider these two sentences:</strong></p>
+      <ul style="margin-left: 20px; margin-top: 5px; margin-bottom: 10px;">
+        <li><i>"The <strong>bank</strong> of the river was muddy."</i></li>
+        <li><i>"I went to the <strong>bank</strong> to deposit money."</i></li>
+      </ul>
+      
+      <p>How does a computer know what "bank" means in each case? Through self-attention, the model calculates a "relevance score" between words.</p>
+      <ul style="margin-left: 20px; margin-top: 5px; margin-bottom: 10px;">
+        <li>In the first sentence, "bank" will pay high attention to "river" and "muddy", steering its meaning toward a piece of land.</li>
+        <li>In the second sentence, "bank" will pay high attention to "deposit" and "money", shifting its meaning toward a financial institution.</li>
+      </ul>
+
+      <p style="margin-top: 10px;"><strong>Why is it called "Multi-Head" Attention?</strong></p>
+      <p style="margin-top: 5px;">In actual Transformers, we don't just use one self-attention mechanism; we use several of them at the same time (e.g., 8, 12, or even more "heads"). Each head learns to look for different types of relationships:</p>
+      <ul style="margin-left: 20px; margin-top: 5px;">
+        <li><strong>Head 1</strong> might focus on grammar (connecting verbs to their subjects).</li>
+        <li><strong>Head 2</strong> might focus on pronouns (linking "she" back to "Sarah").</li>
+        <li><strong>Head 3</strong> might focus on physical or situational context.</li>
+      </ul>
+      <p style="margin-top: 5px;">By combining the outputs of all these heads, the model gets a complete, multi-dimensional understanding of the text.</p>
     </div>
     <div class="body-section">
       <div class="body-label">Transformer Architecture</div>
