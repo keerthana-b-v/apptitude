@@ -1821,6 +1821,64 @@ Final Prediction = Spam</pre>
 
 <div class="concept-card">
   <div class="card-header" onclick="tog(this.parentElement)">
+    <div class="card-icon">⚖️</div>
+    <div class="card-title-wrap">
+      <div class="card-title">BERT & Domain-Specific Models (LegalBERT, BioBERT)</div>
+      <div class="card-subtitle">Why we need them, Supervised vs Unsupervised, and DL vs NLP</div>
+    </div>
+    <span class="card-arrow">▼</span>
+  </div>
+  <div class="card-body">
+    <p class="explain"><strong>BERT (Bidirectional Encoder Representations from Transformers)</strong> is a milestone Deep Learning model that changed NLP. It reads entire sentences in both directions at once (bidirectionally) to understand the deepest context of words. "Bank of a river" vs "Bank account" are treated completely differently.</p>
+    
+    <div class="body-section">
+      <div class="body-label">Why use Domain-Specific Models like LegalBERT?</div>
+      <p class="explain">General BERT is trained on Wikipedia and BookCorpus. If you ask it to analyze a complex legal contract or a medical research paper, it struggles because it doesn't understand the jargon. <strong>LegalBERT</strong> is trained explicitly on legal documents (contracts, court cases, legislation). Because of this, it outperforms general BERT on legal tasks like finding loopholes, summarizing contracts, or detecting clauses, because it truly understands legal vocabulary and nuances.</p>
+    </div>
+
+    <div class="body-section">
+      <div class="body-label">Is BERT Supervised or Unsupervised?</div>
+      <p class="explain">It is a two-step process, which is why it is so powerful:</p>
+      <ul class="dot-list">
+        <li><strong>Step 1: Pre-training (Self-Supervised / Unsupervised)</strong><br>BERT is fed billions of words from the internet. It plays a "fill-in-the-blank" game called Masked Language Modeling (MLM). We hide 15% of the words, and BERT guesses them based on context. <em>Justification:</em> This requires ZERO human labeling, allowing it to learn the entire grammar, structure, and facts of the English language from massive, free datasets.</li>
+        <li><strong>Step 2: Fine-Tuning (Supervised)</strong><br>We take the pre-trained BERT (which now understands English perfectly) and give it a small labeled dataset for our specific task (e.g., 5,000 emails labeled "Spam" or "Not Spam"). <em>Justification:</em> Because it already deeply understands language, it needs very few labeled examples to master a specific supervised task.</li>
+      </ul>
+    </div>
+
+    <div class="body-section">
+      <div class="body-label">Deep Learning (DL) Models vs. NLP Models in Detail</div>
+      <table class="comp-table" style="margin-top:12px;">
+        <tr>
+          <th>Deep Learning (The Engine)</th>
+          <th>NLP (The Application)</th>
+        </tr>
+        <tr>
+          <td>DL is a subset of machine learning using artificial neural networks with multiple layers to extract complex patterns from data.</td>
+          <td>NLP is a field of AI focused on giving computers the ability to understand, interpret, and generate human language.</td>
+        </tr>
+        <tr>
+          <td><strong>Examples of DL Models:</strong><br>• Transformers<br>• CNNs (used mostly for images)<br>• RNNs/LSTMs<br>• BERT, GPT-4, LLaMA</td>
+          <td><strong>Examples of NLP Tasks:</strong><br>• Sentiment Analysis<br>• Named Entity Recognition (NER)<br>• Machine Translation<br>• Text Summarization</td>
+        </tr>
+        <tr>
+          <td><strong>Analogy:</strong> Deep Learning is the V8 Engine and the mechanics inside the car.</td>
+          <td><strong>Analogy:</strong> NLP is the taxi service (the job the car is performing). BERT is a DL engine built specifically to run an NLP taxi service.</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="qa-section">
+      <div class="qa-section-title">💬 Interview Questions</div>
+      <div class="qa-item">
+        <div class="qa-q">If I want to build an AI to review medical records, should I use standard BERT?</div>
+        <div class="qa-a">No, standard BERT is trained on Wikipedia and general text. You should use a domain-specific model like <strong>BioBERT</strong> or <strong>ClinicalBERT</strong>. These models were pre-trained on biomedical literature (like PubMed). They inherently understand the complex relationships between medical jargon, drug names, and diseases that standard BERT would just see as rare, unknown tokens.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="concept-card">
+  <div class="card-header" onclick="tog(this.parentElement)">
     <div class="card-icon">🎭</div>
     <div class="card-title-wrap">
       <div class="card-title">NLP Tasks & Applications</div>
