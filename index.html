@@ -1879,6 +1879,86 @@ Final Prediction = Spam</pre>
 
 <div class="concept-card">
   <div class="card-header" onclick="tog(this.parentElement)">
+    <div class="card-icon">🧠</div>
+    <div class="card-title-wrap">
+      <div class="card-title">Deep Learning Architectures (Cheat Sheet)</div>
+      <div class="card-subtitle">CNN, RNN, LSTM, Transformers, GPT, LLaMA — Explained simply</div>
+    </div>
+    <span class="card-arrow">▼</span>
+  </div>
+  <div class="card-body">
+    <p class="explain">When an interviewer asks you to compare different neural network architectures, use this structured breakdown.</p>
+    
+    <div class="body-section">
+      <div class="body-label">1. CNN (Convolutional Neural Network)</div>
+      <p class="explain"><strong>Full Form:</strong> Convolutional Neural Network<br>
+      <strong>When Used:</strong> Primarily for image and video processing.<br>
+      <strong>Why Used:</strong> It uses "filters" (convolutions) to automatically learn spatial hierarchies of features (e.g., edges → shapes → faces).<br>
+      <strong>Advantages:</strong> Extremely highly accurate for images; parameter efficient (shares weights across the image).<br>
+      <strong>Disadvantages:</strong> Requires large amounts of training data; struggles with sequential data (like text).<br>
+      <strong>Use Case:</strong> Facial recognition, self-driving car vision, medical tumor detection.<br>
+      <strong>Simple Example:</strong> Imagine scanning a magnifying glass over a picture of a cat, first looking for sharp lines (whiskers), then circles (eyes), to finally recognize the cat.</p>
+    </div>
+
+    <div class="body-section">
+      <div class="body-label">2. RNN & LSTM</div>
+      <p class="explain"><strong>Full Form:</strong> Recurrent Neural Network / Long Short-Term Memory<br>
+      <strong>When Used:</strong> Sequential data where order matters (time-series, audio, basic text).<br>
+      <strong>Why Used:</strong> RNNs have a "memory" loop that passes information from previous steps to the current step.<br>
+      <strong>Advantages:</strong> Can process inputs of any length; naturally understands the sequence of events.<br>
+      <strong>Disadvantages:</strong> Basic RNNs suffer from "vanishing gradients" (they forget early words in a long sentence). LSTMs fix this but are very slow to train because they process data sequentially (one word at a time).<br>
+      <strong>Use Case:</strong> Stock market prediction, speech recognition (Siri/Alexa base models).<br>
+      <strong>Simple Example:</strong> Reading a book word-by-word. You only understand the current word because you remember the word you read right before it.</p>
+    </div>
+
+    <div class="body-section">
+      <div class="body-label">3. Transformers</div>
+      <p class="explain"><strong>Full Form:</strong> Transformer (No specific acronym)<br>
+      <strong>When Used:</strong> Advanced Natural Language Processing (NLP) and modern AI systems.<br>
+      <strong>Why Used:</strong> Replaced RNNs by processing ALL data simultaneously (parallelization) using a mechanism called "Self-Attention".<br>
+      <strong>Advantages:</strong> Extremely fast to train (highly parallelizable on GPUs); understands long-range context perfectly.<br>
+      <strong>Disadvantages:</strong> Requires massive amounts of memory and compute power; quadratic scaling issues with very long documents.<br>
+      <strong>Use Case:</strong> The backbone architecture for all modern LLMs (GPT, BERT).<br>
+      <strong>Simple Example:</strong> Instead of reading a book word-by-word, imagine looking at an entire page at once and instantly drawing invisible lines connecting words that relate to each other (like "He" referring back to "John").</p>
+    </div>
+
+    <div class="body-section">
+      <div class="body-label">4. BERT</div>
+      <p class="explain"><strong>Full Form:</strong> Bidirectional Encoder Representations from Transformers<br>
+      <strong>When Used:</strong> Text understanding tasks (Classification, Search, Sentiment).<br>
+      <strong>Why Used:</strong> It is an "Encoder-only" Transformer. It reads text bidirectionally (left-to-right AND right-to-left) to get the deepest possible context.<br>
+      <strong>Advantages:</strong> Unmatched at understanding the <i>meaning</i> of text. Excellent for fine-tuning on specific domains.<br>
+      <strong>Disadvantages:</strong> It is not designed to generate new text (it's not a chatbot).<br>
+      <strong>Use Case:</strong> Google Search ranking, Legal contract analysis.<br>
+      <strong>Simple Example:</strong> A detective reviewing a crime scene—they look at all the clues simultaneously, going back and forth, to understand exactly what happened.</p>
+    </div>
+
+    <div class="body-section">
+      <div class="body-label">5. GPT-4</div>
+      <p class="explain"><strong>Full Form:</strong> Generative Pre-trained Transformer 4<br>
+      <strong>When Used:</strong> Text generation, reasoning, coding, conversational AI.<br>
+      <strong>Why Used:</strong> It is a massive "Decoder-only" Transformer built by OpenAI. It predicts the next word in a sequence with terrifying accuracy.<br>
+      <strong>Advantages:</strong> Human-level reasoning; highly versatile across thousands of tasks.<br>
+      <strong>Disadvantages:</strong> Closed-source (owned by OpenAI), expensive API costs, prone to "hallucinations" (making up facts).<br>
+      <strong>Use Case:</strong> ChatGPT, automated content generation, coding assistants (Copilot).<br>
+      <strong>Simple Example:</strong> The world's most advanced autocomplete. You type "The sky is...", and it calculates the mathematical probability to output "blue."</p>
+    </div>
+
+    <div class="body-section">
+      <div class="body-label">6. LLaMA</div>
+      <p class="explain"><strong>Full Form:</strong> Large Language Model Meta AI<br>
+      <strong>When Used:</strong> When a company wants a powerful AI but wants to host it locally on their own servers for privacy.<br>
+      <strong>Why Used:</strong> It is an open-source (open-weights) model created by Meta (Facebook). It rivals GPT-4 but is free to download.<br>
+      <strong>Advantages:</strong> Free, completely private (data doesn't leave your server), highly customizable.<br>
+      <strong>Disadvantages:</strong> You have to pay for the expensive hardware (GPUs) to run it yourself.<br>
+      <strong>Use Case:</strong> A hospital building an internal AI—they can't send patient data to OpenAI due to HIPAA, so they download LLaMA and run it locally.<br>
+      <strong>Simple Example:</strong> Instead of paying to use Uber (OpenAI API), you are given the blueprints to build your own sports car (LLaMA) in your own garage.</p>
+    </div>
+  </div>
+</div>
+
+<div class="concept-card">
+  <div class="card-header" onclick="tog(this.parentElement)">
     <div class="card-icon">🎭</div>
     <div class="card-title-wrap">
       <div class="card-title">NLP Tasks & Applications</div>
