@@ -827,32 +827,46 @@ pre.code .op{color:#89dceb;}
     
     <table class="comp-table" style="margin-top:12px; margin-bottom: 10px;">
       <tr>
-        <th>Field</th>
-        <th>Definition (Simple Words)</th>
-        <th>Advantages & Justification</th>
-        <th>Disadvantages</th>
-        <th>Example</th>
+        <th>Type</th>
+        <th>What it is (Simple Words)</th>
+        <th>Advantage (Why we use it)</th>
+        <th>Disadvantage (Why it's hard)</th>
+        <th>Real-World Example</th>
       </tr>
       <tr>
-        <td><strong>AI (Artificial Intelligence)</strong></td>
-        <td>Any computer program that mimics human intelligence. This includes both learning systems and strict rule-based systems.</td>
-        <td><strong>Advantage:</strong> Can completely automate tasks to run 24/7.<br><strong>Justification:</strong> A computer doesn't need sleep, making it perfect for repetitive jobs.</td>
-        <td>Traditional AI cannot adapt or learn from new situations on its own (if a rule isn't programmed, it breaks).</td>
-        <td>A chess bot programmed with thousands of specific moves, or an NPC in a video game.</td>
+        <td><strong>Basic AI</strong></td>
+        <td>A computer following strict "If-Then" rules created by humans. It doesn't learn on its own.</td>
+        <td><strong>100% Predictable:</strong> You know exactly what it will do because you wrote the rules. Highly justifiable.</td>
+        <td><strong>Can't Adapt:</strong> If it sees something new that isn't in its rules, it breaks or fails.</td>
+        <td>A basic chess bot, or an automatic spam filter looking for the exact word "Viagra".</td>
+      </tr>
+      <tr>
+        <td><strong>Advanced AI</strong></td>
+        <td>AI systems that can perceive their environment, learn, reason, and act autonomously to achieve a goal.</td>
+        <td><strong>Autonomy:</strong> Can handle complex, changing environments without humans micromanaging it.</td>
+        <td><strong>Very Expensive:</strong> Takes huge computing power and massive engineering teams to build and maintain.</td>
+        <td>The brain of a self-driving car (like Tesla Autopilot) navigating city traffic.</td>
       </tr>
       <tr>
         <td><strong>ML Models (Machine Learning)</strong></td>
-        <td>Algorithms that use math to <em>learn</em> patterns from historical data without being explicitly programmed with rules.</td>
-        <td><strong>Advantage:</strong> Highly interpretable and improves with more data.<br><strong>Justification:</strong> We can look at the math (like a Decision Tree) and explain exactly <em>why</em> the model made its choice.</td>
-        <td>Requires humans to manually pick and organize the important features ("feature engineering"); struggles heavily with raw images or unstructured text.</td>
-        <td>Predicting house prices based on Square Footage and Number of Bedrooms (Linear Regression).</td>
+        <td>Math formulas that learn patterns from a spreadsheet of data (like Excel) instead of needing strict rules.</td>
+        <td><strong>Easy to Explain:</strong> You can see the math and explain <em>exactly why</em> it made a decision (very important for banking/healthcare).</td>
+        <td><strong>Needs Human Help:</strong> Humans have to manually clean the data and tell it what features (columns) to look at.</td>
+        <td>Predicting a house's price based on its square footage and zip code.</td>
+      </tr>
+      <tr>
+        <td><strong>Advanced ML</strong></td>
+        <td>Using multiple ML models together (Ensemble) or letting the system figure out the best model automatically.</td>
+        <td><strong>Higher Accuracy:</strong> Combines the "votes" of many models to make a much smarter final guess.</td>
+        <td><strong>Slower & Complex:</strong> Takes longer to run and is harder to explain than a simple single model.</td>
+        <td>Random Forest (a voting system of 100 Decision Trees) predicting if someone will default on a loan.</td>
       </tr>
       <tr>
         <td><strong>DL Models (Deep Learning)</strong></td>
-        <td>A complex subset of ML that uses multi-layered "neural networks" (inspired by the human brain) to learn from massive datasets.</td>
-        <td><strong>Advantage:</strong> Automatically figures out the most important features on its own.<br><strong>Justification:</strong> You don't need to tell a DL model what a "cat ear" looks like; it figures out the shape itself from raw pixels.</td>
-        <td>"Black Box" (very hard to explain <em>how</em> it made its decision); requires incredibly expensive hardware (GPUs) and massive amounts of data.</td>
-        <td>Facial recognition on your phone, or ChatGPT generating text.</td>
+        <td>Huge "neural networks" (inspired by the human brain) that learn from massive amounts of unstructured data (images, text, audio).</td>
+        <td><strong>No Human Help Needed:</strong> It automatically figures out what features are important (like learning what a "cat ear" looks like from raw pixels).</td>
+        <td><strong>"Black Box":</strong> It is almost impossible to explain <em>why</em> it made a decision, which is bad for legal compliance.</td>
+        <td>Facial recognition (FaceID) or ChatGPT writing an essay.</td>
       </tr>
     </table>
   </div>
