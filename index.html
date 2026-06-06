@@ -2088,11 +2088,27 @@ Final Prediction = Spam</pre>
       <div class="qa-section-title">💬 Interview Questions</div>
       <div class="qa-item">
         <div class="qa-q">What is the difference between fine-tuning and RAG? When would you choose each?</div>
-        <div class="qa-a"><strong>Fine-tuning</strong> bakes knowledge into model weights — good for teaching consistent style/behavior, domain-specific language, or reasoning patterns. Expensive to update when knowledge changes. <strong>RAG</strong> retrieves knowledge at runtime — good for factual, frequently-updated information (policies, product docs, legal texts). Easy to update — just update the document store. <strong>Choose RAG</strong> for knowledge-intensive tasks with changing data. <strong>Choose fine-tuning</strong> for consistent formatting, tone, or domain-specific generation styles. Often combine both for best results.</div>
+        <div class="qa-a">
+          <p>Think of an AI like a human student.</p>
+          <ul class="dot-list" style="margin-top: 8px; margin-bottom: 8px;">
+            <li><strong>Fine-Tuning (Sending the AI back to school):</strong> You train the AI on new data so it permanently learns a new skill or tone (like learning to talk like a lawyer). The knowledge is permanently baked into its "brain".<br><em>Downside:</em> If facts change, you have to retrain the whole model, which is expensive and slow.</li>
+            <li><strong>RAG (Giving the AI an open-book test):</strong> You don't change the AI's brain. Instead, you let it search through a database (like your company's PDFs) to find the answer right before it speaks.<br><em>Downside:</em> It relies entirely on the quality of your search engine.</li>
+          </ul>
+          <p><strong>Summary:</strong> Use Fine-Tuning to teach it <em>how</em> to speak. Use RAG to tell it <em>what</em> facts to use.</p>
+        </div>
       </div>
       <div class="qa-item">
         <div class="qa-q">What is "hallucination" in LLMs?</div>
-        <div class="qa-a">Hallucination is when an LLM generates plausible-sounding but factually incorrect information with high confidence. Example: GPT might invent a fake research paper with a real-sounding author and journal title. It happens because LLMs are trained to predict likely next tokens — not to verify truth. Mitigations: RAG (ground answers in real documents), temperature=0 (more deterministic), asking the model to cite sources, and having the model say "I don't know" when uncertain.</div>
+        <div class="qa-a">
+          <p><strong>Definition:</strong> A hallucination is when an AI confidently lies to you. It makes up a fake fact, fake quote, or fake research paper that sounds 100% real and believable.</p>
+          <p style="margin-top: 5px;"><strong>Why does it happen?</strong> LLMs (like ChatGPT) are basically advanced auto-complete engines. They are trained to predict the most <em>likely</em> next word, not the most <em>truthful</em> next word. If it doesn't know the answer, it just guesses the most probable sounding words.</p>
+          <p style="margin-top: 5px;"><strong>How to fix it:</strong></p>
+          <ul class="dot-list" style="margin-top: 5px;">
+            <li><strong>Use RAG:</strong> Force the AI to only answer using a specific document you provide.</li>
+            <li><strong>Lower the "Temperature":</strong> Set the AI to be more deterministic (robotic) and less "creative".</li>
+            <li><strong>Explicit Instructions:</strong> Tell the AI in the prompt: <em>"If you do not know the answer, say 'I don't know'. Do not make up information."</em></li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
