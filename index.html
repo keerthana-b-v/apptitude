@@ -828,27 +828,31 @@ pre.code .op{color:#89dceb;}
     <table class="comp-table" style="margin-top:12px; margin-bottom: 10px;">
       <tr>
         <th>Field</th>
-        <th>Definition</th>
-        <th>Advantages</th>
+        <th>Definition (Simple Words)</th>
+        <th>Advantages & Justification</th>
         <th>Disadvantages</th>
+        <th>Example</th>
       </tr>
       <tr>
         <td><strong>AI (Artificial Intelligence)</strong></td>
-        <td>The broad concept of machines carrying out tasks in a way we consider "smart" (includes non-learning, rule-based systems).</td>
-        <td>Can automate complex tasks; reduces human error in repetitive jobs; works 24/7.</td>
-        <td>Very broad term; traditional rule-based AI cannot adapt or learn from new data.</td>
+        <td>Any computer program that mimics human intelligence. This includes both learning systems and strict rule-based systems.</td>
+        <td><strong>Advantage:</strong> Can completely automate tasks to run 24/7.<br><strong>Justification:</strong> A computer doesn't need sleep, making it perfect for repetitive jobs.</td>
+        <td>Traditional AI cannot adapt or learn from new situations on its own (if a rule isn't programmed, it breaks).</td>
+        <td>A chess bot programmed with thousands of specific moves, or an NPC in a video game.</td>
       </tr>
       <tr>
         <td><strong>ML Models (Machine Learning)</strong></td>
-        <td>Algorithms that <em>learn</em> from data without being explicitly programmed (e.g., Linear Regression, Random Forest).</td>
-        <td>Improves over time with more data; highly interpretable (you can explain <em>why</em> it made a prediction).</td>
-        <td>Requires manual "feature engineering" (humans picking the right variables); struggles with raw images/text.</td>
+        <td>Algorithms that use math to <em>learn</em> patterns from historical data without being explicitly programmed with rules.</td>
+        <td><strong>Advantage:</strong> Highly interpretable and improves with more data.<br><strong>Justification:</strong> We can look at the math (like a Decision Tree) and explain exactly <em>why</em> the model made its choice.</td>
+        <td>Requires humans to manually pick and organize the important features ("feature engineering"); struggles heavily with raw images or unstructured text.</td>
+        <td>Predicting house prices based on Square Footage and Number of Bedrooms (Linear Regression).</td>
       </tr>
       <tr>
         <td><strong>DL Models (Deep Learning)</strong></td>
-        <td>A subset of ML that uses multi-layered <em>neural networks</em> to learn from massive amounts of data (e.g., CNNs, LLMs).</td>
-        <td>Unmatched accuracy on complex, unstructured data (images, voice, text); automatically extracts features itself.</td>
-        <td>"Black box" (hard to explain its reasoning); requires massive datasets; highly expensive to train (needs GPUs).</td>
+        <td>A complex subset of ML that uses multi-layered "neural networks" (inspired by the human brain) to learn from massive datasets.</td>
+        <td><strong>Advantage:</strong> Automatically figures out the most important features on its own.<br><strong>Justification:</strong> You don't need to tell a DL model what a "cat ear" looks like; it figures out the shape itself from raw pixels.</td>
+        <td>"Black Box" (very hard to explain <em>how</em> it made its decision); requires incredibly expensive hardware (GPUs) and massive amounts of data.</td>
+        <td>Facial recognition on your phone, or ChatGPT generating text.</td>
       </tr>
     </table>
   </div>
