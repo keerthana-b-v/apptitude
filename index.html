@@ -834,41 +834,41 @@ pre.code .op{color:#89dceb;}
         <th>Real-World Example</th>
       </tr>
       <tr>
-        <td><strong>Basic AI</strong></td>
-        <td>A computer following strict "If-Then" rules created by humans. It doesn't learn on its own.</td>
+        <td><strong>Artificial Intelligence (AI)</strong></td>
+        <td>A computer program following strict "If-Then" rules created by humans to mimic intelligence.</td>
         <td><strong>100% Predictable:</strong> You know exactly what it will do because you wrote the rules. Highly justifiable.</td>
         <td><strong>Can't Adapt:</strong> If it sees something new that isn't in its rules, it breaks or fails.</td>
         <td>A basic chess bot, or an automatic spam filter looking for the exact word "Viagra".</td>
       </tr>
       <tr>
-        <td><strong>Advanced AI</strong></td>
-        <td>AI systems that can perceive their environment, learn, reason, and act autonomously to achieve a goal.</td>
-        <td><strong>Autonomy:</strong> Can handle complex, changing environments without humans micromanaging it.</td>
-        <td><strong>Very Expensive:</strong> Takes huge computing power and massive engineering teams to build and maintain.</td>
-        <td>The brain of a self-driving car (like Tesla Autopilot) navigating city traffic.</td>
-      </tr>
-      <tr>
-        <td><strong>ML Models (Machine Learning)</strong></td>
+        <td><strong>Machine Learning (ML)</strong></td>
         <td>Math formulas that learn patterns from a spreadsheet of data (like Excel) instead of needing strict rules.</td>
         <td><strong>Easy to Explain:</strong> You can see the math and explain <em>exactly why</em> it made a decision (very important for banking/healthcare).</td>
         <td><strong>Needs Human Help:</strong> Humans have to manually clean the data and tell it what features (columns) to look at.</td>
         <td>Predicting a house's price based on its square footage and zip code.</td>
       </tr>
       <tr>
-        <td><strong>Advanced ML</strong></td>
-        <td>Using multiple ML models together (Ensemble) or letting the system figure out the best model automatically.</td>
-        <td><strong>Higher Accuracy:</strong> Combines the "votes" of many models to make a much smarter final guess.</td>
-        <td><strong>Slower & Complex:</strong> Takes longer to run and is harder to explain than a simple single model.</td>
-        <td>Random Forest (a voting system of 100 Decision Trees) predicting if someone will default on a loan.</td>
-      </tr>
-      <tr>
-        <td><strong>DL Models (Deep Learning)</strong></td>
+        <td><strong>Deep Learning (DL)</strong></td>
         <td>Huge "neural networks" (inspired by the human brain) that learn from massive amounts of unstructured data (images, text, audio).</td>
         <td><strong>No Human Help Needed:</strong> It automatically figures out what features are important (like learning what a "cat ear" looks like from raw pixels).</td>
-        <td><strong>"Black Box":</strong> It is almost impossible to explain <em>why</em> it made a decision, which is bad for legal compliance.</td>
+        <td><strong>"Black Box":</strong> It is almost impossible to explain <em>why</em> it made a decision naturally. <br><em>(Note: We use <strong>XAI - Explainable AI</strong> to try and solve this issue)</em>.</td>
         <td>Facial recognition (FaceID) or ChatGPT writing an essay.</td>
       </tr>
     </table>
+
+    <div class="qa-section" style="margin-top: 15px;">
+      <div class="qa-section-title">💬 Interview Question</div>
+      <div class="qa-item">
+        <div class="qa-q">Which one would you choose (AI vs ML vs DL) and when?</div>
+        <div class="qa-a">
+          <ul class="dot-list">
+            <li><strong>Choose basic AI (Rules) when:</strong> The problem is simple, unchanging, and you need 100% predictable behavior with zero risk of making a "wrong" guess.</li>
+            <li><strong>Choose ML when:</strong> You have structured data (like a database or Excel sheet) and you need to be able to explain exactly why the model made a decision (e.g., denying a bank loan). It is cheaper and faster to run.</li>
+            <li><strong>Choose DL when:</strong> You are dealing with complex, unstructured data like images, audio, or paragraphs of text. You choose DL when accuracy is more important than knowing exactly <em>how</em> it made the decision.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
